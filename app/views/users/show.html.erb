@@ -193,7 +193,7 @@
   </div>
 <% end %>
 
-<div class="richtext text-break clearfix"><%= @user.description.to_html %></div>
+<div class="richtext text-break clearfix" dir="auto"><%= @user.description.to_html %></div>
 
 <% if current_user and @user.id == current_user.id %>
   <div class="my-3">

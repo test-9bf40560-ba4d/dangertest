@@ -1,5 +1,5 @@
 <% content_for :heading do %>
-  <h1><%= @message.title %></h1>
+  <h1 dir="auto"><%= @message.title %></h1>
 <% end %>
 
 <% if current_user == @message.recipient %>
@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <div class="richtext text-break"><%= @message.body.to_html %></div>
+  <div class="richtext text-break" dir="auto"><%= @message.body.to_html %></div>
 
   <div>
     <%= link_to t(".reply_button"), message_reply_path(@message), :class => "btn btn-primary" %>
@@ -28,7 +28,7 @@
     </div>
   </div>
 
-  <div class="richtext text-break"><%= @message.body.to_html %></div>
+  <div class="richtext text-break" dir="auto"><%= @message.body.to_html %></div>
 
   <div>
     <%= link_to t(".destroy_button"), message_path(@message), :method => "delete", :class => "btn btn-danger" %>

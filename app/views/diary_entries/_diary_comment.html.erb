@@ -9,7 +9,7 @@
       <% end %>
     </p>
 
-    <div class="richtext text-break"><%= diary_comment.body.to_html %></div>
+    <div class="richtext text-break" dir="auto"><%= diary_comment.body.to_html %></div>
     <% if can? :hidecomment, DiaryEntry %>
       <span>
         <% if diary_comment.visible? %>
