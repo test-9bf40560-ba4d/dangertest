@@ -36,7 +36,7 @@
   <% end %>
   <tr>
     <td><%= t ".owner" %></td>
-    <td><%= link_to @trace.user.display_name, user_path(@trace.user) %></td>
+    <td><%= link_to @trace.user.display_name, user_path(@trace.user), :dir => :auto %></td>
   </tr>
   <tr>
     <td><%= t ".description" %></td>

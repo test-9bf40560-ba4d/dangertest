@@ -32,7 +32,7 @@
       <span title="<%= trace.timestamp %>">
         <%= time_ago_in_words(trace.timestamp, :scope => :"datetime.distance_in_words_ago") %>
       </span>
-      <%= t ".by" %> <%= link_to trace.user.display_name, user_path(trace.user) %>
+      <%= t ".by" %> <%= link_to trace.user.display_name, user_path(trace.user), :dir => :auto %>
       <% if !trace.tags.empty? %>
         <%= t ".in" %>
         <%= safe_join(trace.tags.collect { |tag| link_to_tag tag.tag }, ", ") %>

@@ -6,7 +6,7 @@
     <div class="col">
       <p class="text-muted mb-0">
         <%= t ".reported_by_html", :category => report.category,
-                                   :user => link_to(report.user.display_name, user_path(report.user)),
+                                   :user => link_to(report.user.display_name, user_path(report.user), :dir => :auto),
                                    :updated_at => l(report.updated_at.to_datetime, :format => :friendly) %>
       </p>
       <p><%= report.details %></p>

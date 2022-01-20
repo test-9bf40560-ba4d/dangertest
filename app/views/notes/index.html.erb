@@ -1,6 +1,6 @@
 <% content_for :heading do %>
-  <h1><%= t ".heading", :user => @user.display_name %></h1>
-  <p><%= t ".subheading_html", :user => link_to(@user.display_name, user_path(@user)) %></p>
+  <h1><%= t ".heading_html", :user => tag.span(@user.display_name, :dir => :auto) %></h1>
+  <p><%= t ".subheading_html", :user => link_to(@user.display_name, user_path(@user), :dir => :auto) %></p>
 <% end %>
 
 <% if @notes.empty? %>
