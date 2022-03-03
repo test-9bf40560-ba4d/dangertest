@@ -21,6 +21,9 @@
 <ul>
   <li><%= t ".delete_profile" %></li>
   <li><%= t ".delete_display_name" %></li>
+  <% unless current_user.must_retain_email? -%>
+  <li><%= t ".delete_email" %></li>
+  <% end -%>
 </ul>
 
 <p><%= t ".retain_caveats" %></p>
@@ -31,7 +34,9 @@
   <li><%= t ".retain_diary_entries" %></li>
   <li><%= t ".retain_notes" %></li>
   <li><%= t ".retain_changeset_discussions" %></li>
+  <% if current_user.must_retain_email? -%>
   <li><%= t ".retain_email" %></li>
+  <% end -%>
 </ul>
 
 <%= link_to t(".delete_account"), account_path, { :method => :delete, :class => "btn btn-danger", :data => { :confirm => t(".confirm_delete") } } %>
