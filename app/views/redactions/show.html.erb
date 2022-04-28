@@ -1,15 +1,15 @@
 <% @title = t(".title") %>
 <% content_for :heading do %>
-  <h1><%= t(".heading", :title => @redaction.title) %></h1>
+  <h1 dir="auto"><%= t(".heading", :title => @redaction.title) %></h1>
 <% end %>
 
 <p>
   <b><%= t ".user" %></b>
-  <%= link_to(@redaction.user.display_name, user_path(@redaction.user)) %>
+  <%= link_to(@redaction.user.display_name, user_path(@redaction.user), :dir => :auto) %>
 </p>
 <div class="richtext text-break">
   <b><%= t ".description" %></b>
-  <%= @redaction.description.to_html %>
+  <div dir="auto"><%= @redaction.description.to_html %></div>
 </div>
 
 <% if can?(:edit, Redaction) || can?(:destroy, Redaction) %>

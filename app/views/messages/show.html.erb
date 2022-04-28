@@ -1,17 +1,17 @@
 <% content_for :heading do %>
-  <h1><%= @message.title %></h1>
+  <h1 dir="auto"><%= @message.title %></h1>
 <% end %>
 
 <% if current_user == @message.recipient %>
   <div class='info-line clearfix'>
     <%= user_thumbnail_tiny @message.sender %>
-    <%= link_to @message.sender.display_name, user_path(@message.sender) %></td>
+    <%= link_to @message.sender.display_name, user_path(@message.sender), :dir => :auto %></td>
     <div class='right'>
       <%= l @message.sent_on, :format => :friendly %>
     </div>
   </div>
 
-  <div class="richtext text-break"><%= @message.body.to_html %></div>
+  <div class="richtext text-break" dir="auto"><%= @message.body.to_html %></div>
 
   <div>
     <%= link_to t(".reply_button"), message_reply_path(@message), :class => "btn btn-primary" %>
@@ -22,13 +22,13 @@
 <% else %>
   <div class='info-line clearfix'>
     <%= user_thumbnail_tiny @message.recipient %>
-    <%= link_to @message.recipient.display_name, user_path(@message.recipient) %></td>
+    <%= link_to @message.recipient.display_name, user_path(@message.recipient), :dir => :auto %></td>
     <div class='right'>
       <%= l @message.sent_on, :format => :friendly %>
     </div>
   </div>
 
-  <div class="richtext text-break"><%= @message.body.to_html %></div>
+  <div class="richtext text-break" dir="auto"><%= @message.body.to_html %></div>
 
   <div>
     <%= link_to t(".destroy_button"), message_path(@message), :method => "delete", :class => "btn btn-danger" %>

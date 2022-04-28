@@ -4,7 +4,7 @@
 
 <div>
   <h4><%= t(".description") %></h4>
-  <div class="note-description">
+  <div class="note-description" dir="auto">
     <%= h(@note_comments.first.body.to_html) %>
   </div>
 
@@ -38,7 +38,7 @@
         <% @note_comments.drop(1).each do |comment| %>
           <li id="c<%= comment.id %>">
             <small class='text-muted'><%= note_event(comment.event, comment.created_at, comment.author) %></small>
-            <%= comment.body.to_html %>
+            <div dir="auto"><%= comment.body.to_html %></div>
           </li>
         <% end %>
       </ul>

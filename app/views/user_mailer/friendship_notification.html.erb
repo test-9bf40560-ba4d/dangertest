@@ -1,4 +1,4 @@
-<p><%= t ".had_added_you", :user => @friendship.befriender.display_name %></p>
+<p><%= t ".had_added_you", :user => tag.span(@friendship.befriender.display_name, :dir => :auto) %></p>
 
 <%= message_body do %>
   <p><%= t ".see_their_profile_html", :userurl => link_to(@viewurl, @viewurl) %></p>

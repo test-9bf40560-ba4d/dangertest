@@ -32,7 +32,8 @@
                      options_for_select(@users.all.collect { |f| [f.display_name, f.id] } << [t(".not_updated"), "nil"], params[:last_updated_by]),
                      :include_blank => t(".select_last_updated_by"),
                      :data => { :behavior => "category_dropdown" },
-                     :class => "form-control custom-select" %>
+                     :class => "form-control custom-select",
+                     :dir => :auto %>
     </div>
     <div class="form-group col-md-auto">
       <%= submit_tag t(".search"), :name => nil, :class => "btn btn-primary" %>
@@ -59,10 +60,10 @@
           <td><%= t ".states.#{issue.status}" %></td>
           <td class="text-nowrap"><%= link_to t(".reports_count", :count => issue.reports_count), issue %></td>
           <td><%= link_to reportable_title(issue.reportable), reportable_url(issue.reportable) %></td>
-          <td><%= link_to issue.reported_user.display_name, user_path(issue.reported_user) if issue.reported_user %></td>
+          <td><%= link_to issue.reported_user.display_name, user_path(issue.reported_user), :dir => :auto if issue.reported_user %></td>
           <td>
             <% if issue.user_updated %>
-              <%= t ".last_updated_time_user_html", :user => link_to(issue.user_updated.display_name, user_path(issue.user_updated)),
+              <%= t ".last_updated_time_user_html", :user => link_to(issue.user_updated.display_name, user_path(issue.user_updated), :dir => :auto),
                                                     :time => time_ago_in_words(issue.updated_at, :scope => :"datetime.distance_in_words_ago"),
                                                     :title => l(issue.updated_at) %>
             <% else %>

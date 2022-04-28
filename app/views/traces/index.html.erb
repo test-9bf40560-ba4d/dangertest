@@ -37,7 +37,7 @@
         </li>
       <% end %>
       <li class="nav-item">
-        <%= link_to t(".public_traces_from", :user => @target_user&.display_name), { :action => "mine", :page => nil }, { :class => "nav-link active" } %>
+        <%= link_to t(".public_traces_from_html", :user => tag.span(@target_user.display_name, :dir => :auto)), { :action => "mine", :page => nil }, { :class => "nav-link active" } %>
       </li>
     <% end %>
 
