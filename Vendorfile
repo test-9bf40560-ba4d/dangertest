@@ -45,4 +45,12 @@ folder 'vendor/assets' do
   folder 'polyfill' do
     file 'es6.js', 'https://polyfill.io/v3/polyfill.js?features=es6&flags=gated,always'
   end
+
+  folder 'jquery.uls' do
+    from 'https://github.com/wikimedia/jquery.uls.git' do
+      folder 'css'
+      folder 'src'
+      folder 'images'
+    end
+  end
 end
