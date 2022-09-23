@@ -105,5 +105,9 @@ module Api
     def current_model
       Way
     end
+
+    def old_model
+      OldWay
+    end
   end
 end

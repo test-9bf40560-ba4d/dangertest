@@ -161,5 +161,9 @@ module Api
     def current_model
       Relation
     end
+
+    def old_model
+      OldRelation
+    end
   end
 end
