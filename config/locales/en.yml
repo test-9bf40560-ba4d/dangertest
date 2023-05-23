@@ -2953,6 +2953,7 @@ en:
         transport_map: Transport Map
         hot: Humanitarian
         opnvkarte: ÖPNVKarte
+        openmaptiles_osm: OpenMapTiles
       layers:
         header: Map Layers
         notes: Map Notes
@@ -2973,6 +2974,8 @@ en:
       memomaps: MeMoMaps
       hotosm_credit: "Tiles style by %{hotosm_link} hosted by %{osm_france_link}"
       hotosm_name: Humanitarian OpenStreetMap Team
+      openmaptiles: "Vector tiles from <a href='%{openmaptiles_url}' target='_blank'>OpenMapTiles</a> hosted by <a href='%{maptiler_url}' target='_blank'>MapTiler</a>. <a id='terrain_3d_url' data-href-template='%{terrain_3d_url}' target='_blank'>3D map ⛰️</a>"
+      maptiler: "Vector tiles from <a href='%{openmaptiles_url}' target='_blank'>OpenMapTiles</a> hosted by <a href='%{maptiler_url}' target='_blank'>MapTiler</a>. <a id='terrain_3d_url' data-href-template='%{terrain_3d_url}' target='_blank'>3D map ⛰️</a>"
     site:
       edit_tooltip: Edit the map
       edit_disabled_tooltip: Zoom in to edit the map

@@ -1,3 +1,7 @@
+//= require maplibre-gl
+//= require @maplibre/maplibre-gl-leaflet
+//= require @maptiler/maplibre-gl-omt-language
+//= require i18n
 //= require qs/dist/qs
 
 L.extend(L.LatLngBounds.prototype, {
@@ -8,6 +12,48 @@ L.extend(L.LatLngBounds.prototype, {
 
   wrap: function () {
     return new L.LatLngBounds(this._southWest.wrap(), this._northEast.wrap());
+  }
+});
+
+L.MapTiler = L.MaplibreGL.extend({
+  options: {
+    maxZoom: 23,
+    attribution: "© <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">OpenStreetMap</a> contributors. Tiles courtesy of <a href=\"http://memomaps.de/\" target=\"_blank\">MeMoMaps</a>"
+  },
+  onAdd: function (map) {
+    function update3dMapUrl() {
+      var el = document.getElementById("terrain_3d_url");
+
+      if (el) {
+        var c = map.getCenter();
+        var zoom = map.getZoom() - 1;
+        var precision = Math.ceil(((zoom * Math.LN2) + Math.log(256 / 360)) / Math.LN10);
+
+        el.href = el.dataset.hrefTemplate
+          .replace("{lang}", I18n.locale.replace(/-.*/, ""))
+          .replace("{pos}", zoom + "/" + c.lat.toFixed(precision) + "/" + c.lng.toFixed(precision) + "/30.00/60.00");
+      }
+    }
+
+    map._update3dMapUrl = update3dMapUrl;
+    setTimeout(update3dMapUrl);
+    map.on("moveend", update3dMapUrl);
+    L.MaplibreGL.prototype.onAdd.call(this, map);
+    var m = this.getMaplibreMap();
+    m.on("load", function () {
+      m.setLanguage(I18n.locale.replace(/-.*/, ""));
+    });
+    L.MaplibreGL.prototype._update.call(this, map);
+  },
+  onRemove: function (map) {
+    L.MaplibreGL.prototype.onRemove.call(this, map);
+    map.off("moveend", map._update3dMapUrl);
+  }
+});
+
+L.OpenMapTiles = L.MapTiler.extend({
+  options: {
+    style: "https://api.maptiler.com/maps/openstreetmap/style.json?key=lmYA16sOOOz9r6DH7iA9"
   }
 });
 
@@ -65,6 +111,12 @@ L.OSM.Map = L.Map.extend({
     }).prop("outerHTML");
     var hotosm = I18n.t("javascripts.map.hotosm_credit", { hotosm_link: hotosm_link, osm_france_link: osm_france_link });
 
+    var openmaptiles_link = I18n.t("javascripts.map.openmaptiles", {
+      openmaptiles_url: "https://openmaptiles.org/",
+      maptiler_url: "https://www.maptiler.com/",
+      terrain_3d_url: "https://labs.maptiler.com/showcase/osm-3d-terrain/#style=openstreetmap&lang={lang}&mode=3d&position={pos}"
+    });
+
     this.baseLayers = [];
 
     this.baseLayers.push(new L.OSM.Mapnik({
@@ -72,6 +124,13 @@ L.OSM.Map = L.Map.extend({
       code: "M",
       keyid: "mapnik",
       name: I18n.t("javascripts.map.base.standard")
+    }));
+
+    this.baseLayers.push(new L.OpenMapTiles({
+      attribution: copyright + ". " + openmaptiles_link + ". " + terms,
+      code: "V",
+      keyid: "openmaptiles_osm",
+      name: I18n.t("javascripts.map.base.openmaptiles_osm")
     }));
 
     this.baseLayers.push(new L.OSM.CyclOSM({
