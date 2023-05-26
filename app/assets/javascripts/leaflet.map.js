@@ -17,27 +17,9 @@ L.extend(L.LatLngBounds.prototype, {
 
 L.MapTiler = L.MaplibreGL.extend({
   options: {
-    maxZoom: 23,
-    attribution: "© <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">OpenStreetMap</a> contributors. Tiles courtesy of <a href=\"http://memomaps.de/\" target=\"_blank\">MeMoMaps</a>"
+    maxZoom: 23
   },
   onAdd: function (map) {
-    function update3dMapUrl() {
-      var el = document.getElementById("terrain_3d_url");
-
-      if (el) {
-        var c = map.getCenter();
-        var zoom = map.getZoom() - 1;
-        var precision = Math.ceil(((zoom * Math.LN2) + Math.log(256 / 360)) / Math.LN10);
-
-        el.href = el.dataset.hrefTemplate
-          .replace("{lang}", I18n.locale.replace(/-.*/, ""))
-          .replace("{pos}", zoom + "/" + c.lat.toFixed(precision) + "/" + c.lng.toFixed(precision) + "/30.00/60.00");
-      }
-    }
-
-    map._update3dMapUrl = update3dMapUrl;
-    setTimeout(update3dMapUrl);
-    map.on("moveend", update3dMapUrl);
     L.MaplibreGL.prototype.onAdd.call(this, map);
     var m = this.getMaplibreMap();
     m.on("load", function () {
@@ -114,7 +96,6 @@ L.OSM.Map = L.Map.extend({
     var openmaptiles_link = I18n.t("javascripts.map.openmaptiles", {
       openmaptiles_url: "https://openmaptiles.org/",
       maptiler_url: "https://www.maptiler.com/",
-      terrain_3d_url: "https://labs.maptiler.com/showcase/osm-3d-terrain/#style=openstreetmap&lang={lang}&mode=3d&position={pos}"
     });
 
     this.baseLayers = [];
