@@ -22,10 +22,24 @@ if (OSM.MAPTILER_KEY) {
       style: "https://api.maptiler.com/maps/openstreetmap/style.json?key=" + OSM.MAPTILER_KEY
     },
     onAdd: function (map) {
+      var supportedLanguages = "am,ar,az,be,bg,br,bs,ca,co,cs,cy,da,de,el,en,eo,es,et,eu,fi,fr,fy,ga,gd,he,hi,hr,hu,hy,id,is,it,ja,ja_kana,ja_rm,ja-Latn,ja-Hira,ka,kk,kn,ko,ko-Latn,ku,la,lb,lt,lv,mk,mt,ml,nl,no,oc,pl,pt,rm,ro,ru,sk,sl,sq,sr,sr-Latn,sv,ta,te,th,tr,uk,zh".split(",")
       L.MaplibreGL.prototype.onAdd.call(this, map);
       var m = this.getMaplibreMap();
       m.on("load", function () {
-        m.setLanguage(I18n.locale.replace(/-.*/, ""));
+        var locale;
+        if (supportedLanguages.includes(I18n.locale)) {
+          locale = I18n.locale;
+        } else {
+          var mainLocale = I18n.locale.slice(0, 2);
+          var localeIndex = supportedLanguages.findIndex(locale => locale.slice(0, 2) === mainLocale);
+          if (localeIndex > -1) {
+            locale = supportedLanguages[localeIndex];
+          }
+        }
+
+        if (locale) {
+          m.setLanguage(locale);
+        }
       });
       L.MaplibreGL.prototype._update.call(this, map);
     },
