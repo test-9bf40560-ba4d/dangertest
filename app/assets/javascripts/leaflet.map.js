@@ -15,29 +15,25 @@ L.extend(L.LatLngBounds.prototype, {
   }
 });
 
-L.MapTiler = L.MaplibreGL.extend({
-  options: {
-    maxZoom: 23
-  },
-  onAdd: function (map) {
-    L.MaplibreGL.prototype.onAdd.call(this, map);
-    var m = this.getMaplibreMap();
-    m.on("load", function () {
-      m.setLanguage(I18n.locale.replace(/-.*/, ""));
-    });
-    L.MaplibreGL.prototype._update.call(this, map);
-  },
-  onRemove: function (map) {
-    L.MaplibreGL.prototype.onRemove.call(this, map);
-    map.off("moveend", map._update3dMapUrl);
-  }
-});
-
-L.OpenMapTiles = L.MapTiler.extend({
-  options: {
-    style: "https://api.maptiler.com/maps/openstreetmap/style.json?key=lmYA16sOOOz9r6DH7iA9"
-  }
-});
+if (OSM.MAPTILER_KEY) {
+  L.OpenMapTiles = L.MaplibreGL.extend({
+    options: {
+      maxZoom: 23,
+      style: "https://api.maptiler.com/maps/openstreetmap/style.json?key=" + OSM.MAPTILER_KEY
+    },
+    onAdd: function (map) {
+      L.MaplibreGL.prototype.onAdd.call(this, map);
+      var m = this.getMaplibreMap();
+      m.on("load", function () {
+        m.setLanguage(I18n.locale.replace(/-.*/, ""));
+      });
+      L.MaplibreGL.prototype._update.call(this, map);
+    },
+    onRemove: function (map) {
+      L.MaplibreGL.prototype.onRemove.call(this, map);
+    }
+  });
+}
 
 L.OSM.Map = L.Map.extend({
   initialize: function (id, options) {
@@ -107,12 +103,14 @@ L.OSM.Map = L.Map.extend({
       name: I18n.t("javascripts.map.base.standard")
     }));
 
-    this.baseLayers.push(new L.OpenMapTiles({
-      attribution: copyright + ". " + openmaptiles_link + ". " + terms,
-      code: "V",
-      keyid: "openmaptiles_osm",
-      name: I18n.t("javascripts.map.base.openmaptiles_osm")
-    }));
+    if (L.OpenMapTiles) {
+      this.baseLayers.push(new L.OpenMapTiles({
+        attribution: copyright + ". " + openmaptiles_link + ". " + terms,
+        code: "V",
+        keyid: "openmaptiles_osm",
+        name: I18n.t("javascripts.map.base.openmaptiles_osm")
+      }));
+    }
 
     this.baseLayers.push(new L.OSM.CyclOSM({
       attribution: copyright + ". " + cyclosm + ". " + terms,
