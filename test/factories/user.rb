@@ -43,7 +43,7 @@ FactoryBot.define do
 
     trait :deleted do
       after(:build) do |user, _evaluator|
-        user.soft_destroy
+        user.hide
       end
     end
 
