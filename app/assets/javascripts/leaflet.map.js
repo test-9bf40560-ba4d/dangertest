@@ -1,3 +1,7 @@
+//= require maplibre-gl
+//= require @maplibre/maplibre-gl-leaflet
+//= require @maptiler/maplibre-gl-omt-language
+//= require i18n
 //= require qs/dist/qs
 
 L.extend(L.LatLngBounds.prototype, {
@@ -10,6 +14,40 @@ L.extend(L.LatLngBounds.prototype, {
     return new L.LatLngBounds(this._southWest.wrap(), this._northEast.wrap());
   }
 });
+
+if (OSM.MAPTILER_KEY) {
+  L.OpenMapTiles = L.MaplibreGL.extend({
+    options: {
+      maxZoom: 23,
+      style: "https://api.maptiler.com/maps/openstreetmap/style.json?key=" + OSM.MAPTILER_KEY
+    },
+    onAdd: function (map) {
+      var supportedLanguages = "am,ar,az,be,bg,br,bs,ca,co,cs,cy,da,de,el,en,eo,es,et,eu,fi,fr,fy,ga,gd,he,hi,hr,hu,hy,id,is,it,ja,ja_kana,ja_rm,ja-Latn,ja-Hira,ka,kk,kn,ko,ko-Latn,ku,la,lb,lt,lv,mk,mt,ml,nl,no,oc,pl,pt,rm,ro,ru,sk,sl,sq,sr,sr-Latn,sv,ta,te,th,tr,uk,zh".split(",");
+      L.MaplibreGL.prototype.onAdd.call(this, map);
+      var m = this.getMaplibreMap();
+      m.on("load", function () {
+        var locale;
+        if (supportedLanguages.includes(I18n.locale)) {
+          locale = I18n.locale;
+        } else {
+          var mainLocale = I18n.locale.slice(0, 2);
+          var localeIndex = supportedLanguages.findIndex(function (locale) { return locale.slice(0, 2) === mainLocale; });
+          if (localeIndex > -1) {
+            locale = supportedLanguages[localeIndex];
+          }
+        }
+
+        if (locale) {
+          m.setLanguage(locale);
+        }
+      });
+      L.MaplibreGL.prototype._update.call(this, map);
+    },
+    onRemove: function (map) {
+      L.MaplibreGL.prototype.onRemove.call(this, map);
+    }
+  });
+}
 
 L.OSM.Map = L.Map.extend({
   initialize: function (id, options) {
@@ -65,6 +103,11 @@ L.OSM.Map = L.Map.extend({
     }).prop("outerHTML");
     var hotosm = I18n.t("javascripts.map.hotosm_credit", { hotosm_link: hotosm_link, osm_france_link: osm_france_link });
 
+    var openmaptiles_link = I18n.t("javascripts.map.openmaptiles", {
+      openmaptiles_url: "https://openmaptiles.org/",
+      maptiler_url: "https://www.maptiler.com/"
+    });
+
     this.baseLayers = [];
 
     this.baseLayers.push(new L.OSM.Mapnik({
@@ -73,6 +116,15 @@ L.OSM.Map = L.Map.extend({
       keyid: "mapnik",
       name: I18n.t("javascripts.map.base.standard")
     }));
+
+    if (L.OpenMapTiles) {
+      this.baseLayers.push(new L.OpenMapTiles({
+        attribution: copyright + ". " + openmaptiles_link + ". " + terms,
+        code: "V",
+        keyid: "openmaptiles_osm",
+        name: I18n.t("javascripts.map.base.openmaptiles_osm")
+      }));
+    }
 
     this.baseLayers.push(new L.OSM.CyclOSM({
       attribution: copyright + ". " + cyclosm + ". " + terms,
