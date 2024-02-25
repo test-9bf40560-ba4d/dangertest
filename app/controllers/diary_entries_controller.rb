@@ -55,7 +55,7 @@ class DiaryEntriesController < ApplicationController
       end
     end
 
-    entries = entries.visible unless can? :unhide, DiaryEntry
+    entries = entries.visible_to(current_user)
 
     @params = params.permit(:display_name, :friends, :nearby, :language)
 
@@ -63,8 +63,7 @@ class DiaryEntriesController < ApplicationController
   end
 
   def show
-    entries = @user.diary_entries
-    entries = entries.visible unless can? :unhide, DiaryEntry
+    entries = @user.diary_entries.visible_to(current_user)
     @entry = entries.find_by(:id => params[:id])
     if @entry
       @title = t ".title", :user => params[:display_name], :title => @entry.title
@@ -218,14 +217,24 @@ class DiaryEntriesController < ApplicationController
 
   def hide
     entry = DiaryEntry.find(params[:id])
-    entry.update(:visible => false)
-    redirect_to :action => "index", :display_name => entry.user.display_name
+
+    if current_user == entry.user || current_user.moderator? || current_user.administrator?
+      entry.update(:visible => false)
+      redirect_to :action => "index", :display_name => entry.user.display_name
+    else
+      deny_access
+    end
   end
 
   def unhide
     entry = DiaryEntry.find(params[:id])
-    entry.update(:visible => true)
-    redirect_to :action => "index", :display_name => entry.user.display_name
+
+    if current_user == entry.user || current_user.moderator? || current_user.administrator?
+      entry.update(:visible => true)
+      redirect_to :action => "index", :display_name => entry.user.display_name
+    else
+      deny_access
+    end
   end
 
   def hidecomment
