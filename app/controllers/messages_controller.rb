@@ -11,7 +11,8 @@ class MessagesController < ApplicationController
   before_action :lookup_user, :only => [:new, :create]
   before_action :check_database_readable
   before_action :check_database_writable, :only => [:new, :create, :reply, :mark, :destroy]
-  before_action :allow_thirdparty_images, :only => [:new, :create, :show]
+
+  allow_thirdparty_images :only => [:new, :create, :show]
 
   # Show a message
   def show
@@ -42,7 +43,7 @@ class MessagesController < ApplicationController
     @message.sender = current_user
     @message.sent_on = Time.now.utc
 
-    if current_user.sent_messages.where("sent_on >= ?", Time.now.utc - 1.hour).count >= current_user.max_messages_per_hour
+    if current_user.sent_messages.where(:sent_on => Time.now.utc - 1.hour..).count >= current_user.max_messages_per_hour
       flash.now[:error] = t ".limit_exceeded"
       render :action => "new"
     elsif @message.save

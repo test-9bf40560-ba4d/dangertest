@@ -83,6 +83,15 @@ class NotesControllerTest < ActionDispatch::IntegrationTest
     assert_select "table.note_list tbody tr", :count => 10
   end
 
+  def test_index_invalid_paged
+    user = create(:user)
+
+    %w[-1 0 fred].each do |page|
+      get user_notes_path(user, :page => page)
+      assert_redirected_to :controller => :errors, :action => :bad_request
+    end
+  end
+
   def test_empty_page
     user = create(:user)
     get user_notes_path(user)
@@ -160,9 +169,19 @@ class NotesControllerTest < ActionDispatch::IntegrationTest
     assert_select "div.details", /Resolved by deleted/
   end
 
-  def test_new_note
+  def test_new_note_anonymous
     get new_note_path
     assert_response :success
     assert_template "notes/new"
+    assert_select "#sidebar_content a[href='#{login_path(:referer => new_note_path)}']", :count => 1
+  end
+
+  def test_new_note
+    session_for(create(:user))
+
+    get new_note_path
+    assert_response :success
+    assert_template "notes/new"
+    assert_select "#sidebar_content a[href='#{login_path(:referer => new_note_path)}']", :count => 0
   end
 end

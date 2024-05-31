@@ -633,6 +633,9 @@ en:
       contact_url_title: Various contact channels explained
       contact: contact
       contact_the_community_html: Feel free to %{contact_link} the OpenStreetMap community if you have found a broken link / bug. Make a note of the exact URL of your request.
+    bad_request:
+      title: Bad request
+      description: The operation you requested on the OpenStreetMap server is not valid (HTTP 400)
     forbidden:
       title: Forbidden
       description: The operation you requested on the OpenStreetMap server is only available to administrators (HTTP 403)
@@ -1670,8 +1673,8 @@ en:
         your_note_html: "%{commenter} has reactivated one of your map notes near %{place}."
         commented_note: "%{commenter} has reactivated a map note you have commented on. The note is near %{place}."
         commented_note_html: "%{commenter} has reactivated a map note you have commented on. The note is near %{place}."
-      details: "More details about the note can be found at %{url}."
-      details_html: "More details about the note can be found at %{url}."
+      details: "Reply or learn more about the note at %{url}."
+      details_html: "Reply or learn more about the note at %{url}."
     changeset_comment_notification:
       description: "OpenStreetMap Changeset #%{id}"
       hi: "Hi %{to_user},"
@@ -1686,8 +1689,8 @@ en:
         partial_changeset_with_comment: "with comment '%{changeset_comment}'"
         partial_changeset_with_comment_html: "with comment '%{changeset_comment}'"
         partial_changeset_without_comment: "without comment"
-      details: "More details about the changeset can be found at %{url}."
-      details_html: "More details about the changeset can be found at %{url}."
+      details: "Reply or learn more about the changeset at %{url}."
+      details_html: "Reply or learn more about the changeset at %{url}."
       unsubscribe: "You can unsubscribe from updates to this changeset at %{url}."
       unsubscribe_html: "You can unsubscribe from updates to this changeset at %{url}."
   confirmations:
@@ -2557,6 +2560,9 @@ en:
         other: "GPX file with %{count} points from %{user}"
       description_without_count: "GPX file from %{user}"
   application:
+    basic_auth_disabled: "HTTP Basic Authentication is disabled: %{link}"
+    oauth_10a_disabled: "OAuth 1.0 and 1.0a are disabled: %{link}"
+    auth_disabled_link: "https://wiki.openstreetmap.org/wiki/2024_authentication_update"
     permission_denied: You do not have permission to access that action
     require_cookies:
       cookies_needed: "You appear to have cookies disabled - please enable cookies in your browser before continuing."
@@ -3081,6 +3087,9 @@ en:
     new:
       title: "New Note"
       intro: "Spotted a mistake or something missing? Let other mappers know so we can fix it. Move the marker to the correct position and type a note to explain the problem."
+      anonymous_warning_html: "You are not logged in. Please %{log_in} or %{sign_up} if you want to receive updates for your note."
+      anonymous_warning_log_in: "log in"
+      anonymous_warning_sign_up: "sign up"
       advice: "Your note is public and may be used to update the map, so don't enter personal information, or information from copyrighted maps or directory listings."
       add: Add Note
   javascripts:

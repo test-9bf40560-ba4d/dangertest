@@ -675,6 +675,10 @@ eo:
       contact_the_community_html: '%{contact_link} kun la OpenStreetMap-komunumo,
         se vi trovis misligilon aŭ alian eraron. Skribu la detalan retadreson de via
         peto.'
+    bad_request:
+      title: Malĝusta peto
+      description: La ago – pri kiu vi petis la servilon OpenStreetMap – ne estas
+        valida (HTTP 400)
     forbidden:
       title: Malpermesata
       description: La ago, pri kiu vi petis la OpenStreetMap-servilon estas disponebla
@@ -1733,8 +1737,8 @@ eo:
           La rimarko troviĝis ĉe %{place}.'
         commented_note_html: '%{commenter} remalfermis rimarkon sur la mapo pri kiu
           vi interesiĝis. La rimarko troviĝis ĉe %{place}.'
-      details: Pli da detaloj pri la rimarko, vi povas trovi je %{url}.
-      details_html: Pli da detaloj pri la noto troveblas ĉe %{url}.
+      details: Vi povas respondi aŭ sciiĝi pli pri la rimarko ĉe %{url}.
+      details_html: Vi povas respondi aŭ sciiĝi pli pri la rimarko ĉe %{url}.
     changeset_comment_notification:
       description: 'OpenStreetMap: ŝanĝaro %{id}'
       hi: Saluton %{to_user},
@@ -1752,8 +1756,8 @@ eo:
         partial_changeset_with_comment: kun komento '%{changeset_comment}'
         partial_changeset_with_comment_html: kun komento '%{changeset_comment}'
         partial_changeset_without_comment: sen komento
-      details: Pli da detaloj pri la ŝanĝaro povas esti trovita ĉe %{url}.
-      details_html: Pli da detaloj pri la ŝanĝaro povas esti trovita ĉe %{url}.
+      details: Vi povas respondi aŭ sciiĝi pli pri la ŝanĝaro ĉe %{url}.
+      details_html: Vi povas respondi aŭ sciiĝi pli pri la ŝanĝaro ĉe %{url}.
       unsubscribe: Vi povas malaboni ĝisdatigojn pri tiu ĉi ŝanĝaro ĉe %{url}.
       unsubscribe_html: Vi povas malaboni ĝisdatigojn pri tiu ĉi ŝanĝaro ĉe %{url}.
   confirmations:
@@ -1865,7 +1869,7 @@ eo:
   passwords:
     new:
       title: Perdita pasvorto
-      heading: Forgesis vian pasvorton ?
+      heading: Ĉu vi forgesis pasvorton?
       email address: Retpoŝta adreso
       new password button: Nuligi pasvorton
       help_text: Entajpu la retpoŝtan adreson kiun vi uzis por ensaluto, ni sendos
@@ -1932,7 +1936,7 @@ eo:
       lost password link: Ĉu vi forgesis vian pasvorton?
       login_button: Ensaluti
       register now: Registriĝi
-      with external: aŭ ensalutu uzante eksteran liveranton
+      with external: 'ensaluti per ekstera liveranto:'
       or: aŭ
       auth failure: Bedaŭrinde ne povas ensaluti kun ĉi tiuj informoj.
     destroy:
@@ -2566,6 +2570,8 @@ eo:
         other: GPX-dosiero kun %{count} punktoj de %{user}
       description_without_count: GPX-dosiero de %{user}
   application:
+    basic_auth_disabled: 'Baza alira aŭtentigo estas malaktiva: %{link}'
+    oauth_10a_disabled: 'OAuth 1.0 kaj 1.0a estas malaktivaj: %{link}'
     permission_denied: Vi ne rajtas fari tiun ĉi agon
     require_cookies:
       cookies_needed: Ŝajnas, ke vi malaktivigis 'kuketojn' - bonvolu aktivigi 'kuketojn'
@@ -2782,7 +2788,7 @@ eo:
       consider_pd_html: Mi konsideras ke miaj kontribuoj estu eldonitaj en la %{consider_pd_link}.
       consider_pd: publika havaĵo
       or: aŭ
-      use external auth: aŭ registriĝu uzante eksteran liveranton
+      use external auth: 'registriĝi per ekstera liveranto:'
     terms:
       title: Kondiĉoj
       heading: Kondiĉoj
@@ -3120,6 +3126,10 @@ eo:
       intro: Ĉu vi rimarkis eraron aŭ io mankas? Sciigu aliajn mapigistojn, por ili
         povos ripari tion. Movu la markon al la respektivan pozicion kaj enmetu la
         rimarkon priskribantan la problemon.
+      anonymous_warning_html: Vi ne estas ensalutinta. %{log_in} aŭ %{sign_up} por
+        ricevi sciigojn pri via rimarko.
+      anonymous_warning_log_in: Ensalutu
+      anonymous_warning_sign_up: registriĝu
       advice: Via rimarko estas publika kaj povas esti uzita por ĝisdatigi la mapon,
         do ne enmetu privatajn informojn kaj informojn el kopirajtaj mapoj aŭ aliaj
         datumbazoj.

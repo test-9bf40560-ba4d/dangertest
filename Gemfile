@@ -63,6 +63,7 @@ gem "oauth-plugin", ">= 0.5.1"
 gem "openstreetmap-deadlock_retry", ">= 1.3.1", :require => "deadlock_retry"
 gem "rack-cors"
 gem "rails-i18n", "~> 7.0.0"
+gem "rails_param"
 gem "rinku", ">= 2.0.6", :require => "rails_rinku"
 gem "strong_migrations"
 gem "validates_email_format_of", ">= 1.5.1"
@@ -115,9 +116,6 @@ gem "connection_pool"
 gem "dalli"
 gem "kgio"
 
-# Load secure_headers for Content-Security-Policy support
-gem "secure_headers"
-
 # Load canonical-rails to generate canonical URLs
 gem "canonical-rails"
 
@@ -141,6 +139,9 @@ gem "image_processing"
 
 # Used to validate widths
 gem "unicode-display_width"
+
+# Keep ruby 3.0 compatibility
+gem "multi_xml", "~> 0.6.0"
 
 # Gems useful for development
 group :development do

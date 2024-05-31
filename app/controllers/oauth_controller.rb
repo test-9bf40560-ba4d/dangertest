@@ -5,7 +5,11 @@ class OauthController < ApplicationController
   # a login, but we want to check authorization on every action.
   authorize_resource :class => false
 
+  before_action :require_oauth_10a_support
+
   layout "site"
+
+  allow_all_form_action :only => :oauth1_authorize
 
   def revoke
     @token = current_user.oauth_tokens.find_by :token => params[:token]
@@ -39,8 +43,6 @@ class OauthController < ApplicationController
   end
 
   def oauth1_authorize
-    override_content_security_policy_directives(:form_action => []) if Settings.csp_enforce || Settings.key?(:csp_report_url)
-
     if @token.invalidated?
       @message = t "oauth.authorize_failure.invalid"
       render :action => "authorize_failure"

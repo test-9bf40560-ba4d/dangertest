@@ -16,8 +16,6 @@ time[title] {
   text-decoration: underline dotted;
 }
 
-#container { position: relative; }
-
 /* Rules for icons */
 
 .icon {
@@ -50,7 +48,7 @@ time[title] {
 
 /* Utility for de-emphasizing content */
 
-.text-muted a {
+.text-body-secondary a {
   color: $blue;
 }
 
@@ -79,7 +77,7 @@ time[title] {
   position: absolute;
   top: 0;
   right: 0;
-  background: image-url("menu-icon.png") no-repeat;
+  background: image-url("menu-icon.svg") no-repeat;
   background-size: 30px 30px;
   width: 30px;
   height: 30px;
@@ -98,23 +96,13 @@ header {
   position: relative;
   font-size: 14px;
 
-  h1, nav, nav > ul, nav > ul > li {
-    display: inline-block;
-  }
-
   > * {
-    height: 100%;
     padding: $lineheight * 0.5;
   }
 
-  img.logo {
-    margin-top: -2px;
-  }
-
   h1 {
+    height: $headerHeight;
     font-size: 18px;
-    line-height: 1.2;
-    padding-top: 15px;
   }
 
   .btn {
@@ -123,6 +111,10 @@ header {
 
   nav.primary {
     margin-right: auto;
+  }
+
+  .username {
+    max-width: 12em;
   }
 }
 
@@ -160,7 +152,7 @@ nav.primary {
 
 nav.secondary {
   .nav-link {
-    padding: 0.2rem;
+    padding: 0.3rem;
   }
 }
 
@@ -197,7 +189,7 @@ body.small-nav {
     min-height: $headerHeight;
 
     &.closed nav {
-      display: none;
+      display: none !important;
     }
 
     .search_forms {
@@ -222,6 +214,8 @@ body.small-nav {
   }
 
   nav.secondary {
+    flex-direction: column;
+
     .user-menu, .login-menu {
       width: 100%;
     }
@@ -429,10 +423,6 @@ body.small-nav {
   }
 
   .overlay-layers {
-    p {
-      font-size: 13px;
-      margin-bottom: 8px;
-    }
     li.disabled { color: $darkgrey; }
   }
 }
@@ -499,16 +489,6 @@ body.small-nav {
 
 .donate-attr { color: darken($green, 10%) !important; }
 
-/* Rules for the sidebar */
-
-#browse_status {
-  input {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
 /* Temporary label size override until we remove site-wide font customisation */
 
 form {
@@ -566,7 +546,7 @@ header .search_forms,
 /* Rules for routing */
 
 div.direction {
-  background-image: image-url('routing-sprite.png');
+  background-image: image-url('routing-sprite.svg');
   width: 20px;
   height: 20px;
   background-repeat: no-repeat;
@@ -589,10 +569,6 @@ tr.turn {
 }
 
 .routing_marker { width: 15px; cursor: move; }
-
-.browse_status {
-  display: none;
-}
 
 /* Rules for the history sidebar */
 
@@ -642,23 +618,8 @@ tr.turn {
     }
   }
 
-  .note-description {
-    overflow: hidden;
-    margin: 0 0 10px 10px;
-  }
-
   .query-results {
     display: none;
-  }
-}
-
-/* Bootstrap buttons don't have any vertical margin, so
-   they touch when adjacent buttons wrap onto a new line
-   e.g. wide form buttons on a narrow sidebar */
-
-.btn-wrapper {
-  > .btn {
-    margin-bottom: $spacer * 0.25;
   }
 }
 
@@ -891,52 +852,7 @@ div.secondary-actions {
   }
 }
 
-/* Rules for the "Welcome" page */
-.site-welcome, .site-fixthemap {
-  .sprite {
-    background-image: image-url("welcome-sprite.png");
-    background-size: 500px 250px;
-    display: block;
-  }
-
-  .sprite.small {
-    width: 50px;
-    height: 50px;
-  }
-
-  .sprite.x {
-    /*rtl:ignore*/ background-position: -50px 0;
-  }
-
-  .sprite.term {
-    margin-right: 10px;
-    vertical-align: middle;
-  }
-
-  .sprite.node {
-    /*rtl:ignore*/ background-position: -100px 0;
-  }
-
-  .sprite.way {
-    /*rtl:ignore*/ background-position: -150px 0;
-  }
-
-  .sprite.tag {
-    /*rtl:ignore*/ background-position: -200px 0;
-  }
-
-  .sprite.editor {
-    /*rtl:ignore*/ background-position: -250px 0;
-  }
-
-  .sprite.question {
-    /*rtl:ignore*/ background-position: -300px 0;
-  }
-
-  .sprite.rules {
-    /*rtl:ignore*/ background-position: -350px 0;
-  }
-}
+/* Rules for the "About" page */
 
 .site-about #content {
   .content-inner {

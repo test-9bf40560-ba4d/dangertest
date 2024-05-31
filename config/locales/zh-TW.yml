@@ -43,6 +43,7 @@
 # Author: Winston Sung
 # Author: Wrightbus
 # Author: Xiplus
+# Author: Yuchenglinedu
 # Author: 予弦
 # Author: 列维劳德
 # Author: 捍粵者
@@ -86,7 +87,7 @@ zh-TW:
     errors:
       messages:
         invalid_email_address: 似乎不是有效的電子郵件信箱地址。
-        email_address_not_routable: 不可繞送
+        email_address_not_routable: 不可發送
         display_name_is_user_n: 不能是「user_n」除非「n」是您的使用者 ID
       models:
         user_mute:
@@ -122,21 +123,21 @@ zh-TW:
       tracetag: 軌跡標籤
       user: 使用者
       user_preference: 使用者偏好設定
-      user_token: 使用者令牌
+      user_token: 使用者Token
       way: 路徑
       way_node: 路徑節點
       way_tag: 路徑標籤
     attributes:
       client_application:
-        name: 名稱（必需）
-        url: 主程式 URL（必需）
-        callback_url: 回呼 (Callback) URL
+        name: 名稱（必填）
+        url: 主要應用程式 URL（必填）
+        callback_url: 回撥 (Callback) URL
         support_url: 支援 URL
-        allow_read_prefs: 讀取他們的使用者偏好設定
-        allow_write_prefs: 修改他們的使用者偏好設定
+        allow_read_prefs: 讀取使用者偏好設定
+        allow_write_prefs: 修改使用者偏好設定
         allow_write_diary: 建立日記、評論和加入好友
         allow_write_api: 修改地圖
-        allow_read_gpx: 讀取他們的私人GPS軌跡
+        allow_read_gpx: 讀取個人GPS軌跡
         allow_write_gpx: 上傳 GPS 軌跡
         allow_write_notes: 修改註記
       diary_comment:
@@ -164,7 +165,7 @@ zh-TW:
         latitude: 緯度
         longitude: 經度
         public: 公開
-        description: 說明
+        description: 描述
         gpx_file: 上傳 GPX 檔案
         visibility: 能見度
         tagstring: 標籤
@@ -175,18 +176,18 @@ zh-TW:
         recipient: 收件者
       redaction:
         title: 標題
-        description: 說明
+        description: 描述
       report:
-        category: 選擇您回報的原因
-        details: 請提供有關問題的更多些詳情（必需）
+        category: 選擇你回報的原因
+        details: 請提供更多有關問題的詳情（必填）
       user:
-        auth_provider: 認證提供方
+        auth_provider: 認證提供者
         auth_uid: 認證 UID
         email: 電子郵件
         new_email: 新的電子郵件地址
-        active: 開啟中
+        active: 活躍
         display_name: 顯示名稱
-        description: 基本資料說明
+        description: 個人檔案描述
         home_lat: 緯度
         home_lon: 經度
         languages: 偏好的語言
@@ -196,14 +197,14 @@ zh-TW:
     help:
       doorkeeper/application:
         confidential: 應用程式會在客戶端密鑰可以維持機密時使用（本地端移動應用程式和單一頁面應用程式不保密）
-        redirect_uri: 一行一URI
+        redirect_uri: 每條 URI 使用一行
       trace:
-        tagstring: 逗點分隔
+        tagstring: 以逗點分隔
       user_block:
-        reason: 封鎖使用者的理由。請盡量以平靜、合理態度詳細描述情況，並記住訊息公開可見。請注意，並非所有使用者都了解社群術語，所以請盡量使用通俗說法。
+        reason: 封鎖使用者的理由。請盡量以平靜、合理的態度詳細描述情況，並記住訊息公開可見。請注意，並非所有使用者都了解社群術語，所以請盡量使用通俗說法。
         needs_view: 解封前是否需要使用者登入？
       user:
-        new_email: （永不公開顯示）
+        new_email: (永遠不公開顯示)
   datetime:
     distance_in_words_ago:
       about_x_hours:
@@ -215,34 +216,22 @@ zh-TW:
       about_x_years:
         one: 約 %{count} 年前
         other: 約 %{count} 年前
-      almost_x_years:
-        one: 將近 %{count} 年前
-        other: 將近 %{count} 年前
+      almost_x_years: 將近 %{count} 年前
       half_a_minute: 半分鐘前
-      less_than_x_seconds:
-        one: 小於 %{count} 秒前
-        other: 小於 %{count} 秒前
-      less_than_x_minutes:
-        one: 小於 %{count} 分前
-        other: 小於 %{count} 分前
+      less_than_x_seconds: 不到 %{count} 秒前
+      less_than_x_minutes: 不到 %{count} 分鐘前
       over_x_years:
-        one: 超過 %{count} 年前
-        other: 超過 %{count} 年前
+        one: 超過1年前
+        other: 超過%{count}年前
       x_seconds:
-        one: '%{count} 秒前'
-        other: '%{count} 秒前'
-      x_minutes:
-        one: '%{count} 分鐘前'
-        other: '%{count} 分鐘前'
-      x_days:
-        one: '%{count} 天前'
-        other: '%{count} 天前'
+        one: 1秒前
+        other: '%{count}秒前'
+      x_minutes: '%{count} 分鐘前'
+      x_days: '%{count} 天前'
       x_months:
         one: '%{count} 個月前'
         other: '%{count} 個月前'
-      x_years:
-        one: '%{count} 年前'
-        other: '%{count} 年前'
+      x_years: '%{count} 年前'
   printable_name:
     current_and_old_links_html: '%{current_link}，%{old_link}'
   editor:
@@ -274,13 +263,13 @@ zh-TW:
         reopened_at_by_html: 於%{when}由%{user}重新開啟
       rss:
         title: OpenStreetMap 註記
-        description_all: 已報告、評論、或是關閉註記的清單
+        description_all: 報告、評論、或關閉的註記清單
         description_area: 在你的區域[(%{min_lat}|%{min_lon}) -- (%{max_lat}|%{max_lon})]所報告、評論或關閉的註記的清單
         description_item: 註記 %{id} 的 RSS feed
         opened: 新的註記 (在 %{place} 附近)
         commented: 新的評論 (在 %{place} 附近)
         closed: 關閉的註記 (在 %{place} 附近)
-        reopened: 重新開啟的註記 (在 %{place} 附近)
+        reopened: 重新開啟的註記（在%{place}附近）
       entry:
         comment: 評論
         full: 註記原文
@@ -288,20 +277,20 @@ zh-TW:
     deletions:
       show:
         title: 刪除我的帳號
-        warning: 警告！帳號刪除處理是完全徹底、無法還原的。
+        warning: 警告！帳號刪除程序不可逆轉，無法復原。
         delete_account: 刪除帳號
-        delete_introduction: 您可以使用下方按鈕來刪除您的 OpenStreetMap 帳號。並請注意以下細節：
-        delete_profile: 您的個人檔案資訊，包含像是您的頭像圖片、描述，以及住家位置將會移除。
-        delete_display_name: 您的顯示名稱將會移除，並且會被其他帳號拿來重覆使用。
-        retain_caveats: 然而，即使您的帳號被刪除後，一些關於您的資訊仍會繼續保留在 OpenStreetMap 裡：
-        retain_edits: 若有您對於地圖資料庫的編輯次數，這將會繼續保留。
-        retain_traces: 若有您上傳過的軌跡資料內容，這將會繼續保留。
-        retain_diary_entries: 若有您的日記項目與日記評論內容，這將會繼續保留。
-        retain_notes: 若有您的地圖註記與註記評論內容，這將會繼續保留；不過會隱藏起來。
-        retain_changeset_discussions: 若有您的變更集討論，這將會繼續保留。
-        retain_email: 您的電子郵件地址將會繼續保留。
-        recent_editing_html: 因為您最近有作過編輯，目前無法刪除您的帳號。在 %{time} 後才可刪除。
-        confirm_delete: 您確定嗎？
+        delete_introduction: 你可以使用下方按鈕來刪除你的 OpenStreetMap 帳號。並請留意以下細節：
+        delete_profile: 你的個人檔案資訊，包含：例如你的頭像圖片、描述，以及住家位置將會移除。
+        delete_display_name: 你的顯示名稱將會移除，並且會被其他帳號拿來重覆使用。
+        retain_caveats: 然而，即使你的帳號被刪除後，一些關於你的資訊仍會繼續保留在 OpenStreetMap 裡：
+        retain_edits: 你對於地圖資料庫的編輯次數，假如存在，這將會繼續保留。
+        retain_traces: 若有你上傳過的軌跡資料內容，這將會繼續保留。
+        retain_diary_entries: 若有你的日誌項目與日誌評論內容，這將會繼續保留。
+        retain_notes: 若有你的地圖註記與註記評論內容，這將會繼續保留；不過會隱藏起來。
+        retain_changeset_discussions: 若有你的變更集討論，這將會繼續保留。
+        retain_email: 你的電子郵件地址將會繼續保留。
+        recent_editing_html: 因為你最近有編輯過，目前無法刪除你的帳號。在 %{time} 後才可刪除。
+        confirm_delete: 你確定嗎？
         cancel: 取消
   accounts:
     edit:
@@ -315,28 +304,28 @@ zh-TW:
         heading: 公開編輯
         enabled: 已開啟。非匿名且可以編輯資料。
         enabled link text: 這是什麼？
-        disabled: 已停用且不能編輯資料，所有先前的編輯都會成為匿名的。
+        disabled: 已停用且不能編輯資料，所有你先前的編輯都會成為匿名的。
         disabled link text: 為什麼我不能編輯？
       contributor terms:
         heading: 貢獻者條款
-        agreed: 您已同意新的貢獻者條款。
-        not yet agreed: 您未同意新的貢獻者條款。
+        agreed: 你已同意新的貢獻者條款。
+        not yet agreed: 你未同意新的貢獻者條款。
         review link text: 請跟隨此連結，方便你檢視並接受新的貢獻者條款。
-        agreed_with_pd: 您亦同意將您的編輯放到公共領域
+        agreed_with_pd: 你亦同意將你的編輯放到公共領域
         link text: 這是什麼？
       save changes button: 儲存變更
       delete_account: 刪除帳號…
     go_public:
       heading: 公開編輯
-      currently_not_public: 目前你的編輯都是暱名的，其他人無法寄給你訊息或是知道你的位置。要讓別人知道你編輯什麼，以及透過網站聯繫你，你點下面的按鈕。
+      currently_not_public: 目前你的編輯都是暱名的，其他人無法寄給你訊息或是知道你的位置。要讓別人知道你編輯什麼，以及透過網站聯繫你，請你點以下的按鈕。
       only_public_can_edit: 自從 API 0.6 版本上線，只有公共帳號的使用者可以編輯地圖資料。
       find_out_why_html: (%{link})。
-      find_out_why: 找出來為什麼
-      email_not_revealed: 你的電子郵件地址不會揭露公開。
+      find_out_why: 找出原因
+      email_not_revealed: 你的電子郵件地址不會公開洩漏。
       not_reversible: 這項操作無法撤銷，所有的新使用者都是預設公開的。
-      make_edits_public_button: 將我所有的編輯設為公開
+      make_edits_public_button: 將與我有關的所有的編輯設為公開
     update:
-      success_confirm_needed: 使用者資訊成功的更新。請檢查您的電子郵件，以確認收到新電子郵件地址的通知。
+      success_confirm_needed: 使用者資訊成功的更新。請檢查你的電子郵件，以便確認收到新電子郵件地址的通知。
       success: 使用者資訊已成功更新。
     destroy:
       success: 帳號已刪除。
@@ -346,21 +335,21 @@ zh-TW:
     version: 版本
     redacted_version: 編修版本
     in_changeset: 變更集
-    anonymous: 匿名
+    anonymous: 匿名使用者
     no_comment: (沒有評論)
     part_of: 屬於：
     part_of_relations:
-      one: '%{count} 個關聯'
+      one: 1 個關聯
       other: '%{count} 個關聯'
     part_of_ways:
       one: '%{count} 條路徑'
       other: '%{count} 條路徑'
     download_xml: 下載 XML
     view_history: 檢視歷史
-    view_unredacted_history: 查看未編修的歷史
+    view_unredacted_history: 查看未編輯的歷史記錄
     view_details: 檢視詳細資料
     view_redacted_data: 查看編修資料
-    view_redaction_message: 查看編修訊息
+    view_redaction_message: 查看密文訊息
     location: 位置：
     node:
       title_html: 節點：%{name}
@@ -666,6 +655,9 @@ zh-TW:
       contact: 聯絡
       contact_the_community_html: 如果您發現有損壞的連結/錯誤，請隨時%{contact_link}OpenStreetMap 社群。並請記下您的請求的確切
         URL 位址。
+    bad_request:
+      title: 錯誤請求
+      description: 您在 OpenStreetMap 伺服器上請求的操作無效（HTTP 400）
     forbidden:
       title: Forbidden
       description: 您在 OpenStreetMap 伺服器上請求的運作僅限管理員使用（HTTP 403）
@@ -1697,7 +1689,7 @@ zh-TW:
         commented_note: '%{commenter} 重新開啟了一個您曾評論的地圖註記。該註記位於 %{place} 附近。'
         commented_note_html: '%{commenter} 重新開啟了一個您曾評論的地圖註記。該註記位於 %{place} 附近。'
       details: 關於註記的更多詳細資料可在 %{url} 找到。
-      details_html: 關於註記的更多詳細資料可在 %{url} 找到。
+      details_html: 在%{url}回覆或是瞭解更多有關註記的訊息。
     changeset_comment_notification:
       description: 'OpenStreetMap 變更集 #%{id}'
       hi: 嗨 %{to_user}，
@@ -1712,8 +1704,8 @@ zh-TW:
         partial_changeset_with_comment: 評論 "%{changeset_comment}"
         partial_changeset_with_comment_html: 評論 "%{changeset_comment}"
         partial_changeset_without_comment: 沒有評論
-      details: 關於變更集的詳情可在 %{url} 找到。
-      details_html: 關於變更集的詳情可在 %{url} 找到。
+      details: 在 %{url} 回覆或瞭解更多有關於變更集的資訊。
+      details_html: 在 %{url} 回覆或瞭解更多有關變更集的資訊。
       unsubscribe: 您可以在 %{url} 取消訂閱此變更集的更新內容。
       unsubscribe_html: 您可以在 %{url} 取消訂閱此變更集的更新內容。
   confirmations:
@@ -2168,7 +2160,7 @@ zh-TW:
       search: 搜尋
       get_directions: 取得方向指引
       get_directions_title: 尋找兩點之間的路線
-      from: 來自
+      from: 從
       to: 到
       where_am_i: 這是哪裡？
       where_am_i_title: 使用搜尋引擎描述目前的位置
@@ -2417,6 +2409,9 @@ zh-TW:
         other: 由 %{user} 上傳的 GPX 檔案，含有 %{count} 點
       description_without_count: 由 %{user} 上傳的 GPX 檔案
   application:
+    basic_auth_disabled: HTTP 基本認證已停用：%{link}
+    oauth_10a_disabled: OAuth 1.0 與 1.0a 已停用：%{link}
+    auth_disabled_link: https://wiki.openstreetmap.org/wiki/2024_authentication_update
     permission_denied: 您沒有權限來存取該操作。
     require_cookies:
       cookies_needed: 您似乎已停用 cookies - 請在瀏覽器中開啟 cookies，然後繼續。
@@ -2496,6 +2491,8 @@ zh-TW:
       write_redactions: 編寫地圖資料
       read_email: 讀取使用者電子郵件位址
       skip_authorization: 自動核准申請
+    for_roles:
+      moderator: 此權限用於僅可由仲裁員執行的操作
   oauth_clients:
     new:
       title: 註冊新的應用程式
@@ -2925,6 +2922,9 @@ zh-TW:
     new:
       title: 新增註記
       intro: 發現錯誤或缺少些什麼東西嗎？請告訴其他地圖製作者以便於我們處理。將標記移動到正確的位置並輸入註記，以解釋問題。
+      anonymous_warning_html: 您尚未登入。若您想收到您的註記更新內容，請%{log_in}或%{sign_up}。
+      anonymous_warning_log_in: 登入
+      anonymous_warning_sign_up: 註冊
       advice: 您的註記已公開並可用於更新地圖，因此請不要輸入個人訊息，或是來自於具版權保護地圖的訊息以及目錄清單。
       add: 送出註記
   javascripts:

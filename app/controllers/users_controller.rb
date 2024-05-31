@@ -17,7 +17,9 @@ class UsersController < ApplicationController
   before_action :check_database_writable, :only => [:new, :go_public]
   before_action :require_cookies, :only => [:new]
   before_action :lookup_user_by_name, :only => [:set_status, :destroy]
-  before_action :allow_thirdparty_images, :only => [:show]
+
+  allow_thirdparty_images :only => :show
+  allow_social_login :only => :new
 
   ##
   # display a list of users matching specified criteria
@@ -54,17 +56,9 @@ class UsersController < ApplicationController
 
   def new
     @title = t ".title"
-    @referer = if params[:referer]
-                 safe_referer(params[:referer])
-               else
-                 session[:referer]
-               end
+    @referer = safe_referer(params[:referer])
 
     parse_oauth_referer @referer
-
-    append_content_security_policy_directives(
-      :form_action => %w[accounts.google.com *.facebook.com login.microsoftonline.com github.com meta.wikimedia.org]
-    )
 
     if current_user
       # The user is logged in already, so don't show them the signup
@@ -94,10 +88,6 @@ class UsersController < ApplicationController
     self.current_user = User.new(user_params)
 
     if check_signup_allowed(current_user.email)
-      session[:referer] = safe_referer(params[:referer]) if params[:referer]
-
-      Rails.logger.info "create: #{session[:referer]}"
-
       if current_user.auth_uid.present?
         # We are creating an account with external authentication and
         # no password was specified so create a random one
@@ -108,14 +98,9 @@ class UsersController < ApplicationController
       if current_user.invalid?
         # Something is wrong with a new user, so rerender the form
         render :action => "new"
-      elsif current_user.auth_provider.present?
-        # Verify external authenticator before moving on
-        session[:new_user] = current_user.slice("email", "display_name", "pass_crypt", "pass_crypt_confirmation")
-        redirect_to auth_url(current_user.auth_provider, current_user.auth_uid), :status => :temporary_redirect
       else
         # Save the user record
-        session[:new_user] = current_user.slice("email", "display_name", "pass_crypt", "pass_crypt_confirmation")
-        save_new_user params[:email_hmac]
+        save_new_user params[:email_hmac], params[:referer]
       end
     end
   end
@@ -200,6 +185,7 @@ class UsersController < ApplicationController
   ##
   # omniauth success callback
   def auth_success
+    referer = request.env["omniauth.params"]["referer"]
     auth_info = request.env["omniauth.auth"]
 
     provider = auth_info[:provider]
@@ -228,12 +214,6 @@ class UsersController < ApplicationController
       session[:user_errors] = current_user.errors.as_json
 
       redirect_to edit_account_path
-    elsif session[:new_user]
-      session[:new_user]["auth_provider"] = provider
-      session[:new_user]["auth_uid"] = uid
-
-      email_hmac = UsersController.message_hmac(email) if email_verified && email
-      save_new_user email_hmac
     else
       user = User.find_by(:auth_provider => provider, :auth_uid => uid)
 
@@ -246,18 +226,18 @@ class UsersController < ApplicationController
       if user
         case user.status
         when "pending"
-          unconfirmed_login(user)
+          unconfirmed_login(user, referer)
         when "active", "confirmed"
-          successful_login(user, request.env["omniauth.params"]["referer"])
+          successful_login(user, referer)
         when "suspended"
-          failed_login({ :partial => "sessions/suspended_flash" })
+          failed_login({ :partial => "sessions/suspended_flash" }, user.display_name, referer)
         else
-          failed_login t("sessions.new.auth failure")
+          failed_login(t("sessions.new.auth failure"), user.display_name, referer)
         end
       else
         email_hmac = UsersController.message_hmac(email) if email_verified && email
         redirect_to :action => "new", :nickname => name, :email => email, :email_hmac => email_hmac,
-                    :auth_provider => provider, :auth_uid => uid
+                    :auth_provider => provider, :auth_uid => uid, :referer => referer
       end
     end
   end
@@ -281,9 +261,7 @@ class UsersController < ApplicationController
 
   private
 
-  def save_new_user(email_hmac)
-    new_user = session.delete(:new_user)
-    self.current_user = User.new(new_user)
+  def save_new_user(email_hmac, referer = nil)
     if check_signup_allowed(current_user.email)
       current_user.data_public = true
       current_user.description = "" if current_user.description.nil?
@@ -306,11 +284,10 @@ class UsersController < ApplicationController
 
         flash[:matomo_goal] = Settings.matomo["goals"]["signup"] if defined?(Settings.matomo)
 
-        referer = welcome_path(welcome_options)
+        referer = welcome_path(welcome_options(referer))
 
         if current_user.status == "active"
-          session[:referer] = referer
-          successful_login(current_user)
+          successful_login(current_user, referer)
         else
           session[:pending_user] = current_user.id
           UserMailer.signup_confirm(current_user, current_user.generate_token_for(:new_user), referer).deliver_later
@@ -322,8 +299,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def welcome_options
-    uri = URI(session[:referer]) if session[:referer].present?
+  def welcome_options(referer = nil)
+    uri = URI(referer) if referer.present?
 
     return { "oauth_return_url" => uri&.to_s } if uri&.path == oauth_authorization_path
 

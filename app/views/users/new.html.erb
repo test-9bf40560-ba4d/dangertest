@@ -7,13 +7,13 @@
 
 <% content_for :heading do %>
   <% if @client_app_name %>
-    <p class="text-center text-muted fs-6 py-2 mb-0 bg-body"><%= t(".signup_to_authorize_html", :client_app_name => @client_app_name) %></p>
+    <p class="text-center text-body-secondary fs-6 py-2 mb-0 bg-body"><%= t(".signup_to_authorize_html", :client_app_name => @client_app_name) %></p>
   <% end %>
 
   <div class="header-illustration new-user-main auth-container mx-auto">
-    <ul class="nav nav-tabs position-absolute bottom-0 px-3 fs-6 w-100">
+    <ul class="nav nav-tabs position-absolute bottom-0 fs-6 w-100">
       <li class="nav-item">
-        <%= link_to t("sessions.new.tab_title"), url_for(:action => :new, :controller => :sessions), :class => "nav-link" %>
+        <%= link_to t("sessions.new.tab_title"), url_for(:action => :new, :controller => :sessions, :referer => @referer), :class => "nav-link" %>
       </li>
       <li class="nav-item">
         <%= link_to t("users.new.tab_title"), "#", :class => "nav-link active" %>
@@ -24,14 +24,14 @@
 
 <div class="auth-container mx-auto my-0">
   <% if current_user.auth_uid.nil? %>
-    <div class="text-muted fs-6">
+    <div class="text-body-secondary fs-6">
       <p><strong><%= t ".about.header" %></strong> <%= t ".about.paragraph_1" %></p>
       <p><%= t ".about.paragraph_2" %></p>
     </div>
 
     <% unless @preferred_auth_provider.nil? %>
       <%= render :partial => "auth_providers" %>
-      <div class="d-flex justify-content-center align-items-center">
+      <div class="d-flex justify-content-center align-items-center mb-2">
         <div class="border-bottom border-1 flex-grow-1"></div>
         <div class="text-secondary mx-3"><%= t ".or" %></div>
         <div class="border-bottom border-1 flex-grow-1"></div>
@@ -53,6 +53,7 @@
                                                                            t(".privacy_policy_url"),
                                                                            :title => t(".privacy_policy_title"),
                                                                            :target => :new)),
+                                :autofocus => true,
                                 :tabindex => 1 %>
     <% else %>
       <%= f.hidden_field :email %>
@@ -71,17 +72,17 @@
       </div>
     <% end %>
 
-    <p class="mb-3 text-muted fs-6"><%= t(".by_signing_up_html",
-                                          :tou_link => link_to(t("layouts.tou"),
-                                                               "https://wiki.osmfoundation.org/wiki/Terms_of_Use",
-                                                               :target => :new),
-                                          :privacy_policy_link => link_to(t(".privacy_policy"),
-                                                                          t(".privacy_policy_url"),
-                                                                          :title => t(".privacy_policy_title"),
-                                                                          :target => :new),
-                                          :contributor_terms_link => link_to(t(".contributor_terms"),
-                                                                             t(".contributor_terms_url"),
-                                                                             :target => :new)) %></p>
+    <p class="mb-3 text-body-secondary fs-6"><%= t(".by_signing_up_html",
+                                                   :tou_link => link_to(t("layouts.tou"),
+                                                                        "https://wiki.osmfoundation.org/wiki/Terms_of_Use",
+                                                                        :target => :new),
+                                                   :privacy_policy_link => link_to(t(".privacy_policy"),
+                                                                                   t(".privacy_policy_url"),
+                                                                                   :title => t(".privacy_policy_title"),
+                                                                                   :target => :new),
+                                                   :contributor_terms_link => link_to(t(".contributor_terms"),
+                                                                                      t(".contributor_terms_url"),
+                                                                                      :target => :new)) %></p>
     <%= f.form_group do %>
       <%= f.check_box :consider_pd,
                       :tabindex => 5,
