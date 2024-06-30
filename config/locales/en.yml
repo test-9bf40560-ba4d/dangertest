@@ -2768,6 +2768,9 @@ en:
       consider_pd_url: https://wiki.osmfoundation.org/wiki/Licence_and_Legal_FAQ/Why_would_I_want_my_contributions_to_be_public_domain
       or: "or"
       use external auth: "or sign up with a third party"
+      verify_human: Verify you're a human
+    create:
+      not_human: Human verification failed
     terms:
       title: "Terms"
       heading: "Terms"

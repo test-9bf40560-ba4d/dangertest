@@ -38,7 +38,7 @@ Rails.application.configure do
   config.active_storage.service = :test
 
   # Disable logging in tests, for speed increases. Set to :info to bring back logging
-  config.log_level = :warn
+  config.log_level = :info
 
   config.action_mailer.perform_caching = false
 
