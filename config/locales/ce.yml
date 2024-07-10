@@ -3,6 +3,7 @@
 # Export driver: phpyaml
 # Author: McDutchie
 # Author: Sasan700
+# Author: Исмаил Садуев
 # Author: Умар
 ---
 ce:
@@ -28,7 +29,7 @@ ce:
         update: Хийцам Ӏалашбе
       trace:
         create: Сервер тӀейаккха
-        update: Ӏалашбе хийцамаш
+        update: Хийцамаш дӀаӀалашбан
       user_block:
         create: Кхолла блок
         update: Карлайаккха блок
@@ -72,7 +73,7 @@ ce:
       way_tag: Сизан тег
     attributes:
       diary_comment:
-        body: Йоза
+        body: Текст
       diary_entry:
         user: Декъашхо
         title: Тема
@@ -95,7 +96,7 @@ ce:
       message:
         sender: Баийтинарг
         title: Тема
-        body: Йоза
+        body: Текст
         recipient: Кхаьчнарг
       user:
         email: Электронан пошт
@@ -173,7 +174,7 @@ ce:
         title: OpenStreetMap билгалонаш
       entry:
         comment: Коммент
-        full: Дуьззина йоза
+        full: Йуьззина текст
   accounts:
     edit:
       current email address: 'Карара электронан поштан адрес:'
@@ -181,7 +182,7 @@ ce:
         link text: хӀун йу хӀара?
       contributor terms:
         link text: хӀун йу хӀара?
-      save changes button: Ӏалашбе хийцамаш
+      save changes button: Хийцамаш дӀаӀалашбан
   browse:
     version: Верси
     in_changeset: Нисдарш
@@ -294,6 +295,9 @@ ce:
       title: 'Нисдарш: %{id}'
       discussion: Дийцар
       join_discussion: Дийцарехь дакъалаца системин чугӀо
+      hide_comment: къайлайаккха
+      unhide_comment: гайта
+      comment: Коммент
       changesetxml: Нисдарийн XML
       osmchangexml: osmChange XML
     paging_nav:
@@ -384,7 +388,8 @@ ce:
       all:
         title: Дневникан дӀайаздарш OpenStreetMap
         description: OpenStreetMap декъашхойн тӀаьххьарлера дӀайаздарш
-    comments:
+  diary_comments:
+    index:
       post: Хаам
       when: Маца
       comment: Коммент
@@ -919,7 +924,7 @@ ce:
       revoker: 'БлокдӀайаьккхинарг:'
     block:
       show: Гайта
-      edit: Нисйе
+      edit: Нисйан
       revoke: ДӀайаккхаблок!
     blocks:
       display_name: Блоктоьхна декъашхо
@@ -966,7 +971,7 @@ ce:
       download: Схьаэца
       short_url: Йоца хьажорг
     embed:
-      report_problem: ГӀалатех хаам бар
+      report_problem: Проблемах лаьцна хаийта
     map:
       layers:
         header: Картан чкъор
@@ -976,11 +981,6 @@ ce:
     site:
       edit_tooltip: Нисде карта
       edit_disabled_tooltip: Хийцамашбан гергадаладе карта
-    changesets:
-      show:
-        comment: Коммент
-        hide_comment: къайлайаккха
-        unhide_comment: гайта
     directions:
       ascend: Хьала
       engines:

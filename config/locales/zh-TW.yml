@@ -40,6 +40,7 @@
 # Author: Tntchn
 # Author: TongcyDai
 # Author: Wehwei
+# Author: WiiUf
 # Author: Winston Sung
 # Author: Wrightbus
 # Author: Xiplus
@@ -289,7 +290,7 @@ zh-TW:
         retain_notes: 若有你的地圖註記與註記評論內容，這將會繼續保留；不過會隱藏起來。
         retain_changeset_discussions: 若有你的變更集討論，這將會繼續保留。
         retain_email: 你的電子郵件地址將會繼續保留。
-        recent_editing_html: 因為你最近有編輯過，目前無法刪除你的帳號。在 %{time} 後才可刪除。
+        recent_editing_html: 因為你最近進行過編輯，目前無法刪除你的帳號。在 %{time} 後才可刪除。
         confirm_delete: 你確定嗎？
         cancel: 取消
   accounts:
@@ -492,8 +493,13 @@ zh-TW:
       discussion: 討論
       join_discussion: 登入以參加討論
       still_open: 變更集仍為開啟 - 討論要在變更集關閉後才會開啟。
+      subscribe: 訂閱
+      unsubscribe: 取消訂閱
       comment_by_html: 來自%{user}%{time_ago}的評論
       hidden_comment_by_html: '%{user}%{time_ago}隱藏評論'
+      hide_comment: 隱藏
+      unhide_comment: 取消隱藏
+      comment: 評論
       changesetxml: 變更集 XML
       osmchangexml: osmChange 格式 XML
     paging_nav:
@@ -563,6 +569,8 @@ zh-TW:
       title: '%{user} 的日記|%{title}'
       user_title: '%{user} 的日記'
       discussion: 討論
+      subscribe: 訂閱
+      unsubscribe: 取消訂閱
       leave_a_comment: 留下評論
       login_to_leave_a_comment_html: '%{login_link}來留下評論'
       login: 登入
@@ -604,7 +612,14 @@ zh-TW:
       all:
         title: OpenStreetMap 日記項目
         description: OpenStreetMap 使用者最近的日記項目
-    comments:
+    subscribe:
+      heading: 訂閱以下日記項目討論？
+      button: 訂閱討論
+    unsubscribe:
+      heading: 取消訂閱以下日記項目討論？
+      button: 取消訂閱討論
+  diary_comments:
+    index:
       title: 日記評論由%{user}添加
       heading: '%{user}的日記評論'
       subheading_html: 日記評論由%{user}添加
@@ -614,12 +629,6 @@ zh-TW:
       comment: 評論
       newer_comments: 較新的評論
       older_comments: 較舊的評論
-    subscribe:
-      heading: 訂閱以下日記項目討論？
-      button: 訂閱討論
-    unsubscribe:
-      heading: 取消訂閱以下日記項目討論？
-      button: 取消訂閱討論
   doorkeeper:
     errors:
       messages:
@@ -850,6 +859,7 @@ zh-TW:
           college: 學院建物
           commercial: 商業建築
           construction: 在建建築
+          cowshed: 牛棚
           detached: 獨立式住宅
           dormitory: 宿舍
           duplex: 複式住宅
@@ -879,6 +889,7 @@ zh-TW:
           shed: 舍
           stable: 馬廄
           static_caravan: 旅行拖車
+          sty: 豬圈
           temple: 廟宇建築
           terrace: 排屋
           train_station: 車站建物
@@ -1676,11 +1687,11 @@ zh-TW:
         commented_note_html: '%{commenter} 在你感興趣的地圖註記評論。該註記在 %{place} 附近。'
       closed:
         subject_own: '[OpenStreetMap] %{commenter} 解決你其中一筆註記 %{commenter}'
-        subject_other: '[OpenStreetMap]%{commenter} 已經解決一筆你興趣的註記'
-        your_note: '%{commenter} 已經解決你其中一筆接近 %{place} 的註記。'
-        your_note_html: '%{commenter} 已經解決你其中一筆接近 %{place} 的註記。'
-        commented_note: '%{commenter} 已經解決一筆你留言過的地圖註記。這筆在 %{place} 附近。'
-        commented_note_html: '%{commenter} 已經解決一筆你留言過的地圖註記。這筆在 %{place} 附近。'
+        subject_other: '[OpenStreetMap]%{commenter} 已解決一項你感興趣的註記'
+        your_note: '%{commenter} 已解決你在 %{place} 附近的註記之一。'
+        your_note_html: '%{commenter} 已解決你在 %{place} 附近的註記之一。'
+        commented_note: '%{commenter} 已解決你留言過的地圖註記。該註記在 %{place} 附近。'
+        commented_note_html: '%{commenter} 已解決你留言過的地圖註記。該註記在 %{place} 附近。'
       reopened:
         subject_own: '[OpenStreetMap] %{commenter} 再次開啟你其中一筆註記。'
         subject_other: '[OpenStreetMap] %{commenter} 再次開啟你感興趣的註記。'
@@ -1938,6 +1949,7 @@ zh-TW:
       legal_2_2_registered_trademarks: OSMF 的註冊商標
       partners_title: 合作夥伴
     copyright:
+      title: 版權與授權條款
       foreign:
         title: 關於本翻譯
         html: 這個翻譯頁面和 %{english_original_link} 若有衝突，會以英文頁面為準
@@ -1948,7 +1960,6 @@ zh-TW:
         native_link: 繁體中文版
         mapping_link: 開始製圖
       legal_babble:
-        title_html: 版權與授權條款
         introduction_1_html: OpenStreetMap%{registered_trademark_link}是%{open_data}，透過%{osm_foundation_link}（OSMF）在%{odc_odbl_link}（ODbL）下授權。
         introduction_1_open_data: 開放資料
         introduction_1_odc_odbl: 開放資料共享開放資料庫授權
@@ -2058,9 +2069,6 @@ zh-TW:
     index:
       js_1: 您使用不支援 JavaScript 的瀏覽器，或者停用了 JavaScript。
       js_2: OpenStreetMap 使用 JavaScript 讓地圖更平順。
-      permalink: 固定連結
-      shortlink: 簡短連結
-      createnote: 新增註記
       license:
         copyright: 版權所有，由 OpenStreetMap 及貢獻者根據開放的授權協議提供
       remote_failed: 編輯失敗 - 請確定已載入 JOSM 或 Merkaartor 並開啟遠端控制選項
@@ -2411,7 +2419,6 @@ zh-TW:
   application:
     basic_auth_disabled: HTTP 基本認證已停用：%{link}
     oauth_10a_disabled: OAuth 1.0 與 1.0a 已停用：%{link}
-    auth_disabled_link: https://wiki.openstreetmap.org/wiki/2024_authentication_update
     permission_denied: 您沒有權限來存取該操作。
     require_cookies:
       cookies_needed: 您似乎已停用 cookies - 請在瀏覽器中開啟 cookies，然後繼續。
@@ -2448,12 +2455,6 @@ zh-TW:
       wikipedia:
         title: 使用維基百科登入
         alt: 使用維基百科帳號登入
-      wordpress:
-        title: 使用 Wordpress 登入
-        alt: 使用 Wordpress OpenID 登入
-      aol:
-        title: 使用 AOL 登入
-        alt: 使用 AOL OpenID 登入
   oauth:
     authorize:
       title: 授權使用您的帳號
@@ -2595,15 +2596,20 @@ zh-TW:
         welcome: 歡迎來到 OpenStreetMap
       duplicate_social_email: 若您已有 OpenStreetMap 帳號，並希望使用第三方身份提供者，請使用您的密碼登入並修改您帳號的設定。
       display name description: 您公開顯示的使用者名稱。您可以稍後在偏好設定中改變它。
-      by_signing_up_html: 註冊即表示您同意我們的 %{tou_link}、%{privacy_policy_link} 與 %{contributor_terms_link}。
+      by_signing_up:
+        html: 註冊即表示您同意我們的 %{tou_link}、%{privacy_policy_link} 與 %{contributor_terms_link}。
+        privacy_policy: 隱私權政策
+        privacy_policy_title: OSMF 隱私權政策包含電子郵件地址部份
+        contributor_terms_url: https://wiki.osmfoundation.org/wiki/Licence/Contributor_Terms
+        contributor_terms: 貢獻者條款
       tou: 使用條款
-      contributor_terms: 貢獻者條款
       external auth: 第三方身份認證
       continue: 註冊
       terms accepted: 感謝您接受新的貢獻條款！
-      email_help_html: 您的地址不會公開顯示，請參閱我們的%{privacy_policy_link}來了解更多資訊。
-      privacy_policy: 隱私權政策
-      privacy_policy_title: OSMF 隱私權政策包含電子郵件地址部份
+      email_help:
+        privacy_policy: 隱私權政策
+        privacy_policy_title: OSMF 隱私權政策包含電子郵件地址部份
+        html: 您的地址不會公開顯示，請參閱我們的%{privacy_policy_link}來了解更多資訊。
       consider_pd_html: 我認為我的貢獻屬於 %{consider_pd_link}。
       consider_pd: 公有領域
       consider_pd_url: https://wiki.osmfoundation.org/wiki/Licence_and_Legal_FAQ/Why_would_I_want_my_contributions_to_be_public_domain
@@ -2663,6 +2669,8 @@ zh-TW:
       remove as friend: 移除好友
       add as friend: 加入為好友
       mapper since: 註冊為製圖者日期：
+      last map edit: 最後地圖編輯於：
+      no activity yet: 尚無活動
       uid: 使用者 ID：
       ct status: 貢獻者條款：
       ct undecided: 未決定
@@ -2918,7 +2926,7 @@ zh-TW:
       report_link_html: 如果此註記含有需要移除的敏感資訊，您可以%{link}。
       other_problems_resolve: 對於註記的所有其他問題，您可以依據評論內容來自行處理。
       other_problems_resolved: 對於其他類型回報，解決已經足夠了。
-      disappear_date_html: 已經解決的註記會從地圖的 %{disappear_in} 消失
+      disappear_date_html: 已解決的註記會在%{disappear_in}後從地圖中消失
     new:
       title: 新增註記
       intro: 發現錯誤或缺少些什麼東西嗎？請告訴其他地圖製作者以便於我們處理。將標記移動到正確的位置並輸入註記，以解釋問題。
@@ -3001,13 +3009,6 @@ zh-TW:
       queryfeature_tooltip: 查詢圖徵
       queryfeature_disabled_tooltip: 放大地圖以查询圖徵
       embed_html_disabled: HTML 內嵌對此地圖圖層不可用
-    changesets:
-      show:
-        comment: 評論
-        subscribe: 訂閱
-        unsubscribe: 取消訂閱
-        hide_comment: 隱藏
-        unhide_comment: 取消隱藏
     edit_help: 將地圖移至你想編輯的位置並放大，然後按這裡。
     directions:
       ascend: 上升

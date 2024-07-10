@@ -533,8 +533,13 @@ sl:
       join_discussion: Prijavite se za pridružitev pogovoru
       still_open: Nabor sprememb je še vedno odprt – pogovor se bo začel, ko bo nabor
         sprememb zaprt.
+      subscribe: Naroči me
+      unsubscribe: Odnaroči
       comment_by_html: Komentar %{user} %{time_ago}
       hidden_comment_by_html: Skrit komentar %{user} %{time_ago}
+      hide_comment: skrij
+      unhide_comment: razkrij
+      comment: Komentiraj
       changesetxml: Nabor sprememb XML
       osmchangexml: osmChange XML
     paging_nav:
@@ -651,7 +656,8 @@ sl:
       all:
         title: Dnevniški zapisi OpenStreetMap
         description: Nedavni dnevniški zapisi uporabnikov OpenStreetmap
-    comments:
+  diary_comments:
+    index:
       title: Dnevniški komentarji, ki jih je dodal_a %{user}
       heading: Dnevniški komentarji %{user}
       subheading_html: Dnevniški komentarji, ki jih je dodal_a %{user}
@@ -836,7 +842,7 @@ sl:
           post_office: Pošta
           prison: Zapor
           pub: Pivnica
-          public_bath: Kopališče
+          public_bath: Javno kopališče
           public_bookcase: Javna knjižna omara
           public_building: Javna stavba
           ranger_station: Gozdarska postaja
@@ -925,7 +931,7 @@ sl:
           stable: Hlev za konje
           static_caravan: Stanovanjska prikolica
           temple: Tempelj
-          terrace: Terasa
+          terrace: Vrstne hiše
           train_station: Poslopje železniške postaje
           university: Univerza
           warehouse: Skladišče
@@ -1066,13 +1072,13 @@ sl:
           allotments: Vrtički
           aquaculture: Akvakultura
           basin: Čistilni bazen
-          brownfield: Gradbišče
+          brownfield: Opuščeno območje, kjer so bile stavbe
           cemetery: Pokopališče, ki ni ob cerkvi
           commercial: Poslovna cona
           conservation: Zaščiteno območje
           construction: Gradbišče
           farmland: Kmetijsko zemljišče
-          farmyard: Kmetija - dvorišče
+          farmyard: Dvorišče kmetije
           forest: Gozd
           garages: Garaže
           grass: Trata
@@ -1150,15 +1156,15 @@ sl:
           crane: Žerjav
           cross: Križ
           dolphin: Privez
-          dyke: Nasip
+          dyke: Protipoplavni nasip
           embankment: Nasip
           flagpole: Zastavni drog
-          gasometer: Plinometer
+          gasometer: Rezervoar za plin
           groyne: Valobran
           kiln: Peč
           lighthouse: Svetilnik
           manhole: Vhodna odprtina
-          mast: Steber
+          mast: Jambor
           mine: Rudnik
           mineshaft: Rudniški jašek
           monitoring_station: Opazovalna postaja
@@ -1175,7 +1181,7 @@ sl:
           surveillance: Nadzor
           telescope: Teleskop
           tower: Stolp
-          utility_pole: Drog
+          utility_pole: Drog za infrastrukturo
           wastewater_plant: Čistilna naprava
           watermill: Vodno kolo
           water_tap: Vodna pipa
@@ -1489,7 +1495,7 @@ sl:
           stream: Potok
           wadi: Vadi
           waterfall: Slap
-          weir: Zapornica
+          weir: Nizek jez
           "yes": Vodotok
       admin_levels:
         level2: Državna meja
@@ -2070,6 +2076,7 @@ sl:
       legal_2_2_registered_trademarks: registrirane tržne znamke OSMF
       partners_title: Partnerji
     copyright:
+      title: Avtorske pravice in licenca
       foreign:
         title: O tem prevodu
         html: V primeru neskladja med tem prevodom in %{english_original_link} prevlada
@@ -2082,7 +2089,6 @@ sl:
         native_link: Slovensko verzijo
         mapping_link: začnete kartirati
       legal_babble:
-        title_html: Avtorske pravice in licenca
         introduction_1_html: |-
           OpenStreetMap%{registered_trademark_link} so %{open_data}, ki jih je pod licenco
           %{odc_odbl_link} (ODbL) objavila %{osm_foundation_link} (OSMF).
@@ -2248,9 +2254,6 @@ sl:
       js_1: Bodisi uporabljate brskalnik, ki ne podpira Javascripta, ali pa je izvajanje
         Javascripta onemogočeno.
       js_2: OpenStreetMap za prikaz zemljevida uporablja Javascript.
-      permalink: Trajna povezava
-      shortlink: Kratka povezava
-      createnote: Dodajte opombo
       license:
         copyright: Avtorske pravice OpenStreetMap in sodelavci, pod odprto licenco
       remote_failed: Urejanje ni uspelo - poskrbite da je JOSM ali Merkaartor naložen
@@ -2666,28 +2669,22 @@ sl:
       openid_login_button: Nadaljuj
       openid:
         title: Prijava z OpenID
-        alt: Prijava s povezavo OpenID
+        alt: Logotip OpenID
       google:
         title: Prijava z Googlom
-        alt: Prijava z Google OpenID-jem
+        alt: Logotip Google
       facebook:
         title: Prijavi se s Facebookom
-        alt: Prijavi se z računom Facebook
+        alt: Logotip Facebook
       microsoft:
         title: Prijava z Microsoftom
-        alt: Prijava z računom Microsoft
+        alt: Logotip Microsoft
       github:
         title: Vpis z GitHub-om
-        alt: Vpis z računom pri GitHub-u
+        alt: Logotip GitHub
       wikipedia:
         title: Prijavi se z Wikipedijo
-        alt: Prijavi se z računom Wikipedije
-      wordpress:
-        title: Prijava z Wordpressom
-        alt: Prijava z Wordpress OpenID-jem
-      aol:
-        title: Prijavi se z AOL-om
-        alt: Prijavi se z z OpenID-jem AOL
+        alt: Logotip Wikipedije
   oauth:
     authorize:
       title: Dovoljenje za dostop do vašega računa
@@ -2843,18 +2840,22 @@ sl:
         nastavitve svojega računa.
       display name description: Vaše javno prikazano uporabniško ime. To lahko spremenite
         pozneje v prilagoditvah.
-      by_signing_up_html: S prijavo privoljujete v naše %{tou_link}, %{privacy_policy_link}
-        in %{contributor_terms_link}.
+      by_signing_up:
+        html: S prijavo privoljujete v naše %{tou_link}, %{privacy_policy_link} in
+          %{contributor_terms_link}.
+        privacy_policy: pravilnik o zasebnosti
+        privacy_policy_title: Pravilnik o zasebnosti OSMF, vključno z razdelkom o
+          e-poštnih naslovih
+        contributor_terms: pogoji sodelovanja
       tou: pogoji uporabe
-      contributor_terms: pogoji sodelovanja
       external auth: Avtentikacija prek tretje osebe
       continue: Registracija
       terms accepted: Hvala za sprejem novih pogojev prispevanja!
-      email_help_html: Vaš naslov ni javno prikazan, za več informacij glejte naš
-        %{privacy_policy_link}.
-      privacy_policy: pravilnik o zasebnosti
-      privacy_policy_title: Pravilnik o zasebnosti OSMF, vključno z razdelkom o e-poštnih
-        naslovih
+      email_help:
+        privacy_policy: pravilnik o zasebnosti
+        privacy_policy_title: Pravilnik o zasebnosti OSMF, vključno z razdelkom o
+          e-poštnih naslovih
+        html: Vaš naslov ni javno prikazan, za več informacij glejte naš %{privacy_policy_link}.
       consider_pd_html: Svoje prispevke štejem za %{consider_pd_link}.
       consider_pd: javna domena
       or: ali
@@ -2893,7 +2894,6 @@ sl:
       terms_declined_html: Žal nam je, da ste se odločili, da ne sprejmete novih pogojev
         za sodelavce. Za več informacij glejte %{terms_declined_link}.
       terms_declined_link: ta vikistran
-      terms_declined_url: https://wiki.openstreetmap.org/wiki/Contributor_Terms_Declined
     no_such_user:
       title: Ni tega uporabnika
       heading: Uporabnik %{user} ne obstaja
@@ -3281,13 +3281,6 @@ sl:
       queryfeature_tooltip: Preveri značilnosti
       queryfeature_disabled_tooltip: Približajte za preverjanje značilnosti
       embed_html_disabled: Za ta sloj zemljevida vdelava HTML ni na voljo
-    changesets:
-      show:
-        comment: Komentiraj
-        subscribe: Naroči me
-        unsubscribe: Odnaroči
-        hide_comment: skrij
-        unhide_comment: razkrij
     edit_help: Premaknite zemljevid in približajte lokacijo, ki jo želite urediti,
       nato pa kliknite tukaj.
     directions:

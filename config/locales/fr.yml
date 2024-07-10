@@ -44,6 +44,7 @@
 # Author: Hashar
 # Author: Hecatonchire
 # Author: IAlex
+# Author: Ignatgg
 # Author: Iketsi
 # Author: JB
 # Author: Jean-Frédéric
@@ -75,6 +76,7 @@
 # Author: Olasd
 # Author: Orikrin1998
 # Author: Otourly
+# Author: Oujon
 # Author: Oupsa
 # Author: Overflorian
 # Author: Peter17
@@ -612,8 +614,13 @@ fr:
       join_discussion: Se connecter pour rejoindre la discussion
       still_open: Ensemble de modifications toujours ouvert – la discussion s’ouvrira
         une fois que l’ensemble de modifications sera fermé.
+      subscribe: S’abonner
+      unsubscribe: Se désabonner
       comment_by_html: Commentaire de %{user} %{time_ago}
       hidden_comment_by_html: Commentaire caché de %{user} %{time_ago}
+      hide_comment: masquer
+      unhide_comment: démasquer
+      comment: Commenter
       changesetxml: XML du groupe de modifications
       osmchangexml: XML osmChange
     paging_nav:
@@ -689,6 +696,8 @@ fr:
       title: Carnet de %{user} | %{title}
       user_title: Carnet de %{user}
       discussion: Discussion
+      subscribe: S’abonner
+      unsubscribe: Se désabonner
       leave_a_comment: Laisser un commentaire
       login_to_leave_a_comment_html: '%{login_link} pour laisser un commentaire'
       login: Se connecter
@@ -734,7 +743,14 @@ fr:
       all:
         title: Entrées des journaux OpenStreetMap
         description: Entrées récentes des journaux d’utilisateurs de OpenStreetMap
-    comments:
+    subscribe:
+      heading: S'abonner à la discussion suivante sur les entrées de journal ?
+      button: S'abonner à la discussion
+    unsubscribe:
+      heading: Se désinscrire de la discussion suivante sur les entrées du journal ?
+      button: Se désinscrire de la discussion
+  diary_comments:
+    index:
       title: Commentaires de journal ajoutés par %{user}
       heading: Commentaires de journal de %{user}
       subheading_html: Commentaires de journal ajoutés par %{user}
@@ -744,12 +760,6 @@ fr:
       comment: Commentaire
       newer_comments: Commentaires plus récents
       older_comments: Commentaires plus anciens
-    subscribe:
-      heading: S'abonner à la discussion suivante sur les entrées de journal ?
-      button: S'abonner à la discussion
-    unsubscribe:
-      heading: Se désinscrire de la discussion suivante sur les entrées du journal ?
-      button: Se désinscrire de la discussion
   doorkeeper:
     errors:
       messages:
@@ -993,6 +1003,7 @@ fr:
           college: Bâtiment d’enseignement supérieur
           commercial: Bâtiment de bureaux
           construction: Bâtiment en construction
+          cowshed: Étable
           detached: Maison isolée
           dormitory: Dortoir
           duplex: Maison en duplex
@@ -1022,6 +1033,7 @@ fr:
           shed: Cabanon
           stable: Écurie
           static_caravan: Caravane
+          sty: Porcherie
           temple: Bâtiment de temple
           terrace: Rangée de bâtiments
           train_station: Bâtiment de gare ferroviaire
@@ -1758,6 +1770,7 @@ fr:
     more: Plus
   user_mailer:
     diary_comment_notification:
+      description: 'Entrée du journal OpenStreetMap #%{id}'
       subject: '[OpenStreetMap] %{user} a publié un commentaire sur un article de
         journal'
       hi: Bonjour %{to_user},
@@ -2166,6 +2179,7 @@ fr:
       legal_2_2_registered_trademarks: marques commerciales enregistrées de l’OSMF
       partners_title: Partenaires
     copyright:
+      title: Droits d’auteur et licence
       foreign:
         title: À propos de cette traduction
         html: En cas de conflit entre la présente page traduite et %{english_original_link},
@@ -2179,7 +2193,6 @@ fr:
         native_link: traduction française
         mapping_link: commencer à contribuer
       legal_babble:
-        title_html: Droits d’auteur et licence
         introduction_1_html: |-
           OpenStreetMap%{registered_trademark_link} est en %{open_data}, sous licence 
           %{odc_odbl_link} (ODbL) par la %{osm_foundation_link} (OSMF).
@@ -2353,9 +2366,6 @@ fr:
       js_1: JavaScript n’est pas pris en charge par le navigateur que vous utilisez,
         ou bien vous l’avez désactivé.
       js_2: OpenStreetMap utilise Javascript pour ses cartes glissantes.
-      permalink: Lien permanent
-      shortlink: Lien court
-      createnote: Ajouter une note
       license:
         copyright: Copyright OpenStreetMap et ses contributeurs, sous une licence
           ouverte
@@ -2773,6 +2783,8 @@ fr:
         other: Fichier GPX avec %{count} points de %{user}
       description_without_count: Fichier GPX de %{user}
   application:
+    basic_auth_disabled: 'L''authentification HTTP de base est désactivée : %{link}'
+    oauth_10a_disabled: 'OAuth 1.0 et 1.0a sont désactivés : %{link}'
     permission_denied: Vous n’avez pas le droit d’accéder à cette action
     require_cookies:
       cookies_needed: Il semble que les témoins (cookies) soient désactivés dans votre
@@ -2803,23 +2815,17 @@ fr:
         title: Se connecter avec Google
         alt: Se connecter avec un OpenID de Google
       facebook:
-        title: Connexion avec Facebook
+        title: Se connecter avec Facebook
         alt: Se connecter avec un compte de Facebook
       microsoft:
         title: Se connecter avec Microsoft
         alt: Se connecter avec un compte Microsoft
       github:
-        title: Connexion avec GitHub
-        alt: Se connecter avec un compte de GitHub
+        title: Se connecter avec GitHub
+        alt: Se connecter avec un compte GitHub
       wikipedia:
-        title: Connexion avec Wikipédia
-        alt: Se connecter avec un compte de Wikipédia
-      wordpress:
-        title: Connexion avec Wordpress
-        alt: Se connecter avec un OpenID de Wordpress
-      aol:
-        title: Se connecter avec AOL
-        alt: Se connecter avec un OpenID d’AOL
+        title: Se connecter avec Wikipédia
+        alt: Se connecter avec un compte Wikipédia
   oauth:
     authorize:
       title: Autoriser l’accès à votre compte
@@ -2963,6 +2969,7 @@ fr:
     new:
       title: S’inscrire
       tab_title: Créer un compte
+      signup_to_authorize_html: Se connecter à OpenStreetMap pour accéder à %{client_app_name}.
       no_auto_account_create: Malheureusement, nous ne sommes actuellement pas en
         mesure de vous créer un compte automatiquement.
       please_contact_support_html: Veuillez contacter %{support_link} pour organiser
@@ -2974,25 +2981,31 @@ fr:
         paragraph_1: Contrairement à d’autres cartes, OpenStreetMap est entièrement
           créé par des personnes comme vous et il permet à quiconque de librement
           la réparer, la mettre à jour, la télécharger et l’utiliser.
-        paragraph_2: Inscrivez-vous pour commencer à contribuer. Nous vous enverrons
-          un courriel pour confirmer votre compte.
+        paragraph_2: Se connecter pour commencer à contribuer.
+        welcome: Bienvenue dans OpenStreetMap
       duplicate_social_email: Si vous possédez déjà un compte OpenStreetMap et souhaitez
         utiliser un fournisseur d'identité tiers, veuillez vous connecter en utilisant
         votre mot de passe et modifier les paramètres de votre compte.
       display name description: Votre nom d’utilisateur affiché publiquement. Vous
         pouvez changer ceci ultérieurement dans les préférences.
-      by_signing_up_html: En vous inscrivant, vous acceptez nos %{tou_link}, %{privacy_policy_link}
-        et %{contributor_terms_link}.
+      by_signing_up:
+        html: En vous inscrivant, vous acceptez nos %{tou_link}, %{privacy_policy_link}
+          et %{contributor_terms_link}.
+        privacy_policy: politique de confidentialité
+        privacy_policy_title: Politique de confidentialité de l’OSMF, qui comprend
+          une section sur les adresses de courriel
+        contributor_terms_url: https://wiki.osmfoundation.org/wiki/Licence/Contributor_Terms/FR
+        contributor_terms: Conditions de contribution
       tou: conditions d'utilisation
-      contributor_terms: Conditions de contribution
       external auth: 'Authentification tierce :'
       continue: S’inscrire
       terms accepted: Merci d’avoir accepté les nouveaux termes du contributeur !
-      email_help_html: Votre adresse n’est pas affichée publiquement, consultez notre
-        %{privacy_policy_link} pour plus d’informations.
-      privacy_policy: politique de confidentialité
-      privacy_policy_title: Politique de confidentialité de l’OSMF, qui comprend une
-        section sur les adresses de courriel
+      email_help:
+        privacy_policy: politique de confidentialité
+        privacy_policy_title: Politique de confidentialité d'OSMF, y compris une section
+          sur les adresses e-mail
+        html: Votre adresse n’est pas affichée publiquement, consultez notre %{privacy_policy_link}
+          pour plus d’informations.
       consider_pd_html: Je considère que mes contributions se situent dans le %{consider_pd_link}.
       consider_pd: domaine public
       or: ou
@@ -3034,7 +3047,6 @@ fr:
         les nouvelles Conditions de contribution. Pour plus d’informations, veuillez
         consulter %{terms_declined_link}.
       terms_declined_link: cette page du wiki
-      terms_declined_url: https://wiki.openstreetmap.org/wiki/Contributor_Terms_Declined
     no_such_user:
       title: Utilisateur inexistant
       heading: L’utilisateur ou l’utilisatrice « %{user} » n’existe pas
@@ -3065,6 +3077,8 @@ fr:
       remove as friend: Supprimer en tant qu’ami
       add as friend: Ajouter en tant qu’ami
       mapper since: 'Cartographe depuis :'
+      last map edit: 'Dernière modification de la carte :'
+      no activity yet: Pas encore d'activité
       uid: 'Identifiant utilisateur :'
       ct status: 'Conditions de contribution :'
       ct undecided: Indécis
@@ -3432,13 +3446,6 @@ fr:
       queryfeature_disabled_tooltip: Zoomer plus pour rechercher des objets
       embed_html_disabled: L’intégration de HTML n’est pas disponible pour cette couche
         de carte
-    changesets:
-      show:
-        comment: Commenter
-        subscribe: S’abonner
-        unsubscribe: Se désabonner
-        hide_comment: masquer
-        unhide_comment: démasquer
     edit_help: Déplacez la carte et zoomez sur un emplacement que vous voulez modifier,
       puis cliquez dessus.
     directions:

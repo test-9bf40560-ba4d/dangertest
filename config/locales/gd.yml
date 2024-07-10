@@ -296,6 +296,11 @@ gd:
       title: 'Seata atharraichean: %{id}'
       discussion: Deasbaireachd
       join_discussion: Clàraich a-steach gus pàirt a ghabhail san deasbaireachd
+      subscribe: Fo-sgrìobh
+      unsubscribe: Cuir crìoch air an fh-sgrìobhadh
+      hide_comment: falaich
+      unhide_comment: neo-fhalaich
+      comment: Thoir beachd
       changesetxml: XML le seata atharraichean
       osmchangexml: XML osmChange
     paging_nav:
@@ -400,7 +405,8 @@ gd:
         title: Clàran san leabhar-latha OpenStreetMap
         description: Clàran leabhair-latha le cleachdaichean OpenStreetMap o chionn
           goirid
-    comments:
+  diary_comments:
+    index:
       post: Post
       when: Àm
       comment: Beachd
@@ -1194,6 +1200,7 @@ gd:
       legal_title: Nòtaichean laghail
       partners_title: Com-pàirtichean
     copyright:
+      title: Còir-lethbhreac agus ceadachas
       foreign:
         title: Mun eadar-theangachadh seo
         html: Ma bhios còmhstri eadar an duilleag air eadar-theangachadh seo agus
@@ -1207,7 +1214,6 @@ gd:
         native_link: tionndadh sa Ghàidhlig
         mapping_link: tòiseachadh air an obair-mhapa
       legal_babble:
-        title_html: Còir-lethbhreac agus ceadachas
         credit_title_html: Mar a bheir thu urram dha OpenStreetMap
         credit_1_html: |-
           Tha e riatanach gun chleachd thu &ldquo;&copy; OpenStreetMap
@@ -1235,9 +1241,6 @@ gd:
       js_1: Tha thu a' chleachdadh brabhsair nach cuir taic ri JavaScript no chuir
         thu JavaScript à comas.
       js_2: Cleachdaidh OpenStreetMap JavaScript gus am mapa a shealltainn.
-      permalink: Ceangal buan
-      shortlink: Ceangal goirid
-      createnote: cuir nòta ris
       license:
         copyright: Còir-lethbhreac OpenStreetMap agus na co-thabhartaichean aige fo
           cheadachas fosgailte
@@ -1521,12 +1524,6 @@ gd:
       wikipedia:
         title: Clàraich a-steach leis an Uicipeid
         alt: Clàraich a-steach le cunntas na h-Uicipeid
-      wordpress:
-        title: Clàraich a-steach le Wordpress
-        alt: Clàraich a-steach le OpenID Wordpress
-      aol:
-        title: Clàraich a-steach le AOL
-        alt: Clàraich a-steach le OpenID AOL
   oauth:
     authorize:
       title: Ceadaich inntrigeadh dhan chunntas agad
@@ -1881,13 +1878,6 @@ gd:
       map_data_zoom_in_tooltip: Sùm a-steach gus dàta a' mhapa a shealltainn
       queryfeature_tooltip: Lorg airson feartan sònraichte
       queryfeature_disabled_tooltip: Sùm an-steach gus lorg airson feartan sònraichte
-    changesets:
-      show:
-        comment: Thoir beachd
-        subscribe: Fo-sgrìobh
-        unsubscribe: Cuir crìoch air an fh-sgrìobhadh
-        hide_comment: falaich
-        unhide_comment: neo-fhalaich
     edit_help: Gluais am mapa agus sùm a-steach air ionad a tha thu airson deasachadh.
       Briog an-seo an uairsin.
     directions:

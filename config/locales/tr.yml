@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Export driver: phpyaml
 # Author: Agaafd
+# Author: Ahmetlii
 # Author: Alerque
 # Author: Alidemirtas
 # Author: Alpkant
@@ -533,8 +534,13 @@ tr:
       join_discussion: Tartışmaya katılmak için lütfen giriş yapın
       still_open: Değişiklik kaydı hâlâ açık - tartışma, değişiklik serisi kapatıldığında
         açılacaktır.
+      subscribe: Abone ol
+      unsubscribe: Abonelikten çık
       comment_by_html: '%{user} tarafından %{time_ago} yapılan yorum'
       hidden_comment_by_html: '%{user} tarafından %{time_ago} yapılan gizli yorum'
+      hide_comment: gizle
+      unhide_comment: göster
+      comment: Yorum
       changesetxml: ' XML değişiklik kaydı'
       osmchangexml: osmChange XML
     paging_nav:
@@ -608,6 +614,8 @@ tr:
       title: '%{user} Kullanıcısının Günlüğü | %{title}'
       user_title: '%{user} Kullanıcısının Günlüğü'
       discussion: Tartışma
+      subscribe: Abone ol
+      unsubscribe: Abonelikten çık
       leave_a_comment: Yorum yap
       login_to_leave_a_comment_html: Yorum yazmak için %{login_link}
       login: Oturum Aç
@@ -653,7 +661,14 @@ tr:
       all:
         title: OpenStreetMap günlük girdileri
         description: OpenStreetMap kullanıcıların en son günlük girdileri
-    comments:
+    subscribe:
+      heading: Aşağıdaki günlük girdisi tartışmasına abone olmak ister misiniz?
+      button: Tartışmaya abone ol
+    unsubscribe:
+      heading: Aşağıdaki günlük girdisi tartışmasının aboneliği iptal edilsin mi?
+      button: Tartışma aboneliğinden çık
+  diary_comments:
+    index:
       title: '%{user} tarafından yapılan günlük yorumları'
       heading: '%{user} Kullanıcısının Günlük Yorumları'
       subheading_html: '%{user} tarafından yapılan günlük yorumları'
@@ -663,12 +678,6 @@ tr:
       comment: Yorum
       newer_comments: Daha Yeni Yorumlar
       older_comments: Daha Eski Yorumlar
-    subscribe:
-      heading: Aşağıdaki günlük girdisi tartışmasına abone olmak ister misiniz?
-      button: Tartışmaya abone ol
-    unsubscribe:
-      heading: Aşağıdaki günlük girdisi tartışmasının aboneliği iptal edilsin mi?
-      button: Tartışma aboneliğinden çık
   doorkeeper:
     errors:
       messages:
@@ -908,6 +917,7 @@ tr:
           college: Üniversite Binası
           commercial: Ticari Binası
           construction: Yapım Aşamasındaki Bina
+          cowshed: Ahır
           detached: Müstakil Ev
           dormitory: Yurt
           duplex: İki Katlı Ev
@@ -937,6 +947,7 @@ tr:
           shed: Kulübe
           stable: Ahır
           static_caravan: Karavan
+          sty: Domuz ağılı
           temple: Tapınak Binası
           terrace: Sıra Ev
           train_station: Tren İstasyon Binası
@@ -1244,7 +1255,7 @@ tr:
           scree: Kayşat
           scrub: Çalılık
           shingle: Çakıl tabanlı sahil plaj
-          spring: İlkbahar
+          spring: Pınar/Kaynak
           stone: Taş
           strait: Boğaz
           tree: Ağaç
@@ -2077,6 +2088,7 @@ tr:
       legal_2_2_registered_trademarks: OSMF'nin tescilli ticari markaları
       partners_title: İş birlikçiler
     copyright:
+      title: Telif Hakkı ve Lisans
       foreign:
         title: Bu çeviri hakkında
         html: Tercüme edilmiş bu sayfa ile %{english_original_link} arasında meydana
@@ -2091,7 +2103,6 @@ tr:
         native_link: Türkçe sürümü
         mapping_link: haritacılığa başla
       legal_babble:
-        title_html: Telif Hakkı ve Lisans
         introduction_1_html: OpenStreetMap%{registered_trademark_link} %{odc_odbl_link}
           (ODbL) altında %{osm_foundation_link} (OSMF) tarafından lisanslanan %{open_data}dir.
         introduction_1_open_data: açık veri
@@ -2250,9 +2261,6 @@ tr:
       js_1: JavaScript desteklemeyen bir tarayıcı kullanıyorsunuz ya da JavaScript
         devre dışı bırakılmış.
       js_2: OpenStreetMap harita gösterim için JavaScript kullanıyor.
-      permalink: Kalıcı Bağlantı
-      shortlink: Kısa Bağlantı
-      createnote: Bir not ekle
       license:
         copyright: Telif Hakkı OpenStreetMap ve katılımcılar, açık lisans altında
       remote_failed: Düzenleme başarısız - JOSM veya Merkaartor'un yüklendiğinden
@@ -2652,7 +2660,6 @@ tr:
   application:
     basic_auth_disabled: 'HTTP Temel Kimlik Doğrulaması devre dışı: %{link}'
     oauth_10a_disabled: 'OAuth 1.0 ve 1.0a devre dışı bırakıldı: %{link}'
-    auth_disabled_link: https://wiki.openstreetmap.org/wiki/2024_authentication_update
     permission_denied: Bu eyleme erişme izniniz yok
     require_cookies:
       cookies_needed: Çerezleri devre dışı bırakmış görünüyorsunuz - devam etmeden
@@ -2694,12 +2701,6 @@ tr:
       wikipedia:
         title: Vikipedi ile giriş
         alt: Vikipedi Hesabı ile giriş
-      wordpress:
-        title: Wordpress ile oturum aç
-        alt: Wordpress OpenID ile giriş
-      aol:
-        title: AOL ile giriş
-        alt: AOL OpenID ile giriş
   oauth:
     authorize:
       title: Hesabınıza erişimi yetkilendirin
@@ -2856,18 +2857,20 @@ tr:
         yapın ve hesabınızın ayarlarını değiştirin.
       display name description: Herkes tarafından görünecek bir kullanıcı adı. Bu
         adı istediğiniz zaman ayarlar bölümünde değiştirebilirsiniz.
-      by_signing_up_html: Kaydolarak %{tou_link}, %{privacy_policy_link} ve %{contributor_terms_link}
-        şartlarımızı kabul etmiş sayılırsınız.
+      by_signing_up:
+        html: Kaydolarak %{tou_link}, %{privacy_policy_link} ve %{contributor_terms_link}
+          şartlarımızı kabul etmiş sayılırsınız.
+        privacy_policy: gizlilik politikası
+        privacy_policy_title: E-posta adresleriyle ilgili bölümü içeren OSMF gizlilik
+          politikası
+        contributor_terms: katılımcı şartları
       tou: kullanım şartları
-      contributor_terms: katılımcı şartları
       external auth: 'Üçüncü Taraf Kimlik Doğrulaması:'
       continue: Kaydol
       terms accepted: Yeni katılımcı şartları kabul ettiğin için teşekkür ederiz!
-      email_help_html: Adresiniz herkese açık olarak görüntülenmiyor, daha fazla bilgi
-        için %{privacy_policy_link} sayfasına bakın.
-      privacy_policy: gizlilik politikası
-      privacy_policy_title: E-posta adresleriyle ilgili bölümü içeren OSMF gizlilik
-        politikası
+      email_help:
+        html: Adresiniz herkese açık olarak görüntülenmiyor, daha fazla bilgi için
+          %{privacy_policy_link} sayfasına bakın.
       consider_pd_html: Katkılarımın %{consider_pd_link} içinde olduğunu düşünüyorum.
       consider_pd: kamu malı
       or: veya
@@ -2938,6 +2941,8 @@ tr:
       remove as friend: Arkadaşlıktan Çıkar
       add as friend: Arkadaş Olarak Ekle
       mapper since: 'Haritacılığa başlama tarihi:'
+      last map edit: 'Son harita düzenlemesi:'
+      no activity yet: Henüz herhangi bir etkinlik yok
       uid: 'Kullanıcı kimliği:'
       ct status: 'Katılımcının şartları:'
       ct undecided: Kararsız
@@ -3303,13 +3308,6 @@ tr:
       queryfeature_tooltip: Özellikleri göster
       queryfeature_disabled_tooltip: Özellikler görmek için yakınlaştır
       embed_html_disabled: Bu harita katmanı için HTML yerleştirme kullanılamıyor
-    changesets:
-      show:
-        comment: Yorum
-        subscribe: Abone ol
-        unsubscribe: Abonelikten çık
-        hide_comment: gizle
-        unhide_comment: göster
     edit_help: Haritayı sürükleyip ve düzenleme yapmak istediğiniz konuma yakınlaştırdıktan
       sonra buraya tıklayın.
     directions:

@@ -545,8 +545,13 @@ he:
       discussion: דיון
       join_discussion: נא להיכנס לחשבון כדי להצטרף לדיון
       still_open: ערכת השינויים עדיין פתוחה – הדיון ייפתח אחרי שערכת השיניים תיסגר.
+      subscribe: מינוי
+      unsubscribe: ביטול מינוי
       comment_by_html: הערה מאת %{user} %{time_ago}
       hidden_comment_by_html: הערה מוסתרת מאת %{user} %{time_ago}
+      hide_comment: הסתרה
+      unhide_comment: ביטול הסתרה
+      comment: להגיב
       changesetxml: XML של ערכת השינויים
       osmchangexml: osmChange XML
     paging_nav:
@@ -618,6 +623,8 @@ he:
       title: היומן של%{user} &rlm; | %{title}
       user_title: היומן של %{user}
       discussion: דיון
+      subscribe: מינוי
+      unsubscribe: ביטול מינוי
       leave_a_comment: הוספת תגובה
       login_to_leave_a_comment_html: נא %{login_link} כדי להשאיר תגובה
       login: להיכנס
@@ -662,7 +669,14 @@ he:
       all:
         title: רשומות ביומן של OpenStreetMap
         description: רשומות יומן אחרונות ממשתמשי OpenStreetMap
-    comments:
+    subscribe:
+      heading: לעשות מינוי לדיון ברשומת היומן הבאה?
+      button: מינוי לדיון
+    unsubscribe:
+      heading: לבטל את המינוי לדיון ברשומת היומן הבאה?
+      button: ביטול המינוי לדיון
+  diary_comments:
+    index:
       title: הערות יומן שנוספו על־ידי %{user}
       heading: הערות ביומן של %{user}
       subheading_html: הערות יומן שנוספו על־ידי %{user}
@@ -672,12 +686,6 @@ he:
       comment: תגובה
       newer_comments: הערות חדשות
       older_comments: הערות ישנות
-    subscribe:
-      heading: לעשות מינוי לדיון ברשומת היומן הבאה?
-      button: מינוי לדיון
-    unsubscribe:
-      heading: לבטל את המינוי לדיון ברשומת היומן הבאה?
-      button: ביטול המינוי לדיון
   doorkeeper:
     errors:
       messages:
@@ -712,6 +720,9 @@ he:
       contact: ליצור קשר
       contact_the_community_html: אפשר %{contact_link} עם קהילת OpenStreetMap אם מצאת
         קישור פגום / תקלה. יש לתעד את הכתובת המדויקת של הבקשה שלך.
+    bad_request:
+      title: בקשה מקולקלת
+      description: הפעולה שביקשת בשרת OpenStreetMap אינה תקינה (HTTP 400)
     forbidden:
       title: אסור
       description: הפעולה שביקשת לבצע מול שרת OpenStreetMap זמינה למנהלים בלבד (HTTP
@@ -908,6 +919,7 @@ he:
           college: בניין מכללה
           commercial: בניין מסחרי
           construction: בניין בבנייה
+          cowshed: רפת
           detached: בית פרטי
           dormitory: מעונות
           duplex: בית דופלקס
@@ -937,6 +949,7 @@ he:
           shed: צריף
           stable: אורווה
           static_caravan: קרוואן
+          sty: דיר חזירים
           temple: מקדש
           terrace: בניין מדורג
           train_station: בניין תחנת רכבת
@@ -1769,8 +1782,8 @@ he:
           היא ליד %{place}.
         commented_note_html: '%{commenter} הפעיל מחדש הערת מפה שהגבת עליה. הערה נמצאת
           ליד %{place}'
-      details: אפשר למצוא פרטים נוספים על ההערה בכתובת %{url}
-      details_html: אפשר למצוא פרטים נוספים על ההערה בכתובת %{url}.
+      details: אפשר להגיב להערה או לקבל מידע נוסף עליה בכתובת %{url}
+      details_html: אפשר להגיב להערה או לקבל מידע נוסף עליה בכתובת %{url}
     changeset_comment_notification:
       description: ערכת שינויים של OpenStreetMap מס׳ %{id}
       hi: שלום %{to_user},
@@ -1791,8 +1804,8 @@ he:
         partial_changeset_with_comment: עם ההערה '%{changeset_comment}'
         partial_changeset_with_comment_html: עם ההערה '%{changeset_comment}'
         partial_changeset_without_comment: ללא הערה
-      details: פרטים נוספים על ערכת השינויים אפשר למצוא בכתובת %{url}
-      details_html: פרטים נוספים על ערכת השינויים אפשר למצוא בכתובת %{url}
+      details: אפשר להגיב לערכת השינויים או לקבל מידע נוסף עליה בכתובת %{url}
+      details_html: אפשר להגיב לערכת השינויים או לקבל מידע נוסף עליה בכתובת %{url}
       unsubscribe: באפשרותך לבטל את המינוי לעדכונים מערכת השינויים הזאת בכתובת %{url}.
       unsubscribe_html: באפשרותך לבטל את המינוי לעדכונים מערכת השינויים הזאת בכתובת
         %{url}.
@@ -2049,6 +2062,7 @@ he:
       legal_2_2_registered_trademarks: סימנים מסחריים של OSMF
       partners_title: שותפים
     copyright:
+      title: זכויות יוצרים ורישיון
       foreign:
         title: אודות התרגום הזה
         html: במקרה של חוסר תאימות בין הדף המתורגם הזה לבין %{english_original_link},
@@ -2061,7 +2075,6 @@ he:
         native_link: גרסה העברית
         mapping_link: להתחיל למפות
       legal_babble:
-        title_html: זכויות יוצרים ורישיון
         introduction_1_html: |-
           OpenStreetMap%{registered_trademark_link} הוא מיזם %{open_data}, שמתפרסמים לפי תנאי
           %{odc_odbl_link} (ר״ת ODbL) על־ידי %{osm_foundation_link} (ר״ת OSMF).
@@ -2229,9 +2242,6 @@ he:
     index:
       js_1: הדפדפן שבו אתה משתמש אינו תומך ב־JavaScript, או שכיבית את השימוש ב־JavaScript.
       js_2: אתר OpenStreetMap משתמש ב־JavaScript למפה המחליקה.
-      permalink: קישור קבוע
-      shortlink: קישור מקוצר
-      createnote: הוספת הערה
       license:
         copyright: 'זכויות היוצרים: מיזם OpenStreetMap ותורמיו, בכפוף לרישיון פתוח'
       remote_failed: העריכה נכשלה – נא לוודא כי JOSM או Merkaartor נטענו ושאפשרות
@@ -2608,6 +2618,8 @@ he:
         other: קובץ GPS עם %{count} נקודות מאת %{user}
       description_without_count: קובץ GPS מאת %{user}
   application:
+    basic_auth_disabled: 'אימות בסיסי ב־HTTP כבוי: %{link}'
+    oauth_10a_disabled: 'OAuth 1.0 ו־1.0a כבויים: %{link}'
     permission_denied: אין לך הרשאה לגשת לפעולה הזאת
     require_cookies:
       cookies_needed: נראה שהעוגיות כבויות אצלך – נא להפעיל עוגיות בדפדפן שלך כדי
@@ -2631,28 +2643,22 @@ he:
       openid_login_button: המשך
       openid:
         title: כניסה עם OpenID
-        alt: כניסה עם URL של OpenID
+        alt: סמל OpenID
       google:
         title: כניסה עם גוגל
-        alt: כניסה עם OpenID של גוגל
+        alt: סמל גוגל
       facebook:
         title: כניסה עם פייסבוק
-        alt: כניסה עם חשבון פייסבוק
+        alt: סמל פייסבוק
       microsoft:
         title: כניסה עם מיקרוסופט
-        alt: כניסה עם חשבון מיקרוסופט
+        alt: סמל מיקרוסופט
       github:
         title: כניסה עם גיטהאב
-        alt: כניסה עם חשבון גיטהאב
+        alt: סמל גיטהאב
       wikipedia:
         title: כניסה עם ויקיפדיה
-        alt: כניסה עם חשבון ויקיפדיה
-      wordpress:
-        title: כניסה עם וורדפרס
-        alt: כניסה עם OpenID של וורדפרס
-      aol:
-        title: כניסה עם AOL
-        alt: כניסה עם OpenID של AOL
+        alt: סמל ויקיפדיה
   oauth:
     authorize:
       title: אישור הגישה לחשבון שלך
@@ -2801,17 +2807,20 @@ he:
         זהות של צד שלישי, נא להתחבר באמצעות הסיסמה שלך ולשנות את הגדרות החשבון שלך.
       display name description: שם המשתמש שלך, שמוצג בפומבי. אפשר לשנות את זה בהעדפות
         שלך.
-      by_signing_up_html: הרשמה מהווה את הסכמתך ל%{tou_link}, ל%{privacy_policy_link}
-        ול%{contributor_terms_link} שלנו.
+      by_signing_up:
+        html: הרשמה מהווה את הסכמתך ל%{tou_link}, ל%{privacy_policy_link} ול%{contributor_terms_link}
+          שלנו.
+        privacy_policy: מדיניות הפרטיות
+        privacy_policy_title: מדיניות הפרטיות של OSMF כוללת סעיף על כתובות דוא״ל
+        contributor_terms: תנאי התרומה
       tou: תנאי השימוש
-      contributor_terms: תנאי התרומה
       external auth: 'אימות עם צד שלישי:'
       continue: הרשמה
       terms accepted: תודה על קבלת תנאי התרומה החדשים!
-      email_help_html: הכתובת שלך אינה מוצגת בפומבי, ר' את %{privacy_policy_link}
-        שלנו למידע נוסף.
-      privacy_policy: מדיניות הפרטיות
-      privacy_policy_title: מדיניות הפרטיות של OSMF כוללת סעיף על כתובות דוא״ל
+      email_help:
+        privacy_policy: מדיניות פרטיות
+        html: הכתובת שלך אינה מוצגת בפומבי, ר' את %{privacy_policy_link} שלנו למידע
+          נוסף.
       consider_pd_html: מבחינתי, התרומות שלי נמצאות ב%{consider_pd_link}.
       consider_pd: נחלת הכלל
       or: או
@@ -2879,6 +2888,8 @@ he:
       remove as friend: הסרה מרשימת חברים
       add as friend: הוספה כחבר
       mapper since: 'ממפה מאז:'
+      last map edit: 'עריכת מפה אחרונה:'
+      no activity yet: עדיין אין פעילות
       uid: 'מזהה משתמש:'
       ct status: 'תנאי תרומה:'
       ct undecided: עוד אין החלטה
@@ -3164,6 +3175,10 @@ he:
       title: הערה חדשה
       intro: יש פה טעות או שחסר משהו? אנו מבקשים ממך לספר את זה לממפים אחרים. לשם
         כך צריך להזיז את הסמן למקום הנכון ולכתוב הערה שמסבירה את הבעיה.
+      anonymous_warning_html: לא נכנסת לחשבון. נא %{log_in} או %{sign_up} אם ברצונך
+        לקבל עדכונים על ההערה שלך.
+      anonymous_warning_log_in: להיכנס לחשבון
+      anonymous_warning_sign_up: להירשם
       advice: /start
       add: הוספת הערה
   javascripts:
@@ -3243,13 +3258,6 @@ he:
       queryfeature_tooltip: שאילתת ישויות
       queryfeature_disabled_tooltip: התקרבות כדי להריץ שאילתת ישויות
       embed_html_disabled: הטבעת HTML אינה זמינה בשכבת המפה הזאת
-    changesets:
-      show:
-        comment: להגיב
-        subscribe: מינוי
-        unsubscribe: ביטול מינוי
-        hide_comment: הסתרה
-        unhide_comment: ביטול הסתרה
     edit_help: יש להזיז את המפה ולהתמקד על מיקום שברצונך לערוך ואז ללחוץ כאן.
     directions:
       ascend: מעלה

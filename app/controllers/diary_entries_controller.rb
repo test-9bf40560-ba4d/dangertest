@@ -10,10 +10,10 @@ class DiaryEntriesController < ApplicationController
 
   authorize_resource
 
-  before_action :lookup_user, :only => [:show, :comments]
-  before_action :check_database_writable, :only => [:new, :create, :edit, :update, :comment, :hide, :hidecomment, :subscribe, :unsubscribe]
+  before_action :lookup_user, :only => :show
+  before_action :check_database_writable, :only => [:new, :create, :edit, :update, :comment, :hide, :unhide, :subscribe, :unsubscribe]
 
-  allow_thirdparty_images :only => [:new, :create, :edit, :update, :index, :show, :comments]
+  allow_thirdparty_images :only => [:new, :create, :edit, :update, :index, :show]
 
   def index
     if params[:display_name]
@@ -68,7 +68,8 @@ class DiaryEntriesController < ApplicationController
     @entry = entries.find_by(:id => params[:id])
     if @entry
       @title = t ".title", :user => params[:display_name], :title => @entry.title
-      @comments = can?(:unhidecomment, DiaryEntry) ? @entry.comments : @entry.visible_comments
+      @og_image = @entry.body.image
+      @comments = can?(:unhide, DiaryComment) ? @entry.comments : @entry.visible_comments
     else
       @title = t "diary_entries.no_such_entry.title", :id => params[:id]
       render :action => "no_such_entry", :status => :not_found
@@ -226,29 +227,6 @@ class DiaryEntriesController < ApplicationController
     entry = DiaryEntry.find(params[:id])
     entry.update(:visible => true)
     redirect_to :action => "index", :display_name => entry.user.display_name
-  end
-
-  def hidecomment
-    comment = DiaryComment.find(params[:comment])
-    comment.update(:visible => false)
-    redirect_to diary_entry_path(comment.diary_entry.user, comment.diary_entry)
-  end
-
-  def unhidecomment
-    comment = DiaryComment.find(params[:comment])
-    comment.update(:visible => true)
-    redirect_to diary_entry_path(comment.diary_entry.user, comment.diary_entry)
-  end
-
-  def comments
-    @title = t ".title", :user => @user.display_name
-
-    comments = DiaryComment.where(:user => @user)
-    comments = comments.visible unless can? :unhidecomment, DiaryEntry
-
-    @params = params.permit(:display_name, :before, :after)
-
-    @comments, @newer_comments_id, @older_comments_id = get_page_items(comments, :includes => [:user])
   end
 
   private

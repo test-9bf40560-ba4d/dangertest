@@ -9,9 +9,9 @@ OSM.Search = function (map) {
     }
   });
 
-  $(".search_form a.button.switch_link").on("click", function (e) {
+  $(".search_form a.btn.switch_link").on("click", function (e) {
     e.preventDefault();
-    var query = $(e.target).parent().parent().find("input[name=query]").val();
+    var query = $(this).closest("form").find("input[name=query]").val();
     if (query) {
       OSM.router.route("/directions?from=" + encodeURIComponent(query) + OSM.formatHash(map));
     } else {
@@ -33,10 +33,11 @@ OSM.Search = function (map) {
   $(".describe_location").on("click", function (e) {
     e.preventDefault();
     var center = map.getCenter().wrap(),
-        precision = OSM.zoomPrecision(map.getZoom());
-    OSM.router.route("/search?whereami=1&query=" + encodeURIComponent(
-      center.lat.toFixed(precision) + "," + center.lng.toFixed(precision)
-    ));
+        precision = OSM.zoomPrecision(map.getZoom()),
+        lat = center.lat.toFixed(precision),
+        lng = center.lng.toFixed(precision);
+
+    OSM.router.route("/search?lat=" + encodeURIComponent(lat) + "&lon=" + encodeURIComponent(lng));
   });
 
   $("#sidebar_content")

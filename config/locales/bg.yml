@@ -220,8 +220,8 @@ bg:
         opened_at_by_html: Създадена %{when} от %{user}
         commented_at_html: Обновена %{when}
         commented_at_by_html: Обновена %{when} от %{user}
-        closed_at_html: Решена %{when}
-        closed_at_by_html: Решена %{when} от %{user}
+        closed_at_html: Затворена %{when}
+        closed_at_by_html: Затворена %{when} от %{user}
         reopened_at_html: Повторно отворена %{when}
         reopened_at_by_html: Повторно отворена %{when} от %{user}
       rss:
@@ -406,6 +406,11 @@ bg:
       join_discussion: Впишете се, за да се присъедините към обсъждането
       still_open: Списъкът с промени не е завършен - обсъждането ще започне след неговото
         завършване.
+      subscribe: Абониране
+      unsubscribe: Отписване
+      hide_comment: скриване
+      unhide_comment: показване
+      comment: Коментиране
       changesetxml: XML на списъка с промени
       osmchangexml: osmChange XML
     paging_nav:
@@ -514,7 +519,8 @@ bg:
           %{language_name}
       all:
         title: Записи в дневника на OpenStreetMap
-    comments:
+  diary_comments:
+    index:
       no_comments: Няма коментари в дневника
       post: Публикация
       when: Кога
@@ -1165,16 +1171,16 @@ bg:
       states:
         ignored: Пренебрегнат
         open: Отворен
-        resolved: Решени
+        resolved: Затворени
     show:
       title: '%{status} Проблем #%{issue_id}'
       reports:
         one: '%{count} доклад'
         other: '%{count} доклада'
       report_created_at_html: Първоначално докладван на %{datetime}
-      last_resolved_at_html: Последно решена на %{datetime}
+      last_resolved_at_html: Последно затворена на %{datetime}
       last_updated_at_html: Последно актуализиран на %{datetime} от %{displayname}
-      resolve: Решаване
+      resolve: Затваряне
       ignore: Пропусни
       reopen: Отново отвори
       reports_of_this_issue: Сигнали за този Проблем
@@ -1317,11 +1323,11 @@ bg:
         subject_other: '[OpenStreetMap] %{commenter} коментира бележка, от която се
           интересувате'
       closed:
-        subject_own: '[OpenStreetMap] %{commenter} е решил една от бележките ви'
-        subject_other: '[OpenStreetMap] %{commenter} разреши бележка, която ви интересува'
-        your_note: '%{commenter} е решил една от бележките ви към картата в близост
+        subject_own: '[OpenStreetMap] %{commenter} е затворил една от бележките ви'
+        subject_other: '[OpenStreetMap] %{commenter} затвори бележка, която ви интересува'
+        your_note: '%{commenter} е затворил една от бележките ви към картата в близост
           до %{place}.'
-        your_note_html: '%{commenter} разреши една от вашите бележки на картата близо
+        your_note_html: '%{commenter} затворил една от вашите бележки на картата близо
           до %{place}.'
       reopened:
         subject_own: '[OpenStreetMap] %{commenter} повторно е отворил една от бележките
@@ -1543,6 +1549,7 @@ bg:
       legal_2_2_registered_trademarks: регистрирани търговски марки на OSMF
       partners_title: Партньори
     copyright:
+      title: Авторски права и лиценз
       foreign:
         title: За този превод
         html: В случай на противоречие между тази преведена страница и %{english_original_link},
@@ -1556,16 +1563,27 @@ bg:
         native_link: българската версия
         mapping_link: картографирате
       legal_babble:
-        title_html: Авторски права и лиценз
         credit_title_html: Как да кредитирате OpenStreetMap
         more_title_html: Открийте повече
         contributors_title_html: Нашите сътрудници
         infringement_title_html: Нарушаване на авторските права
+        infringement_1_html: Напомняме на сътрудниците на OSM никога да не добавят
+          данни от източници, защитени с авторски права (например Google Maps или
+          печатни карти), без изрично разрешение от притежателите на авторските права.
+        infringement_2_1_html: Ако смятате, че материал, защитен с авторско право,
+          е добавен по неправомерен начин в базата данни на OpenStreetMap или в този
+          сайт, моля, обърнете се към нашата %{takedown_procedure_link} или подайте
+          сигнал директно чрез нашата %{online_filing_page_link}.
+        infringement_2_1_takedown_procedure: процедура за сваляне
+        infringement_2_1_online_filing_page: онлайн страница за подаване на документи
+        trademarks_title: Търговски марки
+        trademarks_1_1_html: |-
+          OpenStreetMap, логото с лупата и State of the Map са регистрирани търговски марки на
+          OpenStreetMap Foundation. Ако имате въпроси относно използването на марките, моля вижте нашата
+          %{trademark_policy_link}.
+        trademarks_1_1_trademark_policy: политика за търговски марки
     index:
       js_2: OpenStreetMap използва JavaScript за своята статична карта.
-      permalink: Постоянна връзка
-      shortlink: Къса връзка
-      createnote: Добавяне на бележка
     edit:
       not_public: Не сте посочили вашите редакции да бъдат публични.
       user_page_link: Потребителска страница
@@ -1862,12 +1880,6 @@ bg:
       wikipedia:
         title: Влизане с Уикипедия
         alt: Влизане със сметка от Уикипедия
-      wordpress:
-        title: Влизане с Wordpress
-        alt: Влизане с OpenID от Wordpress
-      aol:
-        title: Влизане с AOL
-        alt: Влизане с OpenID от AOL
   oauth:
     authorize:
       allow_to: 'Позволи приложението на клиента да:'
@@ -2066,21 +2078,21 @@ bg:
       title: Бележка № %{id}
       description: Описание
       open_title: Нерешена бележка № %{note_name}
-      closed_title: Решена бележка № %{note_name}
+      closed_title: Затворена бележка № %{note_name}
       hidden_title: Скрита бележка № %{note_name}
       event_opened_by_html: Създадена от %{user} %{time_ago}
       report: докладване
       anonymous_warning: Бележката е от анонимен потребител и съдържа твърдения, които
         трябва да бъдат проверени.
       hide: Скриване
-      resolve: Решаване
+      resolve: Затваряне
       reactivate: Повторно отваряне
-      comment_and_resolve: Коментиране и решаване
+      comment_and_resolve: Коментиране и затваряне
       comment: Коментиране
       report_link_html: Ако тази бележка съдържа поверителна информация, която трябва
         да бъде премахната, можете да я %{link}.
-      other_problems_resolve: За всички други проблеми с бележката, моля, разрешете
-        ги с коментар.
+      other_problems_resolve: За всички други проблеми с бележката, моля, затворете
+        я с коментар.
     new:
       title: Нова бележка
       intro: Забелязали сте грешка или нещо липсващо? Уведомете другите картографи,
@@ -2143,13 +2155,6 @@ bg:
       map_data_zoom_in_tooltip: Увеличете за подробности
       queryfeature_tooltip: Търсене на обекти
       queryfeature_disabled_tooltip: Увеличете за търсене на обекти
-    changesets:
-      show:
-        comment: Коментиране
-        subscribe: Абониране
-        unsubscribe: Отписване
-        hide_comment: скриване
-        unhide_comment: показване
     directions:
       ascend: Изкачване
       engines:

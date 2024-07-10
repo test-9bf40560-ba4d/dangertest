@@ -359,6 +359,11 @@ scn:
       title: 'Gruppu di canciamenti: %{id}'
       discussion: Discussioni
       join_discussion: Pi participari ntâ discussioni trasi
+      subscribe: Abbònati
+      unsubscribe: Annulla l’abbunamentu
+      hide_comment: ammuccia
+      unhide_comment: Ammustra
+      comment: Cummenta
       changesetxml: XML dû gruppu di canciamenti
       osmchangexml: XML osmChange
     paging_nav:
@@ -462,7 +467,8 @@ scn:
       all:
         title: Vuci dû diariu d'OpenStreetMap
         description: Vuci ricenti dû diariu di l'utenti d'OpenStreetMap
-    comments:
+  diary_comments:
+    index:
       post: Missaggiu
       when: Quannu
       comment: Cummentu
@@ -1324,6 +1330,7 @@ scn:
       legal_title: Noti ligali
       partners_title: Cullabburatura
     copyright:
+      title: Dritti d'auturi e Licenza
       foreign:
         title: A prupòsitu di sta traduzzioni
         html: N casu di cunflittu tra di sta pàggina traduciuta e %{english_original_link},
@@ -1337,7 +1344,6 @@ scn:
         native_link: virsioni n sicilianu
         mapping_link: accuminzari a mappari
       legal_babble:
-        title_html: Dritti d'auturi e Licenza
         credit_title_html: Comu s'attribbuisci a OpenStreetMap
         credit_1_html: Addumannamu chi s'usa l'attribbuzzioni &laquo;&copy; li cuntribbutura
           d'OpenStreetMap&raquo;.
@@ -1361,9 +1367,6 @@ scn:
       js_1: O stai adupirannu nu browser chi nun supporta lu JavaScript, o puru hai
         lu JavaScript disattivatu.
       js_2: OpenStreetMap adòpira lu JavaScript pâ sò cartina scurritura.
-      permalink: Culligamentu pirmanenti
-      shortlink: Culligamentu accurzatu
-      createnote: Agghiunci na nota
       license:
         copyright: Copyright OpenStreetMap e li sò cuntribbutura, sutta a na licenza
           graputa
@@ -1649,12 +1652,6 @@ scn:
       wikipedia:
         title: Trasi cu Wikipedia
         alt: Trasi c'un cuntu Wikipedia
-      wordpress:
-        title: Trasi cu Wordpress
-        alt: Trasi cu n'OpenID di Wordpress
-      aol:
-        title: Trasi cu AOL
-        alt: Trasi cu n'OpenID d'AOL
   oauth:
     authorize:
       title: Auturizzari l'accessu ô tò cuntu
@@ -2031,13 +2028,6 @@ scn:
       map_data_zoom_in_tooltip: Zumma pi putiri a vìdiri li dati dâ cartina
       queryfeature_tooltip: Arricerca elimenti
       queryfeature_disabled_tooltip: Zumma pi putiri circari l'elimenti
-    changesets:
-      show:
-        comment: Cummenta
-        subscribe: Abbònati
-        unsubscribe: Annulla l’abbunamentu
-        hide_comment: ammuccia
-        unhide_comment: Ammustra
     edit_help: Sposta la cartina e zumma ntôn postu chi voi canciari, e appoi clicca
       ccà.
     directions:

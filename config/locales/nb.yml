@@ -1,6 +1,7 @@
 # Messages for Norwegian Bokmål (norsk bokmål)
 # Exported from translatewiki.net
 # Export driver: phpyaml
+# Author: 6400
 # Author: Abbe98
 # Author: Citadell
 # Author: Danieldegroot2
@@ -30,7 +31,6 @@
 # Author: SuperPotato
 # Author: The real emj
 # Author: Yupik
-# Author: 6400
 ---
 nb:
   time:
@@ -446,6 +446,11 @@ nb:
       join_discussion: Logg inn for å delta i diskusjonen
       still_open: Endringssettet er fortsatt åpent – diskusjonen åpner når endringssettet
         er lukket.
+      subscribe: Abonner
+      unsubscribe: Avslutt abonnement
+      hide_comment: skjul
+      unhide_comment: vis
+      comment: Kommenter
       changesetxml: XML for endringssett
       osmchangexml: osmChange-XML
     paging_nav:
@@ -555,7 +560,8 @@ nb:
       all:
         title: Innlegg i OpenStreetMap-dagboka
         description: Nye innlegg i dagbøkene til OpenStreetMap-brukere
-    comments:
+  diary_comments:
+    index:
       post: Artikkel
       when: Når
       comment: Kommentar
@@ -1687,6 +1693,7 @@ nb:
       legal_title: Juridisk
       partners_title: Partnere
     copyright:
+      title: Opphavsrett og lisenser
       foreign:
         title: Om denne oversettelsen
         html: I tilfelle konflikt mellom denne oversatte siden og %{english_original_link}
@@ -1700,7 +1707,6 @@ nb:
         native_link: Norsk versjon
         mapping_link: start kartlegging
       legal_babble:
-        title_html: Opphavsrett og lisenser
         credit_title_html: Hvordan kreditere OpenStreetMap
         credit_1_html: Vi krever at du bruker godskrivinga «© OpenStreetMap-bidragsyterene».
         attribution_example:
@@ -1737,9 +1743,6 @@ nb:
       js_1: Du har en nettleser som ikke støtter JavaScript eller så har du slått
         av JavaScript.
       js_2: OpenStreetMap bruker JavaScript på kartsidene.
-      permalink: Permanent lenke
-      shortlink: Kort lenke
-      createnote: Legg til en merknad
       license:
         copyright: Rettighetshaver OpenStreetMap og bidragsytere, under en åpen lisens
       remote_failed: Klarte ikke redigere - forsikre deg at JOSM eller Merkaartor
@@ -2053,12 +2056,6 @@ nb:
       wikipedia:
         title: Logg inn med Wikipedia
         alt: Logg inn med en Wikipedia-konto
-      wordpress:
-        title: Logg inn med Wordpress
-        alt: Logg inn med en Wordpress OpenID
-      aol:
-        title: Logg inn med AOL
-        alt: Logg inn med en AOL OpenID
   oauth:
     authorize:
       title: Autoriser tilgang til din konto
@@ -2473,13 +2470,6 @@ nb:
       map_data_zoom_in_tooltip: Forstørr utvalg for å se kartdata
       queryfeature_tooltip: Se over elementer
       queryfeature_disabled_tooltip: Forstørr utvalg for å se over elementer
-    changesets:
-      show:
-        comment: Kommenter
-        subscribe: Abonner
-        unsubscribe: Avslutt abonnement
-        hide_comment: skjul
-        unhide_comment: vis
     edit_help: Flytt kartet og forstørr utvalg til et sted du vil redigere, og klikk
       så her.
     directions:

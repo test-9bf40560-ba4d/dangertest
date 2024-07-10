@@ -62,8 +62,8 @@ et:
       changeset: Muudatuskogum
       changeset_tag: Muudatuskogumi silt
       country: Riik
-      diary_comment: Päeviku kommentaar
-      diary_entry: Päeviku sissekanne
+      diary_comment: Päevikukommentaar
+      diary_entry: Päevikusissekanne
       friend: Sõber
       language: Keel
       message: Sõnum
@@ -98,7 +98,7 @@ et:
         support_url: Toe URL
         allow_read_prefs: lugeda tema kasutajaeelistusi
         allow_write_prefs: muuta tema kasutajaeelistusi
-        allow_write_diary: luua päeviku sissekandeid, kommenteerida ja lisada sõpru
+        allow_write_diary: luua päevikusissekandeid, kommenteerida ja lisada sõpru
         allow_write_api: muuta kaarti
         allow_read_gpx: lugeda tema isiklikke GPS-radu
         allow_write_gpx: laadida üles GPS-radu
@@ -261,7 +261,7 @@ et:
           pärast konto kustutamist.
         retain_edits: Sinu muudatused kaardiandmebaasis säilivad, kui oled neid teinud.
         retain_traces: Sinu rajad säilivad, kui oled neid üles laadinud.
-        retain_diary_entries: Sinu päeviku sissekanded ja päeviku kommentaarid säilivad,
+        retain_diary_entries: Sinu päevikusissekanded ja päevikukommentaarid säilivad,
           kui oled neid kirjutanud, kuid need peidetakse.
         retain_notes: Sinu märkused kaardil ja märkuste kommentaarid säilivad, kui
           oled neid kirjutanud, kuid need peidetakse.
@@ -484,8 +484,13 @@ et:
       join_discussion: Logi sisse, kui soovid arutelus osaleda
       still_open: Muudatuskogum on veel avatud. Arutelu avaneb siis, kui muudatuskogum
         on suletud.
+      subscribe: Telli
+      unsubscribe: Lõpeta tellimus
       comment_by_html: Kommentaar kasutajalt %{user} %{time_ago}
       hidden_comment_by_html: Peidetud kommentaar kasutajalt %{user} %{time_ago}
+      hide_comment: peida
+      unhide_comment: nähtavale
+      comment: Kommenteeri
       changesetxml: Muudatuskogumi XML
       osmchangexml: osmChange XML
     paging_nav:
@@ -534,7 +539,7 @@ et:
       nearby_diaries: lähedalasuvate kasutajate päevikusissekanded
   diary_entries:
     new:
-      title: Uus päeviku sissekanne
+      title: Uus päevikusissekanne
     form:
       location: Asukoht
       use_map_link: Kasuta kaarti
@@ -543,28 +548,30 @@ et:
       title_friends: Sõprade päevikud
       title_nearby: Lähedalasuvate kasutajate päevikud
       user_title: Kasutaja %{user} päevik
-      in_language_title: Päeviku sissekanded (%{language})
-      new: Uus päeviku sissekanne
+      in_language_title: Päevikusissekanded (%{language})
+      new: Uus päevikusissekanne
       new_title: Lisa päevikusse uus sissekanne
       my_diary: Minu päevik
       no_entries: Päevikus pole sissekandeid.
-      recent_entries: Hiljutised päeviku sissekanded
+      recent_entries: Hiljutised päevikusissekanded
       older_entries: Vanemad...
       newer_entries: Uuemad...
     edit:
-      title: Muuda päeviku sissekannet
-      marker_text: Päeviku sissekande tegemise asukoht
+      title: Muuda päevikusissekannet
+      marker_text: Päevikusissekande tegemise asukoht
     show:
       title: Kasutaja %{user} päevik | %{title}
       user_title: Kasutaja %{user} päevik
       discussion: Arutelu
+      subscribe: Telli
+      unsubscribe: Lõpeta tellimus
       leave_a_comment: Kommenteeri
       login_to_leave_a_comment_html: kommenteerimiseks %{login_link}
       login: logi sisse
     no_such_entry:
-      title: Sellist päeviku sissekannet pole olemas
+      title: Sellist päevikusissekannet pole olemas
       heading: Sissekannet ID-ga %{id} pole olemas
-      body: Kahjuks ei leidu päeviku sissekannet või kommentaari id-ga %{id}. Kontrolli
+      body: Kahjuks ei leidu päevikusissekannet või -kommentaari ID-ga %{id}. Kontrolli
         sisestatud lingi õigekirja. Võimalik, et link, millele klõpsasid, on vigane.
     diary_entry:
       posted_by_html: Postitas %{link_user} kuupäeval %{created} – %{language_link}.
@@ -592,8 +599,8 @@ et:
       edit: muuda
     feed:
       user:
-        title: Kasutaja %{user} OpenStreetMapi päeviku sissekanded
-        description: Kasutaja %{user} hiljutised OpenStreetMapi päeviku sissekanded
+        title: Kasutaja %{user} OpenStreetMapi päevikusissekanded
+        description: Kasutaja %{user} hiljutised OpenStreetMapi päevikusissekanded
       language:
         title: OpenStreetMapi päevikusissekanded keeles %{language_name}
         description: Hiljutised OpenStreetMapi kasutajate päevikusissekanded keeles
@@ -601,22 +608,23 @@ et:
       all:
         title: OpenStreetMapi päevikusissekanded
         description: Hiljutised OpenStreetMapi kasutajate päevikusissekanded
-    comments:
-      title: Kasutaja %{user} lisatud päeviku kommentaarid
-      heading: Kasutaja %{user} päeviku kommentaarid
-      subheading_html: Päeviku kommentaarid, mille on lisanud kasutaja %{user}
-      no_comments: Päeviku kommentaarid puuduvad.
+    subscribe:
+      heading: Kas soovid selle päevikusissekande arutelu tellida?
+      button: Telli arutelu
+    unsubscribe:
+      heading: Kas soovid selle päevikusissekande arutelu tellimusest loobuda?
+      button: Loobu arutelu jälgimisest
+  diary_comments:
+    index:
+      title: Kasutaja %{user} lisatud päevikukommentaarid
+      heading: Kasutaja %{user} päevikukommentaarid
+      subheading_html: Päevikukommentaarid, mille on lisanud kasutaja %{user}
+      no_comments: Päevikukommentaarid puuduvad.
       post: Postitus
       when: Millal
       comment: Kommentaar
       newer_comments: Uuemad kommentaarid
       older_comments: Vanemad kommentaarid
-    subscribe:
-      heading: Kas soovid selle päeviku sissekande arutelu tellida?
-      button: Telli arutelu
-    unsubscribe:
-      heading: Kas soovid selle päeviku sissekande arutelu tellimusest loobuda?
-      button: Loobu arutelu jälgimisest
   doorkeeper:
     flash:
       applications:
@@ -1480,14 +1488,14 @@ et:
           abiga.
       categories:
         diary_entry:
-          spam_label: See päeviku sissekanne sisaldab rämpspostitust
-          offensive_label: See päeviku sissekanne on kohatu või solvav
-          threat_label: See päeviku sissekanne sisaldab ähvardust
+          spam_label: See päevikusissekanne sisaldab rämpspostitust
+          offensive_label: See päevikusissekanne on kohatu või solvav
+          threat_label: See päevikusissekanne sisaldab ähvardust
           other_label: Muu
         diary_comment:
-          spam_label: See päeviku kommentaar sisaldab rämpspostitust
-          offensive_label: See päeviku kommentaar on kohatu või solvav
-          threat_label: See päeviku kommentaar sisaldab ähvardust
+          spam_label: See päevikukommentaar sisaldab rämpspostitust
+          offensive_label: See päevikukommentaar on kohatu või solvav
+          threat_label: See päevikukommentaar sisaldab ähvardust
           other_label: Muu
         user:
           spam_label: See kasutajaprofiil sisaldab rämpspostitust
@@ -1551,8 +1559,8 @@ et:
     more: Veel
   user_mailer:
     diary_comment_notification:
-      description: 'OpenStreetMapi päeviku sissekanne #%{id}'
-      subject: '[OpenStreetMap] %{user} kommenteeris päeviku sissekannet'
+      description: 'OpenStreetMapi päevikusissekanne #%{id}'
+      subject: '[OpenStreetMap] %{user} kommenteeris päevikusissekannet'
       hi: Tere, %{to_user}!
       header: '%{from_user} kommenteeris hiljutist OpenStreetMapi päevikusissekannet
         pealkirjaga %{subject}:'
@@ -1942,6 +1950,7 @@ et:
       legal_2_2_registered_trademarks: OSMF-i registreeritud kaubamärgid
       partners_title: Partnerid
     copyright:
+      title: Autoriõigused ja litsents
       foreign:
         title: Info selle tõlke kohta
         html: Kui selle tõlgitud lehekülje ja %{english_original_link} vahel on vastuolu,
@@ -1955,7 +1964,6 @@ et:
         native_link: eestikeelse versiooni
         mapping_link: alustada kaardistamist
       legal_babble:
-        title_html: Autoriõigused ja litsents
         introduction_1_html: |-
           OpenStreetMapi%{registered_trademark_link} andmed on %{open_data}, mille
           %{osm_foundation_link} (OSMF) on avaldanud Open Data Commonsi litsentsi %{odc_odbl_link} (ODbL) all.
@@ -2114,9 +2122,6 @@ et:
       js_1: Kasutad kas brauserit, mis ei toeta JavaScripti, või oled JavaScripti
         keelanud.
       js_2: OpenStreetMap kasutab JavaScripti kaartide laadimiseks.
-      permalink: Püsilink
-      shortlink: Lühilink
-      createnote: Lisa märkus
       license:
         copyright: Autoriõigused OpenStreetMap ja kaasautorid avatud litsentsi alusel
       remote_failed: Redigeerimise ebaõnnestus - veendu, et  JOSM või Merkaartor töötab
@@ -2532,12 +2537,6 @@ et:
       wikipedia:
         title: Logi sisse Vikipeedia kaudu
         alt: Logi sisse Vikipeedia kontoga
-      wordpress:
-        title: Logi sisse Wordpressi kaudu
-        alt: Logi sisse Wordpressi OpenID-ga
-      aol:
-        title: Logi sisse AOL-i kaudu
-        alt: Logi sisse AOL-i OpenID-ga
   oauth:
     authorize:
       title: Lubada juurdepääs sinu kontole
@@ -2547,7 +2546,7 @@ et:
       allow_to: 'Klientrakendusel lubatakse:'
       allow_read_prefs: lugeda sinu kasutajaeelistusi.
       allow_write_prefs: muuta sinu kasutajaeelistusi.
-      allow_write_diary: luua päeviku sissekandeid, kommentaare ja saada sõbraks.
+      allow_write_diary: luua päevikusissekandeid, kommentaare ja saada sõbraks.
       allow_write_api: muuta kaarti.
       allow_read_gpx: lugeda sinu isiklikke GPS-radu.
       allow_write_gpx: laadida üles GPS-radu.
@@ -2567,7 +2566,7 @@ et:
       openid: Sisse logida kasutades OpenStreetMapi
       read_prefs: Lugeda kasutajaeelistusi
       write_prefs: Muuta kasutajaeelistusi
-      write_diary: Luua päeviku sissekandeid, kommenteerida ja lisada sõpru
+      write_diary: Luua päevikusissekandeid, kommenteerida ja lisada sõpru
       write_api: Muuta kaarti
       read_gpx: Lugeda isiklikke GPS-radu
       write_gpx: Laadida üles GPS-radu
@@ -2674,17 +2673,18 @@ et:
         paragraph_2: Registreeru, et alustada kaardi täiendamist.
       display name description: Avalikult kuvatud kasutajanimi. Seda saate muuta hiljem
         eelistustes.
-      by_signing_up_html: Registreerudes nõustud meie %{tou_link}, %{privacy_policy_link}
-        ja %{contributor_terms_link}.
+      by_signing_up:
+        html: Registreerudes nõustud meie %{tou_link}, %{privacy_policy_link} ja %{contributor_terms_link}.
+        privacy_policy: andmekaitsereeglitega
+        privacy_policy_title: OSMF-i andmekaitsereeglid, milles on alaosa e-posti
+          aadresside kohta
+        contributor_terms: kaastöötingimustega
       tou: kasutustingimustega
-      contributor_terms: kaastöötingimustega
       external auth: 'Kolmanda osapoole autentimine:'
       continue: Registreeru
       terms accepted: Täname, et nõustusid uute kaastöötingimustega!
-      email_help_html: Sinu aadressi ei kuvata avalikult, tutvu meie %{privacy_policy_link}.
-      privacy_policy: andmekaitsereeglitega
-      privacy_policy_title: OSMF-i andmekaitsereeglid, milles on alaosa e-posti aadresside
-        kohta
+      email_help:
+        html: Sinu aadressi ei kuvata avalikult, tutvu meie %{privacy_policy_link}.
       consider_pd_html: Pean enda kaastööd %{consider_pd_link} kuuluvaks.
       consider_pd: avalikku omandisse
       use external auth: või registreeru kolmanda osapoole kaudu
@@ -2751,6 +2751,7 @@ et:
       remove as friend: Eemalda sõprade hulgast
       add as friend: Lisa sõbraks
       mapper since: 'Kaardistaja alates:'
+      last map edit: 'Viimane muudatus kaardil:'
       uid: 'Kasutaja ID:'
       ct status: 'Kaastöötingimused:'
       ct undecided: Otsustamata
@@ -3083,13 +3084,6 @@ et:
       queryfeature_tooltip: Mis siin on?
       queryfeature_disabled_tooltip: Suurenda, et objektide kohta päring teha
       embed_html_disabled: Selle kaardikihi jaoks pole HTML-i lõimimine saadaval
-    changesets:
-      show:
-        comment: Kommenteeri
-        subscribe: Telli
-        unsubscribe: Lõpeta tellimus
-        hide_comment: peida
-        unhide_comment: nähtavale
     edit_help: Nihuta kaarti ja suumi sisse asukohta mida soovid redigeerida ja seejärel
       kliki siia.
     directions:

@@ -37,9 +37,11 @@ class GeocoderControllerTest < ActionDispatch::IntegrationTest
   def test_identify_latlon_basic
     [
       "50.06773 14.37742",
+      "50.06773/14.37742",
       "50.06773, 14.37742",
       "+50.06773 +14.37742",
-      "+50.06773, +14.37742"
+      "+50.06773, +14.37742",
+      "+50.06773/+14.37742"
     ].each do |code|
       latlon_check code, 50.06773, 14.37742
     end
@@ -364,7 +366,7 @@ class GeocoderControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_template :search
     assert_template :layout => "map"
-    assert_equal %w[latlon osm_nominatim_reverse], assigns(:sources)
+    assert_equal %w[latlon osm_nominatim_reverse], assigns(:sources).pluck(:name)
     assert_nil @controller.params[:query]
     assert_in_delta lat, @controller.params[:lat]
     assert_in_delta lon, @controller.params[:lon]
@@ -373,7 +375,7 @@ class GeocoderControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_template :search
     assert_template :layout => "xhr"
-    assert_equal %w[latlon osm_nominatim_reverse], assigns(:sources)
+    assert_equal %w[latlon osm_nominatim_reverse], assigns(:sources).pluck(:name)
     assert_nil @controller.params[:query]
     assert_in_delta lat, @controller.params[:lat]
     assert_in_delta lon, @controller.params[:lon]
@@ -384,13 +386,13 @@ class GeocoderControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_template :search
     assert_template :layout => "map"
-    assert_equal sources, assigns(:sources)
+    assert_equal sources, assigns(:sources).pluck(:name)
 
     get search_path(:query => query), :xhr => true
     assert_response :success
     assert_template :search
     assert_template :layout => "xhr"
-    assert_equal sources, assigns(:sources)
+    assert_equal sources, assigns(:sources).pluck(:name)
   end
 
   def results_check(*results)

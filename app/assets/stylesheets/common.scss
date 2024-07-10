@@ -395,7 +395,7 @@ body.small-nav {
       overflow-y: scroll;
     }
 
-    .overlay-sidebar {
+    .overlay-sidebar.overlay-right-sidebar {
       #sidebar {
         position: absolute;
         width: 350px;
@@ -403,7 +403,7 @@ body.small-nav {
         overflow: hidden;
       }
 
-      #map, #map-ui {
+      #map {
         height: 100%;
       }
     }
@@ -568,7 +568,13 @@ tr.turn {
     cursor: pointer;
 }
 
-.routing_marker { width: 15px; cursor: move; }
+.routing_marker_column {
+  width: 15px;
+
+  img {
+    cursor: move;
+  }
+}
 
 /* Rules for the history sidebar */
 
@@ -671,10 +677,16 @@ tr.turn {
   padding: $lineheight;
 }
 
-/* Overrides for pages that use new layout conventions */
+/* Rules for login and signup pages */
+
+.sessions-new, .users-new, .users-create {
+  #content .content-inner {
+    max-width: 760px;
+  }
+}
 
 .header-illustration {
-  background-position: 0 0;
+  background-position: right;
   background-repeat: no-repeat;
   position: relative;
   min-height: 200px;
@@ -683,16 +695,16 @@ tr.turn {
   bottom: 0;
 
   &.new-user-main {
-    background-image: image-url("sign-up-illustration.png");
-    background-position-x: 50px;
+    background-image: image-url("sign-up-illustration.svg");
+    background-position-x: 70px;
   }
 
   &.confirm-main {
-    background-image: image-url("confirm-illustration.png");
+    background-image: image-url("confirm-illustration.svg");
   }
 
   &.new-user-terms {
-    background-image: image-url("terms-illustration.png");
+    background-image: image-url("terms-illustration.svg");
   }
 }
 
@@ -887,41 +899,6 @@ div.secondary-actions {
       margin-left: -1em;
     }
   }
-
-  .icon {
-    width: 30px;
-    height: 30px;
-    background: 40px 40px image-url('about/sprite.png') no-repeat;
-
-    &.local {
-      /*rtl:ignore*/
-      background-position: 0px 0px;
-    }
-    &.community {
-      /*rtl:ignore*/
-      background-position: 0px -40px;
-    }
-    &.open {
-      /*rtl:ignore*/
-      background-position: 0px -80px;
-    }
-    &.partners {
-      /*rtl:ignore*/
-      background-position: 0px -120px;
-    }
-    &.infringement {
-      /*rtl:ignore*/
-      background-position: 0px -160px;
-    }
-    &.legal {
-      /*rtl:ignore*/
-      background-position: -45px -160px;
-    }
-  }
-}
-
-.auth-container {
-  max-width: 600px;
 }
 
 /* Rules for tabs inside secondary background sections */

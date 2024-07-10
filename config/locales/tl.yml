@@ -395,6 +395,10 @@ tl:
       join_discussion: Lumagda para sumali sa talakayan
       still_open: Bukas pa rin ang pangkat ng pagbabago - magbubukas ang talakayan
         pag naisara na ang pangkat ng pagbabago.
+      subscribe: Sumuskribi
+      hide_comment: itago
+      unhide_comment: pawalang-bisa ang pag-tago
+      comment: Pumuna
       changesetxml: XML ng pangkat ng pagbabago
       osmchangexml: XML ng osmChange
     paging_nav:
@@ -501,7 +505,8 @@ tl:
         title: Mga ipinasok sa talaarawan ng OpenStreetMap
         description: Kamakailang mga pagpapasok sa talaarawan mula sa mga tagagamit
           ng OpenStreetMap
-    comments:
+  diary_comments:
+    index:
       title: Mga Puna sa Talaarawan ay idinagdag ni %{user}
       heading: Mga Puna sa Talaarawan ni %{user}
       subheading_html: Mga Puna sa Talaarawan ay idinagdag ni %{user}
@@ -1508,6 +1513,7 @@ tl:
       legal_title: Legal na paunawa
       partners_title: Mga Kawaksi
     copyright:
+      title: Karapatan sa Paglalathala at Lisensiya
       foreign:
         title: Tungkol sa salinwikang ito
         html: Kung sakaling maganap ang isang salungatan sa pagitan ng isinalinwikang
@@ -1522,7 +1528,6 @@ tl:
         native_link: Bersyon ng Tagalog
         mapping_link: simulan ang pagmamapa
       legal_babble:
-        title_html: Karapatan sa Paglalathala at Lisensiya
         credit_title_html: Paano babanggitin ang OpenStreetMap
         credit_1_html: 'Kung saan mo ginagamit ang datos ng OpenStreetMap, kailangan
           mong gawin ang sumusunod na dalawang bagay:'
@@ -1546,9 +1551,6 @@ tl:
       js_1: Maaaring gumagamit ka ng isang pantingin-tingin na hindi tumatangkilik
         ng JavaScript, o hindi mo pinagagana ang JavaScript.
       js_2: Ang OpenStreetMap ay gumagamit ng JavaScript para sa madulas nitong mapa.
-      permalink: Permalink
-      shortlink: Maikling kawing
-      createnote: Magdagdag ng tala
       license:
         copyright: Karapatang-sipi ng OpenStreetMap at mga tagapag-ambag nito, sa
           ilalim ng isang bukas na lisensya
@@ -1805,12 +1807,6 @@ tl:
       wikipedia:
         title: Lumagda gamit ang Wikipedia
         alt: Lumagda gamit ang isang akawnt sa Wikipedia
-      wordpress:
-        title: Lumagda gamit ang Wordpress
-        alt: Lumagda gamit ang isang Wordpress OpenID
-      aol:
-        title: Lumagda gamit ang AOL
-        alt: Lumagda gamit ang isang AOL OpenID
   oauth:
     authorize:
       request_access_html: Ang aplikasyong %{app_name} ay humihiling na mapuntahan
@@ -2192,12 +2188,6 @@ tl:
       map_data_zoom_in_tooltip: Lumapit upang makita ang datos ng mapa
       queryfeature_tooltip: Usisain ang mga tampok
       queryfeature_disabled_tooltip: Lumapit upang usisain ang mga tampok
-    changesets:
-      show:
-        comment: Pumuna
-        subscribe: Sumuskribi
-        hide_comment: itago
-        unhide_comment: pawalang-bisa ang pag-tago
     directions:
       ascend: Umakyat
       engines:

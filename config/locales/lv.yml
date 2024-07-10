@@ -366,6 +366,11 @@ lv:
       closed_ago_html: Slēgts %{time_ago}
       discussion: Diskusija
       join_discussion: Ieejiet sistēmā lai pievienotos diskusijai
+      subscribe: Abonēt
+      unsubscribe: Atteikties no abonējuma
+      hide_comment: paslēpt
+      unhide_comment: parādīt
+      comment: Komentēt
       changesetxml: Izmaiņu kopas XML
       osmchangexml: osmChange XML
     paging_nav:
@@ -473,7 +478,8 @@ lv:
       all:
         title: OpenStreetMap dienasgrāmatu ieraksti
         description: Pēdējie dienasgrāmatu ieraksti no OpenStreetMap lietotājiem
-    comments:
+  diary_comments:
+    index:
       post: Publicēt
       when: Kad
       comment: Komentārs
@@ -1491,6 +1497,7 @@ lv:
       legal_title: Juridiskie jautājumi
       partners_title: Partneri
     copyright:
+      title: Autortiesības un Licence
       foreign:
         title: Par šo tulkojumu
         html: Gadījumā, ja šī tulkotā lapa ir nesaskaņā ar %{english_original_link},
@@ -1503,7 +1510,6 @@ lv:
         native_link: latviskā versija
         mapping_link: sākt kartēt
       legal_babble:
-        title_html: Autortiesības un Licence
         credit_title_html: Kā atsaukties uz OpenStreetMap
         credit_1_html: |-
           Mēs pieprasām, ka tu izmanto atsauci &ldquo;&copy; OpenStreetMap
@@ -1546,9 +1552,6 @@ lv:
       js_1: Vai nu jūs lietojat pārlūkprogrammu, kas neatbalsta JavaScript, vai arī
         jūsu pārlūkprogrammā JavaScript ir atslēgts.
       js_2: OpenStreetMap kartes rādīšanai lieto JavaScript.
-      permalink: Pastāvīgā saite
-      shortlink: Īsā saite
-      createnote: Pievienot piezīmi
       license:
         copyright: Autortiesības OpenStreetMap un tā veidotāji, zem atvērtas licences
       remote_failed: Rediģēšana neizdevās - pārbaudi, ka JOSM vai Merkaartor ir ieslēgts
@@ -1855,12 +1858,6 @@ lv:
       wikipedia:
         title: Ieiet ar Vikipēdiju
         alt: Ieiet ar Vikipēdijas kontu
-      wordpress:
-        title: Pieslēgties ar WordPress
-        alt: Pieslēgties ar WordPress OpenID
-      aol:
-        title: Pieslēgties ar AOL
-        alt: Pieslēgties ar AOL OpenID
   oauth:
     authorize:
       title: Atļaut piekļuvi savam kontam
@@ -2232,13 +2229,6 @@ lv:
       map_data_zoom_in_tooltip: Pietuvināt, lai redzētu kartes datus
       queryfeature_tooltip: Vaicājuma funkcijas
       queryfeature_disabled_tooltip: Tuvināt pie kārtas funkcijām
-    changesets:
-      show:
-        comment: Komentēt
-        subscribe: Abonēt
-        unsubscribe: Atteikties no abonējuma
-        hide_comment: paslēpt
-        unhide_comment: parādīt
     edit_help: Pārvieto karti un pietuvini vietai, kuru vēlies labot, tad spied šeit.
     directions:
       ascend: Kāpums

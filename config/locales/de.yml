@@ -603,8 +603,13 @@ de:
       join_discussion: Anmelden, um mitzudiskutieren
       still_open: Der Änderungssatz ist noch offen. Die Diskussion wird eröffnet,
         sobald der Änderungssatz geschlossen ist.
+      subscribe: Abonnieren
+      unsubscribe: Abbestellen
       comment_by_html: Kommentar von %{user} %{time_ago}
       hidden_comment_by_html: Versteckter Kommentar von %{user} %{time_ago}
+      hide_comment: verstecken
+      unhide_comment: einblenden
+      comment: Kommentieren
       changesetxml: Änderungssatz-XML
       osmchangexml: osmChange-XML
     paging_nav:
@@ -678,6 +683,8 @@ de:
       title: Blog von %{user} | %{title}
       user_title: Blog von %{user}
       discussion: Diskussion
+      subscribe: Abonnieren
+      unsubscribe: Abbestellen
       leave_a_comment: Schreibe einen Kommentar
       login_to_leave_a_comment_html: '%{login_link}, um einen Kommentar zu schreiben'
       login: Anmelden
@@ -721,7 +728,14 @@ de:
       all:
         title: OpenStreetMap Blogbeiträge
         description: Neueste Blogeinträge von OpenStreetMap-Nutzern
-    comments:
+    subscribe:
+      heading: Folgende Tagebucheintragsdiskussion abonnieren?
+      button: Diskussion abonnieren
+    unsubscribe:
+      heading: Von der folgenden Tagebucheintragsdiskussion abmelden?
+      button: Von der Diskussion abmelden
+  diary_comments:
+    index:
       title: Tagebuch-Kommentare hinzugefügt von %{user}
       heading: '%{user}s Tagebuch-Kommentare'
       subheading_html: Tagebuch-Kommentare hinzugefügt von %{user}
@@ -731,12 +745,6 @@ de:
       comment: Kommentar
       newer_comments: Neuere Kommentare
       older_comments: Ältere Kommentare
-    subscribe:
-      heading: Folgende Tagebucheintragsdiskussion abonnieren?
-      button: Diskussion abonnieren
-    unsubscribe:
-      heading: Von der folgenden Tagebucheintragsdiskussion abmelden?
-      button: Von der Diskussion abmelden
   doorkeeper:
     errors:
       messages:
@@ -975,6 +983,7 @@ de:
           college: Hochschulgebäude
           commercial: Gewerbegebäude
           construction: Gebäude im Bau
+          cowshed: Kuhstall
           detached: Freistehendes Einfamilienhaus
           dormitory: Wohnheim
           duplex: Doppelhaus
@@ -1004,6 +1013,7 @@ de:
           shed: Schuppen
           stable: Pferdestall
           static_caravan: Wohnwagen
+          sty: Schweinestall
           temple: Tempelgebäude
           terrace: Reihenhaus
           train_station: Bahnhofsgebäude
@@ -2155,6 +2165,7 @@ de:
       legal_2_2_registered_trademarks: eingetragenes Markenzeichen der OSMF
       partners_title: Partner
     copyright:
+      title: Urheberrecht und Lizenz
       foreign:
         title: Über diese Übersetzung
         html: Für den Fall einer Abweichung zwischen der vorliegenden Übersetzung
@@ -2169,7 +2180,6 @@ de:
         native_link: deutschen Sprachversion
         mapping_link: mit dem Kartieren anfangen
       legal_babble:
-        title_html: Urheberrecht und Lizenz
         introduction_1_html: |-
           OpenStreetMap%{registered_trademark_link} sind %{open_data} (open data), lizenziert unter der
           %{odc_odbl_link} (ODbL) von der %{osm_foundation_link} (OSMF).
@@ -2314,7 +2324,7 @@ de:
         contributors_2_html: Weitere Einzelheiten zu diesen und anderen Quellen, die
           zur Verbesserung von OpenStreetMap verwendet wurden, findest du unter %{contributors_page_link}
           im OpenStreetMap-Wiki.
-        contributors_2_contributors_page: Seite der Benutzers
+        contributors_2_contributors_page: Quellenhinweise
         contributors_footer_2_html: Die Einbeziehung von Daten bei OpenStreetMap bedeutet
           nicht, dass der ursprüngliche Datenlieferant OpenStreetMap unterstützt,
           Gewährleistung dafür gibt oder die Haftung dafür übernimmt.
@@ -2338,9 +2348,6 @@ de:
     index:
       js_1: Dein Browser unterstützt kein JavaScript oder du hast es deaktiviert.
       js_2: OpenStreetMap nutzt JavaScript für die Kartendarstellung.
-      permalink: Permanentlink
-      shortlink: Shortlink
-      createnote: Hinweis geben/Fehler melden
       license:
         copyright: Copyright OpenStreetMap und Mitwirkende, unter einer offenen Lizenz
       remote_failed: Der Aufruf des Editors ist fehlgeschlagen. Stelle sicher, dass
@@ -2773,28 +2780,22 @@ de:
       openid_login_button: Fortfahren
       openid:
         title: Mit OpenID anmelden
-        alt: Mit einer OpenID-URL anmelden
+        alt: OpenID Logo
       google:
         title: Mit Google anmelden
-        alt: Mit einer Google-OpenID anmelden
+        alt: Google Logo
       facebook:
         title: Mit Facebook anmelden
-        alt: Mit einem Facebook-Konto anmelden
+        alt: Facebook Logo
       microsoft:
         title: Mit Microsoft anmelden
-        alt: Mit einem Microsoft-Konto anmelden
+        alt: Microsoft Logo
       github:
         title: Mit GitHub anmelden
-        alt: Mit einem GitHub-Konto anmelden
+        alt: GitHub Logo
       wikipedia:
         title: Mit Wikipedia anmelden
-        alt: Mit einem Wikipedia-Benutzerkonto anmelden
-      wordpress:
-        title: Mit Wordpress anmelden
-        alt: Mit einer Wordpress-OpenID anmelden
-      aol:
-        title: Mit AOL anmelden
-        alt: Mit einer AOL-OpenID anmelden
+        alt: Wikipedia Logo
   oauth:
     authorize:
       title: Zugriff auf dein Benutzerkonto autorisieren
@@ -2954,19 +2955,23 @@ de:
         mit deinem Passwort an und ändere die Einstellungen deines Kontos.
       display name description: Dein öffentlich angezeigter Benutzername. Er kann
         später in den Einstellungen geändert werden.
-      by_signing_up_html: Mit Ihrer Anmeldung stimmen Sie unseren %{tou_link}, %{privacy_policy_link}
-        und %{contributor_terms_link} zu.
+      by_signing_up:
+        html: Mit Ihrer Anmeldung stimmen Sie unseren %{tou_link}, %{privacy_policy_link}
+          und %{contributor_terms_link} zu.
+        privacy_policy: Datenschutzrichtlinie
+        privacy_policy_title: OSMF-Datenschutzrichtlinie einschließlich Abschnitt
+          zu E-Mail-Adressen
+        contributor_terms: Bedingungen für Mitwirkende
       tou: Nutzungsbedingungen
-      contributor_terms: Bedingungen für Mitwirkende
       external auth: 'Drittparteiauthentifikation:'
       continue: Registrieren
       terms accepted: Vielen Dank, dass du den neuen Bedingungen für Mitwirkende zugestimmt
         hast!
-      email_help_html: Deine Adresse wird nicht öffentlich angezeigt. Weitere Informationen
-        findest du in unserer %{privacy_policy_link}.
-      privacy_policy: Datenschutzrichtlinie
-      privacy_policy_title: OSMF-Datenschutzrichtlinie einschließlich Abschnitt zu
-        E-Mail-Adressen
+      email_help:
+        privacy_policy: Datenschutzrichtlinie
+        privacy_policy_title: OSMF-Datenschutzrichtlinie mit Abschnitt über E-Mail-Adressen
+        html: Deine Adresse wird nicht öffentlich angezeigt. Weitere Informationen
+          findest du in unserer %{privacy_policy_link}.
       consider_pd_html: Ich betrachte meine Beiträge als %{consider_pd_link}.
       consider_pd: gemeinfrei
       or: oder
@@ -3040,6 +3045,8 @@ de:
       remove as friend: Freund entfernen
       add as friend: Freund hinzufügen
       mapper since: 'Mapper seit:'
+      last map edit: 'Letzte Kartenbearbeitung:'
+      no activity yet: Noch keine Aktivität
       uid: 'Benutzer-ID:'
       ct status: 'Bedingungen für Mitwirkende:'
       ct undecided: Unentschlossen
@@ -3414,13 +3421,6 @@ de:
       queryfeature_tooltip: Objektabfrage
       queryfeature_disabled_tooltip: Für Objektabfrage vergrößern
       embed_html_disabled: Für diese Kartenebene ist keine HTML-Einbettung verfügbar
-    changesets:
-      show:
-        comment: Kommentieren
-        subscribe: Abonnieren
-        unsubscribe: Abbestellen
-        hide_comment: verstecken
-        unhide_comment: einblenden
     edit_help: Wähle eine höhere Zoomstufe und verschiebe die Karte an einen Ort,
       den du bearbeiten möchtest, und klicke hier.
     directions:

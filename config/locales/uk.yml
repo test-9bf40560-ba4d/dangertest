@@ -22,6 +22,7 @@
 # Author: Green Zero
 # Author: Gzhegozh
 # Author: Ice bulldog
+# Author: Ignatgg
 # Author: KEL
 # Author: Kareyac
 # Author: Lxlalexlxl
@@ -570,8 +571,13 @@ uk:
       join_discussion: Увійдіть в систему, щоб приєднатися до обговорення
       still_open: Набір змін досі відкритий — обговорення буде відкрито, як тільки
         він стане закритим.
+      subscribe: Підписатися
+      unsubscribe: Відписатись
       comment_by_html: Коментар від %{user} %{time_ago}
       hidden_comment_by_html: Прихований коментар від %{user} %{time_ago}
+      hide_comment: приховати
+      unhide_comment: показати
+      comment: Коментар
       changesetxml: Набір змін в XML
       osmchangexml: osmChange XML
     paging_nav:
@@ -644,6 +650,8 @@ uk:
       title: Щоденник %{user} | %{title}
       user_title: Щоденник %{user}
       discussion: Обговорення
+      subscribe: Підписатися
+      unsubscribe: Відписатися
       leave_a_comment: Лишити коментар
       login_to_leave_a_comment_html: '%{login_link}, аби залишити коментар'
       login: Увійти
@@ -688,7 +696,14 @@ uk:
       all:
         title: Записи щоденника OpenStreetMap
         description: Останні записи в щоденниках від учасників OpenStreetMap
-    comments:
+    subscribe:
+      heading: Підписатись на обговорення цього допису щоденника?
+      button: Підписатись на обговорення
+    unsubscribe:
+      heading: Відписатись від обговорення цього допису щоденника?
+      button: Відписатися від обговорення
+  diary_comments:
+    index:
       title: Коментарі до щоденника додав %{user}
       heading: Коментарі щоденника %{user}
       subheading_html: Коментарі до щоденника додав %{user}
@@ -698,12 +713,6 @@ uk:
       comment: Коментар
       newer_comments: Нові коментарі
       older_comments: Старіші коментарі
-    subscribe:
-      heading: Підписатись на обговорення цього допису щоденника?
-      button: Підписатись на обговорення
-    unsubscribe:
-      heading: Відписатись від обговорення цього допису щоденника?
-      button: Відписатися від обговорення
   doorkeeper:
     errors:
       messages:
@@ -942,6 +951,7 @@ uk:
           college: Будівля коледжу
           commercial: Комерційна нерухомість
           construction: Будівля що будується
+          cowshed: Корівник
           detached: Будинок на одну родину
           dormitory: Гуртожиток
           duplex: Будинок поділений на два домогосподарства
@@ -971,6 +981,7 @@ uk:
           shed: Сарай
           stable: Стайня
           static_caravan: Будинок на колесах
+          sty: Залишитись
           temple: Будівля храму
           terrace: Таунхаус
           train_station: Будівля залізничної станції
@@ -2114,6 +2125,7 @@ uk:
       legal_2_2_registered_trademarks: зареєстрованими торговими марками OSMF
       partners_title: Партнери
     copyright:
+      title: Авторські права та ліцензування
       foreign:
         title: Про цей переклад
         html: У разі суперечностей між цим перекладом та %{english_original_link},
@@ -2127,7 +2139,6 @@ uk:
         native_link: української версії
         mapping_link: почати мапити
       legal_babble:
-        title_html: Авторські права та ліцензування
         introduction_1_html: OpenStreetMap%{registered_trademark_link} — це %{open_data},
           ліцензовані %{osm_foundation_link} (OSMF) на умовах ліцензії %{odc_odbl_link}
           (ODbL).
@@ -2281,9 +2292,6 @@ uk:
     index:
       js_1: Ви користуєтесь оглядачем, в якому не підтримується або відключений JavaScript.
       js_2: OpenStreetMap використовує JavaScript для мапи.
-      permalink: Постійне посилання
-      shortlink: Кор.посил.
-      createnote: Додати нотатку
       license:
         copyright: Авторські права за OpenStreetMap та його учасниками на умовах відкритої
           ліцензії
@@ -2691,7 +2699,6 @@ uk:
   application:
     basic_auth_disabled: 'HTTP Basic Authentication вимкнено: %{link}'
     oauth_10a_disabled: 'OAuth 1.0 та 1.0a вимкнено: %{link}'
-    auth_disabled_link: https://wiki.openstreetmap.org/wiki/2024_authentication_update
     permission_denied: Вибачте, у вас недостатньо прав для виконання цієї дії.
     require_cookies:
       cookies_needed: Схоже, що у вас вимкнені куки. Будь ласка, увімкніть куки у
@@ -2733,12 +2740,6 @@ uk:
       wikipedia:
         title: Увійти через Вікіпедію
         alt: Вхід через обліковий запис у Вікіпедії
-      wordpress:
-        title: Увійти через Wordpress
-        alt: Увійти через Wordpress OpenID
-      aol:
-        title: Увійти через AOL
-        alt: Увійти через AOL OpenID
   oauth:
     authorize:
       title: Авторизувати доступ до облікового запису
@@ -2899,18 +2900,20 @@ uk:
         облікового запису.
       display name description: Ваше ім’я учасника, доступне всім. Ви можете змінити
         його потім у ваших налаштуваннях.
-      by_signing_up_html: Реєструючись, ви приймаєте наші %{tou_link}, %{privacy_policy_link}
-        і %{contributor_terms_link}.
+      by_signing_up:
+        html: Реєструючись, ви приймаєте наші %{tou_link}, %{privacy_policy_link}
+          і %{contributor_terms_link}.
+        privacy_policy: Політикою конфіденційності
+        privacy_policy_title: Політика конфіденційності OSMF, включаючи розділ про
+          адреси електронної пошти
+        contributor_terms: умови співпраці
       tou: умови використання
-      contributor_terms: умови співпраці
       external auth: 'Автентифікація через:'
       continue: Зареєструватись
       terms accepted: Дякуємо за прийняття нових умов співпраці!
-      email_help_html: Ваша адреса ніколи не показуватиметься публічно. Ознайомтесь
-        з нашою %{privacy_policy_link} для отримання докладної інформації.
-      privacy_policy: Політикою конфіденційності
-      privacy_policy_title: Політика конфіденційності OSMF, включаючи розділ про адреси
-        електронної пошти
+      email_help:
+        html: Ваша адреса ніколи не показуватиметься публічно. Ознайомтесь з нашою
+          %{privacy_policy_link} для отримання докладної інформації.
       consider_pd_html: Я вважаю, що мій внесок належать до %{consider_pd_link}.
       consider_pd: суспільного надбання
       or: або
@@ -2980,6 +2983,8 @@ uk:
       remove as friend: Вилучити зі списку друзів
       add as friend: Додати до списку друзів
       mapper since: 'Обліковий запис створено:'
+      last map edit: 'Останнє редагування карти:'
+      no activity yet: Активності ще немає
       uid: 'id учасника:'
       ct status: 'Умови співпраці:'
       ct undecided: Не визначились
@@ -3363,13 +3368,6 @@ uk:
       queryfeature_tooltip: Отримати об’єкти
       queryfeature_disabled_tooltip: Наблизитись для отримання об’єктів
       embed_html_disabled: Вбудовування HTML недоступне для цього шару мапи
-    changesets:
-      show:
-        comment: Коментар
-        subscribe: Підписатися
-        unsubscribe: Відписатись
-        hide_comment: приховати
-        unhide_comment: показати
     edit_help: Перемістіть мапу і наблизьтесь до місця, яке ви бажаєте змінити, потім
       клацніть тут.
     directions:

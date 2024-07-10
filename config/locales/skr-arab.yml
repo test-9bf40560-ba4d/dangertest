@@ -266,6 +266,11 @@ skr-arab:
       created_ago_html: '%{time_ago} خلقیا'
       closed_ago_html: '%{time_ago} بند تھیا'
       discussion: بحث مباحثہ
+      subscribe: سبسکرائب کرو
+      unsubscribe: اݨ سبسکرائب کرو
+      hide_comment: لُکاؤ
+      unhide_comment: ݙکھاؤ
+      comment: تبصرہ
     paging_nav:
       nodes: نوݙاں(%{count})
       ways: رستے(%{count})
@@ -290,6 +295,7 @@ skr-arab:
       newer_entries: نویاں انٹریاں
     show:
       user_title: '%{user} دی ڈائری'
+      subscribe: سبسکرائب کرو
       leave_a_comment: رائے ݙیوو
       login: لاگ ان تھیوو
     diary_entry:
@@ -308,7 +314,8 @@ skr-arab:
       location: 'محل وقوع:'
       view: ݙکھالے
       edit: لکھو
-    comments:
+  diary_comments:
+    index:
       post: پوسٹ
       when: کڈݨ
       comment: رائے
@@ -1158,10 +1165,6 @@ skr-arab:
         contributors_za_south_africa: جنوبی افریقہ
         trademarks_title: ٹریڈ مارک
         trademarks_1_1_trademark_policy: ٹریڈمارک پالیسی
-    index:
-      permalink: پکا لنک
-      shortlink: مختصر لنک
-      createnote: نوٹ شامل کرو
     export:
       title: ٻاہر بھیڄو
       licence: لائیسنس
@@ -1261,23 +1264,22 @@ skr-arab:
       openid_login_button: جاری رکھو
       openid:
         title: اوپن آئی ڈی نال لاگ ان تھیوو
-        alt: اوپن آئی ڈی یوآرایل نال لاگ ان تھیوو
+        alt: اوپن آئی ڈی لوگو
       google:
         title: گوگل نال لاگ ان تھیوو
-        alt: گوگل اوپن آئی ڈی نال لاگ ان تھیوو
+        alt: گوگل لوگو
       facebook:
         title: فیس بک نال لاگ ان تھیوو
+        alt: فیس بک لوگو
       microsoft:
         title: مائیکروسافٹ نال لاگ ان تھیوو
-        alt: مائیکروسافٹ کھاتے نال لاگ ان تھیوو
+        alt: مائیکروسافٹ لوگو
       github:
         title: گٹ ہب نال لاگ ان تھیوو
-        alt: گٹ ہب کھاتے نال لاگ ان تھیوو
+        alt: گٹ ہب لوگو
       wikipedia:
         title: وکی پیڈیا نال لاگ ان تھیوو
-        alt: وکی پیڈیا کھاتے نال لاگ ان تھیوو
-      wordpress:
-        title: ورڈپریس نال لاگ ان تھیوو
+        alt: وکی پیڈیا لوگو
   oauth2_applications:
     index:
       name: ناں
@@ -1301,9 +1303,12 @@ skr-arab:
       title: سائن اپ
       tab_title: سائن اپ
       support: سہارا
+      by_signing_up:
+        privacy_policy: رازداری پالیسی
       tou: ورتݨ شرطاں
       continue: سائن اپ
-      privacy_policy: رازداری پالیسی
+      email_help:
+        privacy_policy: رازداری پالیسی
       or: یا
     terms:
       title: شرطاں
@@ -1363,13 +1368,6 @@ skr-arab:
       embed: ایچ ٹی ایم ایل
       format: فارمیٹ
       scale: 'پیمانہ:'
-    changesets:
-      show:
-        comment: تبصرہ
-        subscribe: سبسکرائب کرو
-        unsubscribe: اݨ سبسکرائب کرو
-        hide_comment: لُکاؤ
-        unhide_comment: ݙکھاؤ
     directions:
       engines:
         fossgis_valhalla_bicycle: سائیکل (ول ہلا)

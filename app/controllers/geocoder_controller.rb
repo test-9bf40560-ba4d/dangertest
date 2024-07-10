@@ -13,10 +13,10 @@ class GeocoderController < ApplicationController
     @sources = []
 
     if @params[:lat] && @params[:lon]
-      @sources.push "latlon"
-      @sources.push "osm_nominatim_reverse"
+      @sources.push(:name => "latlon", :url => root_path)
+      @sources.push(:name => "osm_nominatim_reverse", :url => nominatim_reverse_url(:format => "html"))
     elsif @params[:query]
-      @sources.push "osm_nominatim"
+      @sources.push(:name => "osm_nominatim", :url => nominatim_url(:format => "html"))
     end
 
     if @sources.empty?
@@ -71,21 +71,8 @@ class GeocoderController < ApplicationController
   end
 
   def search_osm_nominatim
-    # get query parameters
-    query = params[:query]
-    minlon = params[:minlon]
-    minlat = params[:minlat]
-    maxlon = params[:maxlon]
-    maxlat = params[:maxlat]
-
-    # get view box
-    viewbox = "&viewbox=#{minlon},#{maxlat},#{maxlon},#{minlat}" if minlon && minlat && maxlon && maxlat
-
-    # get objects to excude
-    exclude = "&exclude_place_ids=#{params[:exclude]}" if params[:exclude]
-
     # ask nominatim
-    response = fetch_xml("#{Settings.nominatim_url}search?format=xml&extratags=1&q=#{escape_query(query)}#{viewbox}#{exclude}&accept-language=#{http_accept_language.user_preferred_languages.join(',')}")
+    response = fetch_xml(nominatim_url(:format => "xml"))
 
     # extract the results from the response
     results = response.elements["searchresults"]
@@ -138,15 +125,13 @@ class GeocoderController < ApplicationController
 
   def search_osm_nominatim_reverse
     # get query parameters
-    lat = params[:lat]
-    lon = params[:lon]
     zoom = params[:zoom]
 
     # create result array
     @results = []
 
     # ask nominatim
-    response = fetch_xml("#{Settings.nominatim_url}reverse?lat=#{lat}&lon=#{lon}&zoom=#{zoom}&accept-language=#{http_accept_language.user_preferred_languages.join(',')}")
+    response = fetch_xml(nominatim_reverse_url(:format => "xml"))
 
     # parse the response
     response.elements.each("reversegeocode/result") do |result|
@@ -170,6 +155,34 @@ class GeocoderController < ApplicationController
   end
 
   private
+
+  def nominatim_url(format: nil)
+    # get query parameters
+    query = params[:query]
+    minlon = params[:minlon]
+    minlat = params[:minlat]
+    maxlon = params[:maxlon]
+    maxlat = params[:maxlat]
+
+    # get view box
+    viewbox = "&viewbox=#{minlon},#{maxlat},#{maxlon},#{minlat}" if minlon && minlat && maxlon && maxlat
+
+    # get objects to excude
+    exclude = "&exclude_place_ids=#{params[:exclude]}" if params[:exclude]
+
+    # build url
+    "#{Settings.nominatim_url}search?format=#{format}&extratags=1&q=#{escape_query(query)}#{viewbox}#{exclude}&accept-language=#{http_accept_language.user_preferred_languages.join(',')}"
+  end
+
+  def nominatim_reverse_url(format: nil)
+    # get query parameters
+    lat = params[:lat]
+    lon = params[:lon]
+    zoom = params[:zoom]
+
+    # build url
+    "#{Settings.nominatim_url}reverse?format=#{format}&lat=#{lat}&lon=#{lon}&zoom=#{zoom}&accept-language=#{http_accept_language.user_preferred_languages.join(',')}"
+  end
 
   def fetch_text(url)
     response = OSM.http_client.get(URI.parse(url))
@@ -205,10 +218,10 @@ class GeocoderController < ApplicationController
                      query.match(/^(\d{1,3})°?\s*(\d{1,2})['′]?(?:\s*(\d{1,3}(\.\d*)?)?["″]?)?\s*([NS])\W*(\d{1,3})°?\s*(\d{1,2})['′]?(?:\s*(\d{1,3}(\.\d*)?)?["″]?)?\s*([EW])$/).try(:captures)    # degrees, minutes, decimal seconds [NSEW]
         params.merge!(dms_to_decdeg(latlon)).delete(:query)
 
-      elsif latlon = query.match(/^([+-]?\d+(\.\d*)?)(?:\s+|\s*,\s*)([+-]?\d+(\.\d*)?)$/)
+      elsif latlon = query.match(%r{^([+-]?\d+(\.\d*)?)(?:\s+|\s*[,/]\s*)([+-]?\d+(\.\d*)?)$})
         params.merge!(:lat => latlon[1].to_f, :lon => latlon[3].to_f).delete(:query)
 
-        params[:latlon_digits] = true unless params[:whereami]
+        params[:latlon_digits] = true
       end
     end
 

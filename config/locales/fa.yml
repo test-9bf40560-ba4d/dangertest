@@ -15,6 +15,7 @@
 # Author: Danialbehzadi
 # Author: Darafsh
 # Author: Dr jackie
+# Author: Ebrahim
 # Author: Ebraminio
 # Author: FarsiNevis
 # Author: Fatemi127
@@ -490,8 +491,13 @@ fa:
       discussion: بحث
       join_discussion: وارد شوید تا به بحث بپیوندید
       still_open: بستهٔ تغییر هنوز باز است - امکان بحث پس از بستن آن باز می‌شود.
+      subscribe: اشتراک
+      unsubscribe: لغو اشتراک
       comment_by_html: نظر از %{user}‏ %{time_ago}
       hidden_comment_by_html: نظر پنهان؛ نوشتهٔ %{user}‏ %{time_ago}
+      hide_comment: نهفتن
+      unhide_comment: نمایش
+      comment: نظر
       changesetxml: Changeset XML
       osmchangexml: osmChange XML
     paging_nav:
@@ -604,7 +610,12 @@ fa:
       all:
         title: ‫روزنوشت‌های OpenStreetMap‬
         description: ‫روزنوشت‌های اخیر از کاربران OpenStreetMap‬
-    comments:
+    subscribe:
+      button: اشتراک در بحث
+    unsubscribe:
+      button: لغو اشتراک در بحث
+  diary_comments:
+    index:
       title: نظراتی که %{user} به روزنوشت‌ها داده است
       heading: نظرات %{user} به روزنوشت‌ها
       subheading_html: نظراتی که %{user} به روزنوشت‌ها داده است
@@ -614,10 +625,6 @@ fa:
       comment: نظر
       newer_comments: نظرات جدیدتر
       older_comments: نظرات قدیمی‌تر
-    subscribe:
-      button: اشتراک در بحث
-    unsubscribe:
-      button: لغو اشتراک در بحث
   doorkeeper:
     flash:
       applications:
@@ -1880,6 +1887,7 @@ fa:
       legal_1_1_privacy_policy: سیاست محرمانگی
       partners_title: شرکای تجاری
     copyright:
+      title: حق نشر و پروانه
       foreign:
         title: دربارهٔ این ترجمه
         html: اگر بین برگردان فارسی و %{english_original_link} ناسازگاری باشد، صفحهٔ
@@ -1893,7 +1901,6 @@ fa:
         native_link: نسخهٔ فارسی
         mapping_link: شروع به نقشه‌کشی
       legal_babble:
-        title_html: حق نشر و پروانه
         credit_title_html: چگونه از OpenStreetMap یاد کنیم
         credit_1_html: 'جایی که دارید از داده‌های اوپن‌استریت‌مپ استفاده می‌کنید،
           لازم است دو کار زیر را انجام دهید:'
@@ -1931,9 +1938,6 @@ fa:
       js_1: شما در حال استفاده از مرورگری هستید که جاوااسکریپت را پشتیبانی نمی‌کند،
         یا جاوااسکریپت را غیرفعال کرده‌اید.
       js_2: OpenStreetMap برای نقشهٔ لغزان از جاوااسکریپت استفاده می‌کند.
-      permalink: پیوند پایدار
-      shortlink: پیوند کوتاه
-      createnote: افزودن یادداشت
       license:
         copyright: حق نشر OpenStreetMap و مشارکت‌کنندگان، تحت یک پروانهٔ آزاد
       remote_failed: ویرایش انجام نشد - مطمئن شوید JOSM یا Merkaartor باز و گزینهٔ
@@ -2245,12 +2249,6 @@ fa:
       wikipedia:
         title: ورود با ویکی‌پدیا
         alt: ورود با حساب ویکی‌پدیا
-      wordpress:
-        title: ورود با وردپرس
-        alt: ورود با OpenID وردپرس
-      aol:
-        title: ورود با AOL
-        alt: ورود با AOL OpenID
   oauth:
     authorize:
       title: اجازهٔ دسترسی به حسابتان را صادر کنید
@@ -2386,10 +2384,11 @@ fa:
         header: آزاد و قابل‌ویرایش
       display name description: نام کاربری شما که دیگران آن را می‌بینند. می‌توانید
         بعداً آن را در تنظیمات تغییر دهید.
+      by_signing_up:
+        privacy_policy: سیاست محرمانگی
       external auth: 'احراز هویت شخص ثالث:'
       continue: ثبت نام
       terms accepted: از اینکه شرایط جدید مشارکت‌کننده را پذیرفتید، سپاسگزاریم!
-      privacy_policy: سیاست محرمانگی
       use external auth: به‌جای ثبت نام، از روش شخص ثالث استفاده کنید
     terms:
       title: شرایط
@@ -2724,13 +2723,6 @@ fa:
       map_data_zoom_in_tooltip: برای دیدن دادهٔ نقشه بزرگ‌نمایی کنید
       queryfeature_tooltip: پرس‌وجوی عارضه‌ها
       queryfeature_disabled_tooltip: برای پرس‌وجوی عارضه‌ها بزرگ‌نمایی کنید
-    changesets:
-      show:
-        comment: نظر
-        subscribe: اشتراک
-        unsubscribe: لغو اشتراک
-        hide_comment: نهفتن
-        unhide_comment: نمایش
     edit_help: نقشه را جابه‌جا کنید و روی مکانی که می‌خواهید ویرایش نمایید بزرگ‌نمایی
       کنید. سپس اینجا کلیک کنید.
     directions:

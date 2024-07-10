@@ -432,8 +432,13 @@ sr:
       closed_ago_by_html: Затворио(ла) %{user} %{time_ago}
       discussion: Дискусија
       join_discussion: Пријавите се да бисте се придружили дискусији
+      subscribe: Пријави ме
+      unsubscribe: Одјави ме
       comment_by_html: '%{user} коментарисао(ла) пре %{time_ago}'
       hidden_comment_by_html: Сакривени коментар корисника %{user} %{time_ago}
+      hide_comment: сакриј
+      unhide_comment: прикажи
+      comment: Коментариши
       changesetxml: XML скуп промена
       osmchangexml: osmChange XML
     paging_nav:
@@ -544,16 +549,17 @@ sr:
       all:
         title: Уноси у дневнику OpenStreetMap-а
         description: Недавни уноси у дневнику корисника OpenStreetMap-а
-    comments:
+    subscribe:
+      button: Прати дискусију
+    unsubscribe:
+      button: Прекини праћење дискусије
+  diary_comments:
+    index:
       post: Објава
       when: Када
       comment: Коментар
       newer_comments: Новији коментари
       older_comments: Старији коментари
-    subscribe:
-      button: Прати дискусију
-    unsubscribe:
-      button: Прекини праћење дискусије
   doorkeeper:
     scopes:
       address: Види своју физичку адресу
@@ -1682,6 +1688,7 @@ sr:
       legal_1_1_privacy_policy: политике приватности
       partners_title: Партнери
     copyright:
+      title: Ауторска права и лиценца
       foreign:
         title: О овом преводу
         html: У случају неслагања између преведене странице и %{english_original_link},
@@ -1695,7 +1702,6 @@ sr:
         native_link: српско издање
         mapping_link: почни с уређивањем карте
       legal_babble:
-        title_html: Ауторска права и лиценца
         introduction_2_html: Можете да умножавате, делите, преносите и прилагођавате
           наше податке, све док наводите OpenStreetMap и њене уреднике. Ако желите
           да мењате и дограђујете наше податке, можете их делити само под истом лиценцом.
@@ -1750,9 +1756,6 @@ sr:
     index:
       js_1: Користите прегледач који не подржава јаваскрипт или сте га онемогућили.
       js_2: OpenStreetMap користи јаваскрипт за приказивање мапа.
-      permalink: Трајна веза
-      shortlink: Кратка веза
-      createnote: Додај белешку
       license:
         copyright: Ауторска права Опенстритмап и доприносиоци, под отвореном лиценцом
       remote_failed: Уређивање није успело. Проверите да ли је JOSM или Merkaartor
@@ -2066,28 +2069,22 @@ sr:
       openid_login_button: Настави
       openid:
         title: Пријавити се са OpenID
-        alt: Пријава преко OpenID URL-а
+        alt: Логотип OpenID-а
       google:
         title: Пријава преко Google-а
-        alt: Пријава преко Google OpenID-а
+        alt: Логотип Гугла
       facebook:
         title: Пријавити се са Facebook-ом
-        alt: Пријава преко Facebook налога
+        alt: Логотип Фејсбука
       microsoft:
         title: Пријава преко Microsoft-а
-        alt: Пријава преко Microsoft налога
+        alt: Логотип Microsoft-а
       github:
         title: Пријава коришћењем GitHub-а
-        alt: Пријава преко GitHub налога
+        alt: Логотип GitHub-а
       wikipedia:
         title: Пријава преко Википедије
-        alt: Пријава преко Википедијиног налога
-      wordpress:
-        title: Пријава преко Wordpress-а
-        alt: Пријава преко Wordpress OpenID-а
-      aol:
-        title: Пријава преко AOL-а
-        alt: Пријава преко AOL OpenID-а
+        alt: Логотип Википедије
   oauth:
     authorize:
       title: Ауторизујте приступ свом налогу
@@ -2189,11 +2186,14 @@ sr:
         welcome: Добро дошли на OpenStreetMap
       display name description: Јавно приказано корисничко име. Касније га можете
         променити у поставкама.
+      by_signing_up:
+        privacy_policy: политика приватности
       tou: услови коришћења
       external auth: 'Аутентификација треће стране:'
       continue: Отвори налог
       terms accepted: Хвала вам што прихватате нове услове уређивања.
-      privacy_policy: политика приватности
+      email_help:
+        privacy_policy: политика приватности
       consider_pd: јавно власништво
       or: или
       use external auth: или се региструјте путем треће стране
@@ -2511,13 +2511,6 @@ sr:
       map_data_zoom_in_tooltip: Увећај да видиш податке са карте
       queryfeature_tooltip: Информације о објектима
       queryfeature_disabled_tooltip: Зумирај на информације о објектима
-    changesets:
-      show:
-        comment: Коментариши
-        subscribe: Пријави ме
-        unsubscribe: Одјави ме
-        hide_comment: сакриј
-        unhide_comment: прикажи
     edit_help: Помери карту и увећај на место које хоћеш да уредиш, затим кликни овде.
     directions:
       ascend: Растуће

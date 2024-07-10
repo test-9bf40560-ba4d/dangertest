@@ -366,7 +366,8 @@ bs:
       all:
         title: Unosi u OpenStreetMap dnevniku
         description: Nedavni unosi u dnevnik OpenStreetMap korisnika
-    comments:
+  diary_comments:
+    index:
       post: Post
       when: Kada
       comment: Komentar
@@ -1063,6 +1064,7 @@ bs:
       next: Sljedeće
       open_data_title: Open Data
     copyright:
+      title: Autorska prava i dozvola
       foreign:
         title: O ovom prevodu
         html: U slučaju konflikta između ove prevedene stranice i %{english_original_link},
@@ -1076,7 +1078,6 @@ bs:
         native_link: bosansko izdanje
         mapping_link: počnite sa ucrtavanjem
       legal_babble:
-        title_html: Autorska prava i dozvola
         credit_title_html: Kako navesti zasluge OpenStreetMap projekta kao izvora
         credit_1_html: |-
           Tražimo da koristite navedete zasluge &ldquo;&copy; OpenStreetMap
@@ -1100,9 +1101,6 @@ bs:
       js_1: Koristite internet preglednik koji ne podržava JavaScript, ili ste onemogućili
         JavaScript.
       js_2: OpenStreetMap koristi JavaScript za slippy kartu.
-      permalink: Trajni link
-      shortlink: Kratki link
-      createnote: Dodaj bilješku
       license:
         copyright: Autorska prava OpenStreetMap i doprinosioci, pod otvorenom dozvolom
       remote_failed: Uređivanje nije uspjelo - provjerite da li je JOSM ili Merkaartor
@@ -1298,9 +1296,6 @@ bs:
         morate se složiti, ali ih morate pogledati.
     auth_providers:
       openid_logo_alt: Prijavite se sa OtvorenimID
-      wordpress:
-        title: Prijavite se sa Wordpress nalogom
-        alt: Prijavite se sa Wordpress OpenID
   oauth:
     authorize:
       request_access_html: 'Aplikacija %{app_name} zahtjeva pristup Vašem korisničkom

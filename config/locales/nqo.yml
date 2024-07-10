@@ -398,8 +398,13 @@ nqo:
       join_discussion: ߌ ߜߊ߲߬ߞߎ߲߫ ߞߊ߬ ߕߘߍ߬ ߡߙߌߣߊ߲߫ ߦߌߘߊ ߘߐ߫
       still_open: ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߠߊߞߊ߬ߝߏ߬ߣߍ߲ ߠߎ߬ ߟߊߞߊ߬ߣߍ߲߫ ߦߋ߫ ߡߎߣߎ߲߬ - ߘߊߘߐߖߊߥߏ
         ߘߌ߫ ߘߊߦߟߍ߬ ߣߌ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߠߊߞߊ߬ߝߏ߬ߣߍ߲ ߠߎ߬ ߕߎ߯ ߘߊ߫ ߕߎ߬ߡߊ ߡߍ߲ ߠߊ߫.
+      subscribe: ߊ߬ ߡߊߝߘߎ߫
+      unsubscribe: ߊ߬ ߡߊߝߘߎߣߍ߲ ߓߐ߫
       comment_by_html: ߞߊ߲߬ߞߎߡߊ ߞߊ߬ ߝߘߊ߫ %{user} ߟߊ߫ %{time_ago} ߡߊ߬
       hidden_comment_by_html: ߞߊ߲߬ߞߎߡߊ ߥߣߊ߬ߙߌ߬ߣߍ߲߬ ߦߋ߫ %{user} ߡߊ߬ %{time_ago} ߟߊ߫
+      hide_comment: ߊ߬ ߢߡߊߘߏ߲߰
+      unhide_comment: ߊ߬ ߟߊ߲ߞߣߍߡߦߊ߫
+      comment: ߡߙߌߣߊ߲
       changesetxml: XML ߟߊ߬ߘߏ߲߬ߠߌ߲ ߡߊߝߊ߬ߟߋ߲߫
       osmchangexml: ߏ.ߛ.ߡ ߡߝߊ߬ߟߋ߲߬ߠߌ߲ XML
     paging_nav:
@@ -509,7 +514,8 @@ nqo:
       all:
         title: ߏߔߌ߲ߛߕߑߙߌߕߑߡߊߔ ߕߋ߬ߟߋ߲ ߟߊ߬ߘߏ߲߬ߠߌ߲ ߠߎ߬
         description: ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ ߟߊ߫ ߕߋ߬ߟߋ߲ ߟߊ߬ߘߏ߲߬ߠߌ߲ ߏߔߌ߲ߛߕߑߙߌߕߑߡߊߔ ߞߊ߲߬
-    comments:
+  diary_comments:
+    index:
       title: ߕߋ߬ߟߋ߲ ߡߙߌߣߊ߲߲߫ ߝߙߊ߬ߣߍ߲ %{user} ߓߟߏ߫
       heading: '%{user} ߟߊ߫ ߕߋ߬ߟߋ߲ ߡߙߌߣߊ߲߲ ߠߎ߬'
       subheading_html: ߕߋ߬ߟߋ߲ ߡߙߌߣߊ߲߲ ߝߙߊ߬ߣߍ߲ %{user} ߓߟߏ߫
@@ -1384,6 +1390,7 @@ nqo:
       open_data_title: ߓߟߏߡߟߊ߫ ߘߊߦߟߍ߬ߣߍ߲
       partners_title: ߞߊ߬ߝߏ߬ߢߐ߲߮ ߠߎ߬
     copyright:
+      title: ߓߊߦߟߍߡߊ߲ ߤߊߞߍ ߣߌ߫ ߕߌ߰ߦߊ
       foreign:
         title: ߞߊ߬ ߓߍ߲߬ ߘߟߊߡߌߘߊߟߌ ߣߌ߲߬ ߡߊ߬
         english_link: ߊ߲߬ߜ߭ߌߟߋ ߓߊߖߎߡߊ
@@ -1392,14 +1399,10 @@ nqo:
         native_link: ߒߞߏ_ߕߐ߮_ߦߋ߫_ߦߊ߲߬ ߟߦߍ߬ߡߊ߲߬ߠߌ߲
         mapping_link: ߔߊ߬ߔߘߊ߬ߦߊ߬ߟߌ ߘߊߡߌ߬ߣߊ߫
       legal_babble:
-        title_html: ߓߊߦߟߍߡߊ߲ ߤߊߞߍ ߣߌ߫ ߕߌ߰ߦߊ
         credit_title_html: ߟߊߒߣߦߊ ߦߋ߫ ߛߐ߬ߘߐ߲߬ ߠߊ߫ ߏߔߌ߲ߛߑߕߙߌߕߑߡߊߔ ߟߊ߫ ߘߌ߬
         more_title_html: ߛߌߦߊߡߊ߲߫ ߜߘߍ߫ ߟߎ߫ ߢߌߣߌ߲ ߦߴߌ ߘߐ߫
         contributors_title_html: ߊ߲ ߠߊ߫ ߓߟߏߡߊߜߍ߲ ߠߎ߬
     index:
-      permalink: ߛߘߌ߬ߜߋ߲߬ ߓߟߏߕߍ߰ߓߊߟߌ
-      shortlink: ߛߘߌ߬ߜߋ߲߬ ߛߎߘߎ߲
-      createnote: ߦߟߌߣߐ ߘߏ߫ ߝߙߊ߬
       license:
         copyright: ߓߊߦߟߍߡߊ߲ ߤߊߞߍ ߏߔߌ߲ߛߑߕߙߌߕߑߡߊߔ ߣߌ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ߠߊ ߟߎ߬߸ ߕߦߊ߫ ߘߊߦߟߍ߬ߣߍ߲
           ߞߘߐ߫
@@ -1614,12 +1617,6 @@ nqo:
       wikipedia:
         title: ߌ ߜߊ߲߬ߞߎ߲߫ ߥߞߌߔߋߘߌߦߊ ߟߊ߫
         alt: ߌ ߜߊ߲߬ߞߎ߲߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ ߟߊ߫
-      wordpress:
-        title: ߌ ߜߊ߲߬ߞߎ߲߫ ߥߐߘߑߔߙߍߛ ߟߊ߫
-        alt: ߌ ߜߊ߲߬ߞߎ߲߫ ߥߐߘߑߔߙߍߛ ߏߔߌ߲ ID ߟߊ߫
-      aol:
-        title: ߌ ߜߊ߲߬ߞߎ߲߫ ߊߏߍߟ ߟߊ߫
-        alt: ߌ ߜߊ߲߬ߞߎ߲߫ ߊߏߍߟ ߏߔߌ߲ ID ߟߊ߫
   oauth:
     authorize:
       title: ߌ ߟߊ߫ ߖߊ߬ߕߋ߬ߘߊ ߟߊߛߐ߬ߘߐ߲ ߠߊߘߌ߬ߢߍ߬
@@ -1879,13 +1876,6 @@ nqo:
       map_data_zoom_in_tooltip: ߊ߬ ߡߊߛߊ߬ߡߊ߲߫ ߞߊ߬ ߔߊ߬ߔߘߊ ߟߐ߲ߕߊ ߦߋ߫
       queryfeature_tooltip: ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߟߎ߬ ߡߊߢߌ߬ߣߌ߲߬ߞߊ߫
       queryfeature_disabled_tooltip: ߊ߬ ߡߊߛߊ߬ߡߊ߲߫ ߞߊ߬ ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߘߏ߫ ߟߎ߫ ߡߊߢߌ߬ߣߌ߲߬ߞߊ߫
-    changesets:
-      show:
-        comment: ߡߙߌߣߊ߲
-        subscribe: ߊ߬ ߡߊߝߘߎ߫
-        unsubscribe: ߊ߬ ߡߊߝߘߎߣߍ߲ ߓߐ߫
-        hide_comment: ߊ߬ ߢߡߊߘߏ߲߰
-        unhide_comment: ߊ߬ ߟߊ߲ߞߣߍߡߦߊ߫
     directions:
       engines:
         fossgis_osrm_bike: ߣߍ߰ߛߏ (OSRM)

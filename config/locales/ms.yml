@@ -383,6 +383,11 @@ ms:
       title: 'Set Ubah: %{id}'
       discussion: Perbincangan
       join_discussion: Daftar masuk untuk perbincangan
+      subscribe: Langgan
+      unsubscribe: Berhenti melanggan
+      hide_comment: sorokkan
+      unhide_comment: Dedahkan
+      comment: Komen
       changesetxml: XML Set Ubah
       osmchangexml: XML osmChange
     paging_nav:
@@ -482,7 +487,8 @@ ms:
       all:
         title: Catatan diari OpenStreetMap
         description: Catatan-catatan diari terbaru oleh pengguna OpenStreetMap
-    comments:
+  diary_comments:
+    index:
       no_comments: Tiada ulasan diari
       post: Muat Naik
       when: Bila
@@ -1489,6 +1495,7 @@ ms:
       open_data_copyright_license: Laman Hak Cipta dan Lesen
       partners_title: Rakan Kongsi
     copyright:
+      title: Hak Cipta dan Lesen
       foreign:
         title: Perihal terjemahan ini
         html: Sekiranya terdapat percanggahan antara halaman yang diterjemah ini dengan
@@ -1502,7 +1509,6 @@ ms:
         native_link: versi Bahasa Melayu
         mapping_link: mula membuat peta
       legal_babble:
-        title_html: Hak Cipta dan Lesen
         introduction_1_open_data: data terbuka
         credit_title_html: Cara memberikan penghargaan kepada OpenStreetMap
         credit_1_html: Kami memerlukan anda menggunakan dikenali sebagai &ldquo;&copy;
@@ -1545,9 +1551,6 @@ ms:
       js_1: Anda sedang menggunakan pelayar web yang tidak menyokong JavaScript, ataupun
         anda tidak menghidupkan JavaScript.
       js_2: OpenStreetMap menggunakan JavaScript untuk peta licinnya.
-      permalink: Pautan Kekal
-      shortlink: Pautan Ringkas
-      createnote: Tambah nota
       license:
         copyright: Hak cipta OpenStreetMap dan para penyumbang di bawah lesen terbuka
       remote_failed: Penyuntingan gagal - pastikan JOSM atau Merkaartor dimuatkan
@@ -1856,12 +1859,6 @@ ms:
       wikipedia:
         title: Log masuk dengan Wikipedia
         alt: Log masuk dengan akaun Wikipedia
-      wordpress:
-        title: Log masuk dengan Wordpress
-        alt: Log masuk dengan OpenID Wordpress
-      aol:
-        title: Log masuk dengan AOL
-        alt: Log masuk dengan OpenID Yahoo
   oauth:
     authorize:
       title: Benarkan akses kepada akaun anda
@@ -2243,13 +2240,6 @@ ms:
       createnote_disabled_tooltip: Zum dekat untuk meletakkan nota pada peta
       map_notes_zoom_in_tooltip: Zum dekat untuk membaca nota peta
       map_data_zoom_in_tooltip: Zum dekat untuk membaca data peta
-    changesets:
-      show:
-        comment: Komen
-        subscribe: Langgan
-        unsubscribe: Berhenti melanggan
-        hide_comment: sorokkan
-        unhide_comment: Dedahkan
     edit_help: Alihkan peta dan zum dekat pada lokasi yang ingin anda sunting, kemudian
       klik di sini.
     directions:

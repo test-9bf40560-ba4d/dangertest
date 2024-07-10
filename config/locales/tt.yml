@@ -419,6 +419,8 @@ tt:
         мөмкин булыр.
       comment_by_html: '%{user} исемле кулланучыдан шәрех %{time_ago}'
       hidden_comment_by_html: '%{user} исемле кулланучыдан яшерен шәрех %{time_ago}'
+      hide_comment: яшерү
+      unhide_comment: күрсәтү
       changesetxml: Үзгәртүләр өеменең XMLы
       osmchangexml: osmChange XML
     paging_nav:
@@ -455,7 +457,8 @@ tt:
       location: 'Урын:'
       view: Карау
       edit: Төзәтмә
-    comments:
+  diary_comments:
+    index:
       when: Кайчан
       comment: Шәрех
       newer_comments: Яңарак шәрехләр
@@ -987,10 +990,6 @@ tt:
         standard: Стандарт
       layers:
         title: Катламнар
-    changesets:
-      show:
-        hide_comment: яшерү
-        unhide_comment: күрсәтү
     directions:
       ascend: Менү
       engines:

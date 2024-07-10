@@ -28,6 +28,7 @@
 # Author: Hudafu
 # Author: Hydra
 # Author: Hzy980512
+# Author: Ignatgg
 # Author: Impersonator 1
 # Author: Irati
 # Author: Jienus
@@ -537,8 +538,13 @@ zh-CN:
       discussion: 讨论
       join_discussion: 登录以加入讨论
       still_open: 变更集依然开放——一旦变更集关闭讨论将开放。
+      subscribe: 订阅
+      unsubscribe: 取消订阅
       comment_by_html: '%{user} 于 %{time_ago} 的评论'
       hidden_comment_by_html: '%{user} 于 %{time_ago} 的隐藏评论'
+      hide_comment: 隐藏
+      unhide_comment: 取消隐藏
+      comment: 评论
       changesetxml: 变更集 XML
       osmchangexml: osmChange XML
     paging_nav:
@@ -608,6 +614,8 @@ zh-CN:
       title: '%{user} 的日记 | %{title}'
       user_title: '%{user}的日记'
       discussion: 讨论
+      subscribe: 订阅
+      unsubscribe: 取消订阅
       leave_a_comment: 留下评论
       login_to_leave_a_comment_html: '%{login_link}以留下评论'
       login: 登录
@@ -649,7 +657,14 @@ zh-CN:
       all:
         title: OpenStreetMap 日记文章
         description: 最近的 OpenStreetMap 用户日记文章
-    comments:
+    subscribe:
+      heading: 订阅以下日记讨论吗？
+      button: 订阅讨论
+    unsubscribe:
+      heading: 退订以下日记讨论吗？
+      button: 退订讨论
+  diary_comments:
+    index:
       title: '%{user} 已添加日记评论'
       heading: '%{user} 的日记评论'
       subheading_html: '%{user} 已添加日记评论'
@@ -659,12 +674,6 @@ zh-CN:
       comment: 评论
       newer_comments: 较新评论
       older_comments: 较旧评论
-    subscribe:
-      heading: 订阅以下日记讨论吗？
-      button: 订阅讨论
-    unsubscribe:
-      heading: 退订以下日记讨论吗？
-      button: 退订讨论
   doorkeeper:
     errors:
       messages:
@@ -895,6 +904,7 @@ zh-CN:
           college: 学院建筑
           commercial: 商业建筑物
           construction: 在建建筑
+          cowshed: 牛棚
           detached: 独立式住宅
           dormitory: 宿舍
           duplex: 双拼住宅
@@ -924,6 +934,7 @@ zh-CN:
           shed: 棚
           stable: 马厩
           static_caravan: 大篷车
+          sty: 麦粒肿
           temple: 庙宇建筑
           terrace: 排屋
           train_station: 火车站建筑
@@ -1720,8 +1731,8 @@ zh-CN:
         subject_other: '[OpenStreetMap] %{commenter} 已经解决了一个您感兴趣的注记'
         your_note: '%{commenter} 解决了您在 %{place} 附近的一个注记。'
         your_note_html: '%{commenter} 解决了您在 %{place} 附近的一个注记。'
-        commented_note: '%{commenter} 解决了您感兴趣的一个地图注记。该注记位于 %{place} 附近。'
-        commented_note_html: '%{commenter} 解决了您感兴趣的一个地图注记。该注记位于 %{place} 附近。'
+        commented_note: '%{commenter} 解决了您留言的地图注记。该注记位于 %{place} 附近。'
+        commented_note_html: '%{commenter} 解决了您留言的地图注记。该注记位于 %{place} 附近。'
       reopened:
         subject_own: '[OpenStreetMap] %{commenter} 重新激活了您的一个注记'
         subject_other: '[OpenStreetMap] %{commenter} 重新激活了您感兴趣的一个注记'
@@ -1972,6 +1983,7 @@ zh-CN:
       legal_2_2_registered_trademarks: OSMF 的注册商标
       partners_title: 合作伙伴
     copyright:
+      title: 著作权与许可
       foreign:
         title: 关于本译文
         html: 当该翻译页面与%{english_original_link}冲突时，英语页面会被优先采用
@@ -1982,7 +1994,6 @@ zh-CN:
         native_link: 简体中文版本
         mapping_link: 开始绘制地图
       legal_babble:
-        title_html: 著作权与许可
         introduction_1_html: |-
           OpenStreetMap%{registered_trademark_link} 是%{open_data}，由 %{osm_foundation_link} (OSMF) 在
           %{odc_odbl_link} (ODbL) 下获得许可。
@@ -2100,9 +2111,6 @@ zh-CN:
     index:
       js_1: 您或许正在使用不支持 JavaScript 的浏览器，或您禁用了 JavaScript。
       js_2: OpenStreetMap 使用 JavaScript 让地图更平滑。
-      permalink: 固定链接
-      shortlink: 短链接
-      createnote: 添加注记
       license:
         copyright: 版权所有 OpenStreetMap及其贡献者，采用开放授权协议
       remote_failed: 编辑失败 - 请确保已加载 JOSM 或 Merkaartor 并启用了远程控制
@@ -2443,7 +2451,6 @@ zh-CN:
   application:
     basic_auth_disabled: HTTP 基本身份验证已禁用：%{link}
     oauth_10a_disabled: OAuth 1.0 和 1.0a 已禁用：%{link}
-    auth_disabled_link: https://wiki.openstreetmap.org/wiki/2024_authentication_update
     permission_denied: 您没有权限来执行此操作
     require_cookies:
       cookies_needed: 您似乎停用了 cookie - 请在继续操作前启用您的浏览器 cookie。
@@ -2480,12 +2487,6 @@ zh-CN:
       wikipedia:
         title: 使用维基百科登录
         alt: 使用维基百科账户登录
-      wordpress:
-        title: 使用Wordpress登录
-        alt: 使用 Wordpress OpenID 登录
-      aol:
-        title: 使用AOL登录
-        alt: 使用AOL OpenID登录
   oauth:
     authorize:
       title: 授权访问您的账户
@@ -2626,15 +2627,17 @@ zh-CN:
         welcome: 欢迎来到OpenStreetMap
       duplicate_social_email: 如果您已经拥有OpenStreetMap账户并希望使用第三方提供的身份标识，请使用密码登录并修改您的账户设置。
       display name description: 你的公开展示的用户名。你可以稍后在设置中进行修改。
-      by_signing_up_html: 注册意味着您同意我们的%{tou_link}、%{privacy_policy_link}和%{contributor_terms_link}。
+      by_signing_up:
+        html: 注册意味着您同意我们的%{tou_link}、%{privacy_policy_link}和%{contributor_terms_link}。
+        privacy_policy: 隐私政策
+        privacy_policy_title: OSM基金会隐私政策包括电子邮件地址部分
+        contributor_terms: 贡献者条款
       tou: 使用条款
-      contributor_terms: 贡献者条款
       external auth: 第三方身份验证：
       continue: 注册
       terms accepted: 感谢您接受新的贡献条款！
-      email_help_html: 您的地址不会公开显示，请参阅我们的%{privacy_policy_link}了解更多信息。
-      privacy_policy: 隐私政策
-      privacy_policy_title: OSM基金会隐私政策包括电子邮件地址部分
+      email_help:
+        html: 您的地址不会公开显示，请参阅我们的%{privacy_policy_link}了解更多信息。
       consider_pd_html: 我认为我的贡献应在 %{consider_pd_link} 中。
       consider_pd: 公有领域
       consider_pd_url: https://wiki.osmfoundation.org/wiki/Licence_and_Legal_FAQ/Why_would_I_want_my_contributions_to_be_public_domain
@@ -2684,7 +2687,7 @@ zh-CN:
       blocks on me: 我的封禁
       blocks by me: 被我封禁
       create_mute: 忽视此用户
-      destroy_mute: 取消弱化此用户
+      destroy_mute: 取消忽视此用户
       edit_profile: 编辑个人资料
       send message: 发送消息
       diary: 日记
@@ -2694,6 +2697,8 @@ zh-CN:
       remove as friend: 删除朋友
       add as friend: 添加朋友
       mapper since: 绘图者注册于：
+      last map edit: 最后地图编辑于：
+      no activity yet: 尚无活动
       uid: 用户ID：
       ct status: 贡献者条款：
       ct undecided: 未决定
@@ -2902,14 +2907,14 @@ zh-CN:
           muted_user: 已忽视用户
           actions: 操作
         tbody:
-          unmute: 取消弱化
+          unmute: 取消忽视
           send_message: 发送消息
     create:
       notice: 您已忽视 %{name}。
       error: 无法忽视 %{name}。%{full_message}。
     destroy:
-      notice: 您取消弱化了%{name}。
-      error: 无法取消弱化用户。请再试一次。
+      notice: 您取消忽视了%{name}。
+      error: 无法取消忽视用户。请再试一次。
   notes:
     index:
       title: '%{user} 提交或评论的注记'
@@ -3033,13 +3038,6 @@ zh-CN:
       queryfeature_tooltip: 查询特征
       queryfeature_disabled_tooltip: 放大以查询特征
       embed_html_disabled: HTML 嵌入不适用于此地图图层
-    changesets:
-      show:
-        comment: 评论
-        subscribe: 订阅
-        unsubscribe: 取消订阅
-        hide_comment: 隐藏
-        unhide_comment: 取消隐藏
     edit_help: 移动地图并在您想编辑的位置放大，然后点击这里。
     directions:
       ascend: 上升

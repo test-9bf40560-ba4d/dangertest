@@ -472,8 +472,13 @@ en:
       discussion: Discussion
       join_discussion: "Log in to join the discussion"
       still_open: "Changeset still open - discussion will open once the changeset is closed."
+      subscribe: "Subscribe"
+      unsubscribe: "Unsubscribe"
       comment_by_html: "Comment from %{user} %{time_ago}"
       hidden_comment_by_html: "Hidden comment from %{user} %{time_ago}"
+      hide_comment: "hide"
+      unhide_comment: "unhide"
+      comment: "Comment"
       changesetxml: "Changeset XML"
       osmchangexml: "osmChange XML"
     paging_nav:
@@ -543,6 +548,8 @@ en:
       title: "%{user}'s Diary | %{title}"
       user_title: "%{user}'s Diary"
       discussion: "Discussion"
+      subscribe: "Subscribe"
+      unsubscribe: "Unsubscribe"
       leave_a_comment: "Leave a comment"
       login_to_leave_a_comment_html: "%{login_link} to leave a comment"
       login: "Log in"
@@ -585,7 +592,14 @@ en:
       all:
         title: "OpenStreetMap diary entries"
         description: "Recent diary entries from users of OpenStreetMap"
-    comments:
+    subscribe:
+      heading: Subscribe to the following diary entry discussion?
+      button: Subscribe to discussion
+    unsubscribe:
+      heading: Unsubscribe from the following diary entry discussion?
+      button: Unsubscribe from discussion
+  diary_comments:
+    index:
       title: "Diary Comments added by %{user}"
       heading: "%{user}'s Diary Comments"
       subheading_html: "Diary Comments added by %{user}"
@@ -595,12 +609,6 @@ en:
       comment: Comment
       newer_comments: "Newer Comments"
       older_comments: "Older Comments"
-    subscribe:
-      heading: Subscribe to the following diary entry discussion?
-      button: Subscribe to discussion
-    unsubscribe:
-      heading: Unsubscribe from the following diary entry discussion?
-      button: Unsubscribe from discussion
   doorkeeper:
     errors:
       messages:
@@ -663,11 +671,8 @@ en:
       title:
         results_from_html: 'Results from %{results_link}'
         latlon: Internal
-        latlon_url: https://openstreetmap.org/
         osm_nominatim: OpenStreetMap Nominatim
-        osm_nominatim_url: https://nominatim.openstreetmap.org/
         osm_nominatim_reverse: OpenStreetMap Nominatim
-        osm_nominatim_reverse_url: https://nominatim.openstreetmap.org/
     search_osm_nominatim:
       prefix_format: "%{name}"
       prefix:
@@ -832,6 +837,7 @@ en:
           college: "College Building"
           commercial: "Commercial Building"
           construction: "Building under Construction"
+          cowshed: "Cowshed"
           detached: "Detached House"
           dormitory: "Dormitory"
           duplex: "Duplex House"
@@ -861,6 +867,7 @@ en:
           shed: "Shed"
           stable: "Stable"
           static_caravan: "Caravan"
+          sty: "Sty"
           temple: "Temple Building"
           terrace: "Terrace Building"
           train_station: "Train Station Building"
@@ -1953,6 +1960,7 @@ en:
       legal_2_2_registered_trademarks_url: https://wiki.osmfoundation.org/wiki/Trademark_Policy
       partners_title: Partners
     copyright:
+      title: Copyright and License
       foreign:
         title: About this translation
         html: In the event of a conflict between this translated page and %{english_original_link}, the English page shall take precedence
@@ -1963,7 +1971,6 @@ en:
         native_link: THIS_LANGUAGE_NAME_HERE version
         mapping_link: start mapping
       legal_babble:
-        title_html: Copyright and License
         introduction_1_html: |
           OpenStreetMap%{registered_trademark_link} is %{open_data}, licensed under the
           %{odc_odbl_link} (ODbL) by the %{osm_foundation_link} (OSMF).
@@ -2166,9 +2173,6 @@ en:
     index:
       js_1: "You are either using a browser that does not support JavaScript, or you have disabled JavaScript."
       js_2: "OpenStreetMap uses JavaScript for its slippy map."
-      permalink: Permalink
-      shortlink: Shortlink
-      createnote: Add a note
       license:
         copyright: "Copyright OpenStreetMap and contributors, under an open license"
         license_url: "https://openstreetmap.org/copyright"
@@ -2584,28 +2588,22 @@ en:
       openid_login_button: "Continue"
       openid:
         title: Log in with OpenID
-        alt: Log in with an OpenID URL
+        alt: OpenID logo
       google:
         title: Log in with Google
-        alt: Log in with a Google OpenID
+        alt: Google logo
       facebook:
         title: Log in with Facebook
-        alt: Log in with a Facebook Account
+        alt: Facebook logo
       microsoft:
         title: Log in with Microsoft
-        alt: Log in with a Microsoft Account
+        alt: Microsoft logo
       github:
         title: Log in with GitHub
-        alt: Log in with a GitHub Account
+        alt: GitHub logo
       wikipedia:
         title: Log in with Wikipedia
-        alt: Log in with a Wikipedia Account
-      wordpress:
-        title: Log in with Wordpress
-        alt: Log in with a Wordpress OpenID
-      aol:
-        title: Log in with AOL
-        alt: Log in with an AOL OpenID
+        alt: Wikipedia logo
   oauth:
     authorize:
       title: "Authorize access to your account"
@@ -2748,17 +2746,22 @@ en:
         welcome: "Welcome to OpenStreetMap"
       duplicate_social_email: "If you already have an OpenStreetMap account and wish to use a 3rd party identity provider, please log in using your password and modify the settings of your account."
       display name description: "Your publicly displayed username. You can change this later in the preferences."
-      by_signing_up_html: "By signing up, you agree to our %{tou_link}, %{privacy_policy_link} and %{contributor_terms_link}."
+      by_signing_up:
+        html: "By signing up, you agree to our %{tou_link}, %{privacy_policy_link} and %{contributor_terms_link}."
+        privacy_policy: privacy policy
+        privacy_policy_url: https://wiki.osmfoundation.org/wiki/Privacy_Policy
+        privacy_policy_title: OSMF privacy policy including section on email addresses
+        contributor_terms_url: "https://wiki.osmfoundation.org/wiki/Licence/Contributor_Terms"
+        contributor_terms: "contributor terms"
       tou: "terms of use"
-      contributor_terms_url: "https://wiki.osmfoundation.org/wiki/Licence/Contributor_Terms"
-      contributor_terms: "contributor terms"
       external auth: "Third Party Authentication:"
       continue: Sign Up
       terms accepted: "Thanks for accepting the new contributor terms!"
-      email_help_html: 'Your address is not displayed publicly, see our %{privacy_policy_link} for more information.'
-      privacy_policy: privacy policy
-      privacy_policy_url: https://wiki.osmfoundation.org/wiki/Privacy_Policy
-      privacy_policy_title: OSMF privacy policy including section on email addresses
+      email_help:
+        privacy_policy: privacy policy
+        privacy_policy_url: https://wiki.osmfoundation.org/wiki/Privacy_Policy
+        privacy_policy_title: OSMF privacy policy including section on email addresses
+        html: 'Your address is not displayed publicly, see our %{privacy_policy_link} for more information.'
       consider_pd_html: "I consider my contributions to be in the %{consider_pd_link}."
       consider_pd: "public domain"
       consider_pd_url: https://wiki.osmfoundation.org/wiki/Licence_and_Legal_FAQ/Why_would_I_want_my_contributions_to_be_public_domain
@@ -2821,6 +2824,8 @@ en:
       remove as friend: Unfriend
       add as friend: Add Friend
       mapper since: "Mapper since:"
+      last map edit: "Last map edit:"
+      no activity yet: "No activity yet"
       uid: "User id:"
       ct status: "Contributor terms:"
       ct undecided: Undecided
@@ -3169,13 +3174,6 @@ en:
       queryfeature_tooltip: Query features
       queryfeature_disabled_tooltip: Zoom in to query features
       embed_html_disabled: HTML embedding is not available for this map layer
-    changesets:
-      show:
-        comment: "Comment"
-        subscribe: "Subscribe"
-        unsubscribe: "Unsubscribe"
-        hide_comment: "hide"
-        unhide_comment: "unhide"
     edit_help: Move the map and zoom in on a location you want to edit, then click here.
     directions:
       ascend: "Ascend"

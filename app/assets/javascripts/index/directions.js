@@ -3,7 +3,6 @@
 //= require qs/dist/qs
 
 OSM.Directions = function (map) {
-  var awaitingGeocode; // true if the user has requested a route, but we're waiting on a geocode result
   var awaitingRoute; // true if we've asked the engine for a route and are waiting to hear back
   var chosenEngine;
 
@@ -21,9 +20,18 @@ OSM.Directions = function (map) {
     weight: 12
   });
 
+  var endpointDragCallback = function (dragging) {
+    if (map.hasLayer(polyline)) {
+      getRoute(false, !dragging);
+    }
+  };
+  var endpointGeocodeCallback = function () {
+    getRoute(true, true);
+  };
+
   var endpoints = [
-    Endpoint($("input[name='route_from']"), OSM.MARKER_GREEN),
-    Endpoint($("input[name='route_to']"), OSM.MARKER_RED)
+    Endpoint($("input[name='route_from']"), OSM.MARKER_GREEN, endpointDragCallback, endpointGeocodeCallback),
+    Endpoint($("input[name='route_to']"), OSM.MARKER_RED, endpointDragCallback, endpointGeocodeCallback)
   ];
 
   var expiry = new Date();
@@ -43,7 +51,7 @@ OSM.Directions = function (map) {
     select.append("<option value='" + i + "'>" + I18n.t("javascripts.directions.engines." + engine.id) + "</option>");
   });
 
-  function Endpoint(input, iconUrl) {
+  function Endpoint(input, iconUrl, dragCallback, geocodeCallback) {
     var endpoint = {};
 
     endpoint.marker = L.marker([0, 0], {
@@ -64,18 +72,14 @@ OSM.Directions = function (map) {
       if (dragging && !chosenEngine.draggable) return;
       if (dragging && awaitingRoute) return;
       endpoint.setLatLng(e.target.getLatLng());
-      if (map.hasLayer(polyline)) {
-        getRoute(false, !dragging);
-      }
+      dragCallback(dragging);
     });
 
     input.on("keydown", function () {
-      input.removeClass("error");
+      input.removeClass("is-invalid");
     });
 
     input.on("change", function (e) {
-      awaitingGeocode = true;
-
       // make text the same in both text boxes
       var value = e.target.value;
       endpoint.setValue(value);
@@ -84,7 +88,7 @@ OSM.Directions = function (map) {
     endpoint.setValue = function (value, latlng) {
       endpoint.value = value;
       delete endpoint.latlng;
-      input.removeClass("error");
+      input.removeClass("is-invalid");
       input.val(value);
 
       if (latlng) {
@@ -109,7 +113,7 @@ OSM.Directions = function (map) {
         endpoint.awaitingGeocode = false;
         endpoint.hasGeocode = true;
         if (json.length === 0) {
-          input.addClass("error");
+          input.addClass("is-invalid");
           alert(I18n.t("javascripts.directions.errors.no_place", { place: endpoint.value }));
           return;
         }
@@ -118,10 +122,7 @@ OSM.Directions = function (map) {
 
         input.val(json[0].display_name);
 
-        if (awaitingGeocode) {
-          awaitingGeocode = false;
-          getRoute(true, true);
-        }
+        geocodeCallback();
       });
     };
 
@@ -209,11 +210,9 @@ OSM.Directions = function (map) {
       var endpoint = endpoints[ep_i];
       if (!endpoint.hasGeocode && !endpoint.awaitingGeocode) {
         endpoint.getGeocode();
-        awaitingGeocode = true;
       }
     }
     if (endpoints[0].awaitingGeocode || endpoints[1].awaitingGeocode) {
-      awaitingGeocode = true;
       return;
     }
 
@@ -357,7 +356,7 @@ OSM.Directions = function (map) {
     getRoute(true, true);
   });
 
-  $(".routing_marker").on("dragstart", function (e) {
+  $(".routing_marker_column img").on("dragstart", function (e) {
     var dt = e.originalEvent.dataTransfer;
     dt.effectAllowed = "move";
     var dragData = { type: $(this).data("type") };

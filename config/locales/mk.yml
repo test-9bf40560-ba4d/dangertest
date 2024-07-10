@@ -485,8 +485,13 @@ mk:
       join_discussion: Најавете се за да се приклучите во разговорот
       still_open: Измените сè уште се отворени — разговорот ќе се отвори штом ќе се
         затворат измените.
+      subscribe: Претплати се
+      unsubscribe: Отпиши ме
       comment_by_html: Коментар од %{user} %{time_ago}
       hidden_comment_by_html: Скриен коментар од %{user} %{time_ago}
+      hide_comment: скриј
+      unhide_comment: откриј
+      comment: Коментирај
       changesetxml: XML за измените
       osmchangexml: osmChange XML
     paging_nav:
@@ -560,6 +565,8 @@ mk:
       title: Дневникот на %{user} | %{title}
       user_title: Дневникот на %{user}
       discussion: Разговор
+      subscribe: Претплати се
+      unsubscribe: Отпиши ме
       leave_a_comment: Напиши коментар
       login_to_leave_a_comment_html: '%{login_link} за да оставите коментар'
       login: Најава
@@ -603,7 +610,14 @@ mk:
       all:
         title: Дневнички ставки
         description: Скорешни дневнички ставки од корисници на OpenStreetMap
-    comments:
+    subscribe:
+      heading: Да ве претплатам на разговорот во следната дневничка ставка?
+      button: Претплати се на разговорот
+    unsubscribe:
+      heading: Да ве отпишам од претплатата на разговорот во следната дневничка ставка?
+      button: Отпиши се од разговорот
+  diary_comments:
+    index:
       title: Дневнички коментари додадени од %{user}
       heading: Дневнички коментари на %{user}
       subheading_html: Дневнички коментари додадени од %{user}
@@ -613,12 +627,6 @@ mk:
       comment: Коментар
       newer_comments: Понови коментари
       older_comments: Постари коментари
-    subscribe:
-      heading: Да ве претплатам на разговорот во следната дневничка ставка?
-      button: Претплати се на разговорот
-    unsubscribe:
-      heading: Да ве отпишам од претплатата на разговорот во следната дневничка ставка?
-      button: Отпиши се од разговорот
   doorkeeper:
     errors:
       messages:
@@ -858,6 +866,7 @@ mk:
           college: Средно училиште
           commercial: Комерцијална зграда
           construction: Градилиште
+          cowshed: Краварник
           detached: Самостојна куќа
           dormitory: Студентски дом
           duplex: Двојна куќа
@@ -887,6 +896,7 @@ mk:
           shed: Шупа
           stable: Штала
           static_caravan: Приколка
+          sty: Кочина
           temple: Храм
           terrace: Лепенка
           train_station: Железничка станица
@@ -1730,8 +1740,8 @@ mk:
           Белешката се наоѓа близу %{place}.'
         commented_note_html: '%{commenter} реши картографска белешка на која имате
           коментирано. Белешката се наоѓа близу %{place}.'
-      details: Поподробно за белешката на %{url}.
-      details_html: Поподробно за белешката на %{url}.
+      details: Одговорете или дознајте повеќе за белешката на %{url}.
+      details_html: Одговорете или дознајте повеќе за белешката на %{url}.
     changeset_comment_notification:
       description: Измени бр. %{id} во OpenStreetMap
       hi: Здраво %{to_user},
@@ -1750,8 +1760,8 @@ mk:
         partial_changeset_with_comment: со коментарот „%{changeset_comment}“
         partial_changeset_with_comment_html: со коментарот „%{changeset_comment}“
         partial_changeset_without_comment: без коментар
-      details: Поподробно за промената на %{url}.
-      details_html: Поподробно за промената на %{url}.
+      details: Одговорете или дознајте повеќе за промената на %{url}.
+      details_html: Одговорете или дознајте повеќе за промената на %{url}.
       unsubscribe: Можете да се отпишете од подновите за овие измени на %{url}.
       unsubscribe_html: Можете да се отпишете од подновите за овие измени на %{url}.
   confirmations:
@@ -2015,6 +2025,7 @@ mk:
       legal_2_2_registered_trademarks: заштитни знаци на OSMF
       partners_title: Партнери
     copyright:
+      title: Авторски права и лиценца
       foreign:
         title: За овој превод
         html: Во случај на спротивставеност помеѓу оваа преведена страница и %{english_original_link},
@@ -2028,7 +2039,6 @@ mk:
         native_link: македонската верзија
         mapping_link: почнете да ги работите картите
       legal_babble:
-        title_html: Авторски права и лиценца
         introduction_1_html: |-
           OpenStreetMap%{registered_trademark_link} работи на %{open_data}, заштитен со лиценцата
           %{odc_odbl_link} (ODbL) од %{osm_foundation_link} (OSMF).
@@ -2190,9 +2200,6 @@ mk:
       js_1: Или користите прелистувач кој не поддржува JavaScript, или пак сте го
         оневозможиле тој програм.
       js_2: OpenStreetMap користи JavaScript за нејзината лизгава карта.
-      permalink: Постојана врска
-      shortlink: Кратка врска
-      createnote: Додај белешка
       license:
         copyright: Авторски права OpenStreetMap и учесниците, под отворена лиценца
       remote_failed: Уредувањето не успеа - проверете дали е вчитан JOSM или Merkaartor
@@ -2587,7 +2594,6 @@ mk:
   application:
     basic_auth_disabled: 'Оневозможена е основната заверка со HTTP: %{link}'
     oauth_10a_disabled: 'OAuth 1.0 и 1.0a се оневозможени: %{link}'
-    auth_disabled_link: https://wiki.openstreetmap.org/wiki/2024_authentication_update
     permission_denied: Немате дозвола за ова дејство
     require_cookies:
       cookies_needed: Изгледа сте оневозможиле колачиња - дозволете колачиња во прелистувачот
@@ -2629,12 +2635,6 @@ mk:
       wikipedia:
         title: Најава со Википедија
         alt: Најава со сметка на Википедија
-      wordpress:
-        title: Најава со Wordpress
-        alt: Најава со OpenID од Wordpress
-      aol:
-        title: Најава со AOL
-        alt: Најава со OpenID од AOL
   oauth:
     authorize:
       title: Овластете пристап до вашата сметка
@@ -2788,18 +2788,23 @@ mk:
         нагодувањата на сметката.
       display name description: Вашето јавно прикажано име. Можете да го смените подоцна
         во прилагодувањата.
-      by_signing_up_html: Зачленувајќи се, се согласувате со нашите %{tou_link}, %{privacy_policy_link}
-        и %{contributor_terms_link}.
+      by_signing_up:
+        html: Зачленувајќи се, се согласувате со нашите %{tou_link}, %{privacy_policy_link}
+          и %{contributor_terms_link}.
+        privacy_policy: правила за личните податоци
+        privacy_policy_title: Правилата за лични податоци на OSMF, со одделот за е-поштенски
+          адреси
+        contributor_terms_url: https://wiki.osmfoundation.org/wiki/Licence/Contributor_Terms
+        contributor_terms: услови на учество
       tou: услови на употреба
-      contributor_terms: услови на учество
       external auth: 'Заверка за надворешното место:'
       continue: Зачленување
       terms accepted: Ви благодариме што ги прифативте новите услови за учество!
-      email_help_html: Вашата адреса не се прикажува јавно. Повеќе ќе дознаете на
-        %{privacy_policy_link}.
-      privacy_policy: правила за личните податоци
-      privacy_policy_title: Правилата за лични податоци на OSMF, со одделот за е-поштенски
-        адреси
+      email_help:
+        privacy_policy: правила за личните податоци
+        privacy_policy_title: Правилата за лични податоци на OSMF, со одделот за е-поштенски
+          адреси
+        html: Вашата адреса не се прикажува јавно. Повеќе ќе дознаете на %{privacy_policy_link}.
       consider_pd_html: Моите придонеси ги сметам за %{consider_pd_link}.
       consider_pd: јавна сопственост
       or: или
@@ -2869,6 +2874,8 @@ mk:
       remove as friend: Отстрани од пријатели
       add as friend: Додај во пријатели
       mapper since: 'Картограф од:'
+      last map edit: 'Последно уредување на картата:'
+      no activity yet: Сè уште нема активности
       uid: 'Корисничка назнака:'
       ct status: 'Услови за учество:'
       ct undecided: Неодлучено
@@ -3229,13 +3236,6 @@ mk:
       queryfeature_tooltip: Пребарување на елементи
       queryfeature_disabled_tooltip: Зголеми на пребарувањето на елементи
       embed_html_disabled: Вградувањето на HTML не е достапно за овој слој на картата
-    changesets:
-      show:
-        comment: Коментирај
-        subscribe: Претплати се
-        unsubscribe: Отпиши ме
-        hide_comment: скриј
-        unhide_comment: откриј
     edit_help: Поместете ја картата и приближете во местото што сакате да го уредите,
       па стиснете тука.
     directions:

@@ -492,8 +492,13 @@ fi:
       join_discussion: Kirjaudu sisään osallistuaksesi keskusteluun
       still_open: Muutoskokoelma on edelleen avoimena - keskustelu avataan heti kun
         muutoskokoelma on suljettu.
+      subscribe: Tilaa
+      unsubscribe: Lopeta tilaus
       comment_by_html: Kommentti käyttäjältä %{user}, %{time_ago}
       hidden_comment_by_html: Piilotettu kommentti käyttäjältä %{user} %{time_ago}
+      hide_comment: piilota
+      unhide_comment: näytä
+      comment: Kommentoi
       changesetxml: Muutoskokoelman XML
       osmchangexml: osmChange XML
     paging_nav:
@@ -609,7 +614,8 @@ fi:
       all:
         title: OpenStreetMap-päiväkirjamerkinnät
         description: Tuoreimmat OpenStreetMapin käyttäjien päiväkirjamerkinnät
-    comments:
+  diary_comments:
+    index:
       title: Käyttäjän %{user} lisäämät päiväkirjamerkinnät
       heading: Päiväkirjamerkinnät käyttäjältä %{user}
       subheading_html: Käyttäjän %{user} lisäämät päiväkirjamerkinnät
@@ -1913,6 +1919,7 @@ fi:
       legal_2_2_registered_trademarks: OSM-säätiön rekisteröityjä tuotemerkkejä
       partners_title: Kumppanit
     copyright:
+      title: Tekijänoikeus ja lisenssi
       foreign:
         title: Tietoja tästä käännöksestä
         html: Jos tämän käännetyn sivun ja %{english_original_link} välillä on eroja,
@@ -1926,7 +1933,6 @@ fi:
         native_link: suomenkielinen versio
         mapping_link: aloittaa kartoituksen
       legal_babble:
-        title_html: Tekijänoikeus ja lisenssi
         introduction_1_html: OpenStreetMap%{registered_trademark_link} on %{open_data},
           jonka %{osm_foundation_link} (OSMF) on lisensoinut %{odc_odbl_link} (ODbL).
         introduction_1_open_data: avointa dataa
@@ -2029,9 +2035,6 @@ fi:
     index:
       js_1: Selain ei tue JavaScriptiä tai sen suorittaminen on estetty.
       js_2: OpenStreetMap tarvitsee JavaScriptin liikuteltavaan karttaan.
-      permalink: Ikilinkki
-      shortlink: Lyhytosoite
-      createnote: Ilmoita karttavirheestä
       license:
         copyright: 'Tekijänoikeus: OpenStreetMapin tekijät, avoimella lisenssillä'
       remote_failed: Muokkaus epäonnistui - varmista, että JOSM tai Merkaartor on
@@ -2418,12 +2421,6 @@ fi:
       wikipedia:
         title: Kirjaudu sisään Wikipedialla
         alt: Kirjaudu sisään Wikipedia-tunnuksella
-      wordpress:
-        title: Kirjaudu WordPressin avulla
-        alt: Kirjaudu käyttämällä Wordpress OpenID -tunnustasi
-      aol:
-        title: Kirjaudu AOL:n avulla
-        alt: Kirjaudu käyttämällä AOL OpenID -tunnustasi
   oauth:
     authorize:
       title: Salli tilisi käyttö
@@ -2552,17 +2549,27 @@ fi:
   users:
     new:
       title: Rekisteröidy
+      tab_title: Rekisteröidy
       no_auto_account_create: Automaattinen käyttäjätunnuksen luonti ei ole juuri
         nyt käytössä.
       support: tuki
       about:
         header: Muokkaa vapaasti
+        paragraph_1: Toisin kuin muut karttapalvelut, OpenStreetMap on täysin tavallisten
+          ihmisten luoma. Kuka tahansa voi korjata, päivittää, ladata ja käyttää sitä
+          ilmaiseksi.
+        paragraph_2: Osallistu projektiin luomalla käyttäjätunnus.
       display name description: Julkisesti näkyvä käyttäjänimi. Tätä voi myöhemmin
         muuttaa asetuksista.
+      by_signing_up:
+        html: Rekisteröitymällä hyväksyt %{tou_link}, %{privacy_policy_link} ja %{contributor_terms_link}.
+        privacy_policy: tietosuojakäytäntö
       external auth: 'Kolmannen osapuolen todennus:'
       continue: Rekisteröidy
       terms accepted: Kiitos uusien osallistujaehtojen hyväksymisestä!
-      privacy_policy: tietosuojakäytäntö
+      email_help:
+        html: Osoitetta ei näytetä julkisesti, lisätietoja on sivulla %{privacy_policy_link}.
+      consider_pd_html: Pidän tuotoksiani %{consider_pd_link}.
       use external auth: Kirjaudu toisen palvelun tunnuksilla
     terms:
       title: Ehdot
@@ -2853,6 +2860,7 @@ fi:
       intro: Huomasitko virheen tai puuttuvan kohteen? Ilmoita siitä muille kartoittajille,
         jolloin virhe voidaan korjata. Siirrä merkkipiste oikeaan kohtaan ja kirjoita
         selite ongelmasta.
+      anonymous_warning_sign_up: rekisteröidy
       advice: Merkintä näkyy julkisesti kaikille, älä kirjoita henkilökohtaisia tietoja.
         Aineistoa kehitetään palautteen perusteella, minkä takia älä käytä lähteenä
         muita karttoja tai hakemistoja.
@@ -2926,13 +2934,6 @@ fi:
       map_data_zoom_in_tooltip: Näytä kartta-aineisto lähentämällä karttaa
       queryfeature_tooltip: Karttakohdeluettelo
       queryfeature_disabled_tooltip: Näytä ominaisuusluettelo suurentamalla karttaa
-    changesets:
-      show:
-        comment: Kommentoi
-        subscribe: Tilaa
-        unsubscribe: Lopeta tilaus
-        hide_comment: piilota
-        unhide_comment: näytä
     edit_help: Siirrä ja lähennä kartta muokattavaan paikkaan ja napsauta sitten tästä.
     directions:
       ascend: Nousu

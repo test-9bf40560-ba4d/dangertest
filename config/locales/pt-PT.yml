@@ -1,6 +1,7 @@
 # Messages for Portuguese (português)
 # Exported from translatewiki.net
 # Export driver: phpyaml
+# Author: Andrekowacs
 # Author: AntMadeira
 # Author: Athena in Wonderland
 # Author: B3rnas
@@ -361,8 +362,8 @@ pt-PT:
     destroy:
       success: Conta apagada.
   browse:
-    deleted_ago_by_html: Eliminado há %{time_ago} por %{user}
-    edited_ago_by_html: Editado há %{time_ago} por %{user}
+    deleted_ago_by_html: Eliminado %{time_ago} por %{user}
+    edited_ago_by_html: Editado %{time_ago} por %{user}
     version: Versão
     redacted_version: Versão reduzida
     in_changeset: Conjunto de alterações
@@ -522,16 +523,21 @@ pt-PT:
       title: 'Conjunto de alterações: %{id}'
       created: 'Criado: %{when}'
       closed: 'Fechado: %{when}'
-      created_ago_html: Criado há %{time_ago}
-      closed_ago_html: Fechado há %{time_ago}
-      created_ago_by_html: Criado há %{time_ago} por %{user}
-      closed_ago_by_html: Fechado há %{time_ago} por %{user}
+      created_ago_html: Criado %{time_ago}
+      closed_ago_html: Fechado %{time_ago}
+      created_ago_by_html: Criado %{time_ago} por %{user}
+      closed_ago_by_html: Fechado %{time_ago} por %{user}
       discussion: Discussão
       join_discussion: Inicia sessão para te juntares à discussão
       still_open: O conjunto de alterações continua aberto. A discussão será iniciada
         assim que o conjunto de alterações for fechado.
-      comment_by_html: Comentário de %{user} há %{time_ago}
-      hidden_comment_by_html: Comentário ocultado por %{user} há %{time_ago}
+      subscribe: Subscrever
+      unsubscribe: Anular subscrição
+      comment_by_html: Comentário de %{user} %{time_ago}
+      hidden_comment_by_html: Comentário ocultado por %{user} %{time_ago}
+      hide_comment: ocultar
+      unhide_comment: desocultar
+      comment: Comentar
       changesetxml: XML do conjunto de alterações
       osmchangexml: XML no formato osmChange
     paging_nav:
@@ -608,6 +614,8 @@ pt-PT:
       title: Diário de %{user} | %{title}
       user_title: Diário de %{user}
       discussion: Discussão
+      subscribe: Subscrever
+      unsubscribe: Cancelar subscrição
       leave_a_comment: Deixar um comentário
       login_to_leave_a_comment_html: '%{login_link} para deixar um comentário'
       login: Iniciar sessão
@@ -652,7 +660,15 @@ pt-PT:
       all:
         title: Publicações no diário de mapeadores do OpenStreetMap
         description: Publicações recentes no diário OpenStreetMap
-    comments:
+    subscribe:
+      heading: Pretendes acompanhar a seguinte discussão sobre a entrada no diário?
+      button: Acompanhar discussão
+    unsubscribe:
+      heading: Pretendes deixar de acompanhar a seguinte discussão sobre a entrada
+        no diário?
+      button: Deixar de acompanhar a discussão
+  diary_comments:
+    index:
       title: Comentários no Diário feitos por %{user}
       heading: Comentários no Diário de %{user}
       subheading_html: Comentários no Diário feitos por %{user}
@@ -662,13 +678,6 @@ pt-PT:
       comment: Comentário
       newer_comments: Comentários mais recentes
       older_comments: Comentários mais antigos
-    subscribe:
-      heading: Pretendes acompanhar a seguinte discussão sobre a entrada no diário?
-      button: Acompanhar discussão
-    unsubscribe:
-      heading: Pretendes deixar de acompanhar a seguinte discussão sobre a entrada
-        no diário?
-      button: Deixar de acompanhar a discussão
   doorkeeper:
     errors:
       messages:
@@ -2065,6 +2074,7 @@ pt-PT:
       legal_2_2_registered_trademarks: marcas registadas da OSMF
       partners_title: Parceiros
     copyright:
+      title: Licença e Direitos de Autor
       foreign:
         title: Sobre Esta Tradução
         html: Se houver um conflito entre esta página traduzida e %{english_original_link},
@@ -2077,7 +2087,6 @@ pt-PT:
         native_link: Versão em português europeu
         mapping_link: começar a mapear
       legal_babble:
-        title_html: Licença e Direitos de Autor
         introduction_1_html: O OpenStreetMap%{registered_trademark_link} é composto
           por %{open_data}, licenciados sob %{odc_odbl_link} (ODbL) pela %{osm_foundation_link}
           (OSMF).
@@ -2229,9 +2238,6 @@ pt-PT:
       js_1: Está a usar um navegador de Internet que não suporta JavaScript ou tem
         o JavaScript desativado.
       js_2: É necessário ter o JavaScript ativado para visualizar mapas no OpenStreetMap.
-      permalink: Ligação permanente
-      shortlink: Atalho
-      createnote: Adicionar nota
       license:
         copyright: Direitos de autor do OpenStreetMap e seus contribuidores, sob uma
           licença aberta
@@ -2629,7 +2635,6 @@ pt-PT:
   application:
     basic_auth_disabled: 'A Autenticação Básica HTTP está desativada: %{link}'
     oauth_10a_disabled: 'OAuth 1.0 e 1.0a estão desativados: %{link}'
-    auth_disabled_link: https://wiki.openstreetmap.org/wiki/2024_authentication_update
     permission_denied: Não tens permissões para realizar essa operação
     require_cookies:
       cookies_needed: Parece que tens os "cookies" desativados - por favor, ativa-os
@@ -2671,12 +2676,6 @@ pt-PT:
       wikipedia:
         title: Iniciar sessão com a Wikipédia
         alt: Iniciar sessão com uma conta Wikipédia
-      wordpress:
-        title: Iniciar sessão com Wordpress
-        alt: Iniciar sessão com um OpenID do Wordpress
-      aol:
-        title: Iniciar sessão com AOL
-        alt: Iniciar sessão com um OpenID da AOL
   oauth:
     authorize:
       title: Autorizar Acesso À Tua Conta
@@ -2833,18 +2832,23 @@ pt-PT:
         modifica as definições da tua conta.
       display name description: O nome de utilizador ficará visível publicamente.
         Poderás alterar o nome posteriormente nas configurações do teu perfil.
-      by_signing_up_html: Ao registares-te, aceitas os nossos %{tou_link}, %{privacy_policy_link}
-        e %{contributor_terms_link}.
+      by_signing_up:
+        html: Ao registares-te, aceitas os nossos %{tou_link}, %{privacy_policy_link}
+          e %{contributor_terms_link}.
+        privacy_policy: política de privacidade
+        privacy_policy_title: Política de privacidade da OSMF incluindo secção sobre
+          endereços de correio eletrónico
+        contributor_terms: Termos de Contribuidor
       tou: Termos de Utilização
-      contributor_terms: Termos de Contribuidor
       external auth: 'Autenticação por terceiros:'
       continue: Criar conta
       terms accepted: Obrigado por aceitares os novos termos de contribuidor!
-      email_help_html: O seu endereço não é mostrado publicamente. Consulte a nossa
-        %{privacy_policy_link} para mais informações.
-      privacy_policy: política de privacidade
-      privacy_policy_title: Política de privacidade da OSMF incluindo secção sobre
-        endereços de correio eletrónico
+      email_help:
+        privacy_policy: política de privacidade
+        privacy_policy_title: Política de privacidade da OSMF incluindo seção sobre
+          endereços de email
+        html: O seu endereço não é mostrado publicamente. Consulte a nossa %{privacy_policy_link}
+          para mais informações.
       consider_pd_html: Considero que as minhas contribuições estão no %{consider_pd_link}.
       consider_pd: domínio público
       or: ou
@@ -2916,6 +2920,8 @@ pt-PT:
       remove as friend: Remover amigo
       add as friend: Adicionar aos amigos
       mapper since: 'A mapear desde:'
+      last map edit: 'Última edição do mapa:'
+      no activity yet: Ainda sem atividade
       uid: 'Id de utilizador:'
       ct status: 'Termos do Contribuidor:'
       ct undecided: Por decidir
@@ -3171,15 +3177,15 @@ pt-PT:
       open_title: Nota não resolvida n.º %{note_name}
       closed_title: Nota resolvida n.º %{note_name}
       hidden_title: Nota oculta n.º %{note_name}
-      event_opened_by_html: Criada por %{user} há %{time_ago}
-      event_opened_by_anonymous_html: Criada por anónimo há %{time_ago}
-      event_commented_by_html: Comentada por %{user} há %{time_ago}
-      event_commented_by_anonymous_html: Comentada por anónimo há %{time_ago}
-      event_closed_by_html: Resolvida por %{user} há %{time_ago}
-      event_closed_by_anonymous_html: Resolvida por anónimo há %{time_ago}
-      event_reopened_by_html: Reativada por %{user} há %{time_ago}
-      event_reopened_by_anonymous_html: Reativada por anónimo há %{time_ago}
-      event_hidden_by_html: Escondida por %{user} há %{time_ago}
+      event_opened_by_html: Criada por %{user} %{time_ago}
+      event_opened_by_anonymous_html: Criada por anónimo %{time_ago}
+      event_commented_by_html: Comentada por %{user} %{time_ago}
+      event_commented_by_anonymous_html: Comentada por anónimo %{time_ago}
+      event_closed_by_html: Resolvida por %{user} %{time_ago}
+      event_closed_by_anonymous_html: Resolvida por anónimo %{time_ago}
+      event_reopened_by_html: Reativada por %{user} %{time_ago}
+      event_reopened_by_anonymous_html: Reativada por anónimo %{time_ago}
+      event_hidden_by_html: Escondida por %{user} %{time_ago}
       report: denunciar esta nota
       anonymous_warning: Esta nota inclui comentários de utilizadores anónimos que
         devem ser confirmados por fonte independente.
@@ -3283,13 +3289,6 @@ pt-PT:
       queryfeature_disabled_tooltip: Amplia para consultares elementos
       embed_html_disabled: A incorporação de HTML não está disponível para esta camada
         do mapa
-    changesets:
-      show:
-        comment: Comentar
-        subscribe: Subscrever
-        unsubscribe: Anular subscrição
-        hide_comment: ocultar
-        unhide_comment: desocultar
     edit_help: Move o mapa, amplia-o no local que pretendes editar e clica aqui.
     directions:
       ascend: Ascenção

@@ -99,12 +99,6 @@ OpenStreetMap::Application.routes.draw do
       end
     end
 
-    post "notes/addPOIexec" => "notes#create"
-    post "notes/closePOIexec" => "notes#close"
-    post "notes/editPOIexec" => "notes#comment"
-    get "notes/getGPX" => "notes#index", :format => "gpx"
-    get "notes/getRSSfeed" => "notes#feed", :format => "rss"
-
     resources :user_blocks, :only => [:show], :constraints => { :id => /\d+/ }, :controller => "user_blocks", :as => :api_user_blocks
   end
 
@@ -237,7 +231,7 @@ OpenStreetMap::Application.routes.draw do
   get "/diary/:language/rss" => "diary_entries#rss", :defaults => { :format => :rss }
   get "/diary/rss" => "diary_entries#rss", :defaults => { :format => :rss }
   get "/user/:display_name/diary/comments/:page", :page => /[1-9][0-9]*/, :to => redirect(:path => "/user/%{display_name}/diary/comments")
-  get "/user/:display_name/diary/comments" => "diary_entries#comments", :as => :diary_comments
+  get "/user/:display_name/diary/comments" => "diary_comments#index", :as => :diary_comments
   get "/user/:display_name/diary" => "diary_entries#index"
   get "/diary/:language" => "diary_entries#index"
   scope "/user/:display_name" do
@@ -246,8 +240,8 @@ OpenStreetMap::Application.routes.draw do
   post "/user/:display_name/diary/:id/newcomment" => "diary_entries#comment", :id => /\d+/, :as => :comment_diary_entry
   post "/user/:display_name/diary/:id/hide" => "diary_entries#hide", :id => /\d+/, :as => :hide_diary_entry
   post "/user/:display_name/diary/:id/unhide" => "diary_entries#unhide", :id => /\d+/, :as => :unhide_diary_entry
-  post "/user/:display_name/diary/:id/hidecomment/:comment" => "diary_entries#hidecomment", :id => /\d+/, :comment => /\d+/, :as => :hide_diary_comment
-  post "/user/:display_name/diary/:id/unhidecomment/:comment" => "diary_entries#unhidecomment", :id => /\d+/, :comment => /\d+/, :as => :unhide_diary_comment
+  post "/user/:display_name/diary/:id/hidecomment/:comment" => "diary_comments#hide", :id => /\d+/, :comment => /\d+/, :as => :hide_diary_comment
+  post "/user/:display_name/diary/:id/unhidecomment/:comment" => "diary_comments#unhide", :id => /\d+/, :comment => /\d+/, :as => :unhide_diary_comment
   match "/user/:display_name/diary/:id/subscribe" => "diary_entries#subscribe", :via => [:get, :post], :as => :diary_entry_subscribe, :id => /\d+/
   match "/user/:display_name/diary/:id/unsubscribe" => "diary_entries#unsubscribe", :via => [:get, :post], :as => :diary_entry_unsubscribe, :id => /\d+/
 

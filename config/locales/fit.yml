@@ -315,6 +315,7 @@ fit:
       join_discussion: Lokkaa sisäle, jos halvaat osallistua keskusteluun
       still_open: Muutoskokoelma on edelleen avoimena - keskustelu avathaan heti kun
         muutoskokoelma on suljettu.
+      comment: Kommentoi
       changesetxml: Muutoskokoelman XML
       osmchangexml: osmChange XML
     paging_nav:
@@ -414,7 +415,8 @@ fit:
       all:
         title: OpenStreetMap-päiväkirjamerkinnät
         description: Verekset OpenStreetMapin käyttäjitten päiväkirjamerkinnät
-    comments:
+  diary_comments:
+    index:
       post: Kommentti
       when: Taatumi
       comment: Kommentti
@@ -736,6 +738,7 @@ fit:
       legal_title: Lakitekninen jako
       partners_title: Kumppanit
     copyright:
+      title: Tekijänoikeus ja lisensi
       foreign:
         title: Tietoja tästä käänöksestä
         html: Jos tämän käänätyn sivun ja %{english_original_link} välillä oon eroja,
@@ -749,7 +752,6 @@ fit:
         native_link: meänkielinen versuuni
         mapping_link: aloittaa kartoituksen
       legal_babble:
-        title_html: Tekijänoikeus ja lisensi
         credit_title_html: OpenStreetMapin mainitseminen
         credit_1_html: OpenStreetMapin sisältöä levitettäessä oon mainittava teksti
           &quot;&copy; OpenStreetMapin tekijät&quot; tai sen engelskankielinen vastine
@@ -759,9 +761,6 @@ fit:
           title: Nimeämisesimerkki
         more_title_html: Lisätietoja
         contributors_title_html: Meän tekijät
-    index:
-      permalink: Ikunen länkki
-      shortlink: Lyhylänkki
     edit:
       user_page_link: käyttäjätieot
     export:
@@ -913,9 +912,6 @@ fit:
     site:
       edit_tooltip: Mookkaa karttaa
       edit_disabled_tooltip: Lähennä karttaa mookataksesi
-    changesets:
-      show:
-        comment: Kommentoi
     directions:
       instructions:
         unnamed: nimetön tie

@@ -465,8 +465,13 @@ sc:
       join_discussion: Intra pro t'aunire a s'arresonu
       still_open: Annantu de modìficas galu abertu - s'arresonu s'at a abèrrere cando
         s'annantu de modìficas s'at a serrare.
+      subscribe: Sutaiscrie·ti
+      unsubscribe: Annulla s'iscritzione
       comment_by_html: Cummentu de %{user} %{time_ago}
       hidden_comment_by_html: Cummentu cuadu de %{user} %{time_ago}
+      hide_comment: cua
+      unhide_comment: ammustra
+      comment: Cummentu
       changesetxml: XML de s'annantu de modìficas
       osmchangexml: XML in formadu osmChange
     paging_nav:
@@ -582,7 +587,8 @@ sc:
       all:
         title: Intradas de diàriu de OpenStreetMap
         description: Intradas de diàriu reghentes de sos utentes de OpenStreetMap
-    comments:
+  diary_comments:
+    index:
       title: Cummentos de su diàriu annantos dae %{user}
       heading: Cummentos de su diàriu de %{user}
       subheading_html: Cummentos de su diàriu annantos dae %{user}
@@ -1978,6 +1984,7 @@ sc:
       legal_2_2_registered_trademarks: marcas registradas de s'OSMF
       partners_title: Sòtzios
     copyright:
+      title: Deretu de autore e litzèntzia
       foreign:
         title: Informatziones subra de custa tradutzione
         html: In casu de cunflitu intre custa pàgina bortada e %{english_original_link},
@@ -1991,7 +1998,6 @@ sc:
         native_link: versione in sardu
         mapping_link: incumintzare a mapare
       legal_babble:
-        title_html: Deretu de autore e litzèntzia
         introduction_1_html: |-
           OpenStreetMap%{registered_trademark_link} est basadu subra de %{open_data}, suta de sa litzèntzia
           %{odc_odbl_link} (ODbL) dae sa %{osm_foundation_link} (OSMF).
@@ -2148,9 +2154,6 @@ sc:
       js_1: Ses impreende unu navigadore chi non tenet su suportu pro JavaScript o
         as inabilitadu JavaScript.
       js_2: OpenStreetMap impreat JavaScript pro sa mapa dinàmica sua.
-      permalink: Ligàmene permanente
-      shortlink: Ligàmene curtzu
-      createnote: Annanghe una nota
       license:
         copyright: Deretu de autore de OpenStreetMap e de sos collaboradores suos
           suta de una litzèntzia aberta
@@ -2568,12 +2571,6 @@ sc:
       wikipedia:
         title: Intra cun Wikipedia
         alt: Intra cun unu contu de Wikipedia
-      wordpress:
-        title: Intra cun Wordpress
-        alt: Intra cun un'OpenID de Wordpress
-      aol:
-        title: Intra cun AOL
-        alt: Intra cun un'OpenID de AOL
   oauth:
     authorize:
       title: Autoriza s'atzessu a su contu tuo
@@ -2722,15 +2719,17 @@ sc:
           una lìtera eletrònica pro cunfirmare su contu tuo.
       display name description: Su nùmene de utente chi s'at a mustrare in manera
         pùblica. Lu podes cambiare prus a tardu in sas preferèntzias.
+      by_signing_up:
+        privacy_policy: polìtica de riservadesa
+        privacy_policy_title: Informativa subra de sa riservadesa de sa Fundatzione
+          OSM chi incluet sa setzione subra de sos indiritzos de posta eletrònica
       external auth: 'Autenticatzione pro mèdiu de unu servìtziu esternu:'
       continue: Iscrie·ti
       terms accepted: Ti torramus gràtzias pro àere atzetadu sas cunditziones noas
         de collaboratzione.
-      email_help_html: S'indiritzu tuo no est ammustradu in manera pùblica, consulta
-        sa %{privacy_policy_link} pro àteras informatziones.
-      privacy_policy: polìtica de riservadesa
-      privacy_policy_title: Informativa subra de sa riservadesa de sa Fundatzione
-        OSM chi incluet sa setzione subra de sos indiritzos de posta eletrònica
+      email_help:
+        html: S'indiritzu tuo no est ammustradu in manera pùblica, consulta sa %{privacy_policy_link}
+          pro àteras informatziones.
       use external auth: 'In alternativa, intra impreende unu servìtziu esternu:'
     terms:
       title: Tèrmines
@@ -3107,13 +3106,6 @@ sc:
       map_data_zoom_in_tooltip: Ismànnia pro bìdere sos datos de sa mapa
       queryfeature_tooltip: Chirca de elementos
       queryfeature_disabled_tooltip: Ismànnia pro chircare elementos
-    changesets:
-      show:
-        comment: Cummentu
-        subscribe: Sutaiscrie·ti
-        unsubscribe: Annulla s'iscritzione
-        hide_comment: cua
-        unhide_comment: ammustra
     edit_help: Move sa mapa, ismànnia in una positzione chi boles modificare e a pustis
       incarca inoghe
     directions:

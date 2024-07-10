@@ -484,8 +484,13 @@ id:
       join_discussion: Masuk untuk bergabung diskusi
       still_open: Set perubahan masih terbuka - diskusi akan dibuka ketika set perubahan
         telah ditutup.
+      subscribe: Berlangganan
+      unsubscribe: Berhenti berlangganan
       comment_by_html: Komentar dari %{user} %{time_ago}
       hidden_comment_by_html: Komentar tersembunyi dari %{user} %{time_ago}
+      hide_comment: sembunyikan
+      unhide_comment: Jangan sembunyikan
+      comment: Komentar
       changesetxml: Set Perubahan XML
       osmchangexml: osmChange XML
     paging_nav:
@@ -601,7 +606,8 @@ id:
       all:
         title: Entri catatan harian OpenStreetMap
         description: Entri catatan harian terbaru dari pengguna OpenStreetMap
-    comments:
+  diary_comments:
+    index:
       title: Komentar Buku Harian ditambahkan oleh %{user}
       heading: Komentar Buku Harian %{user}
       subheading_html: Komentar Buku Harian yang ditambahkan oleh %{user}
@@ -2000,6 +2006,7 @@ id:
       legal_2_2_registered_trademarks: merek dagang terdaftar OSMF
       partners_title: Rekan
     copyright:
+      title: Hak Cipta & Lisensi
       foreign:
         title: Tentang terjemahan ini
         html: Saat terjadi konflik antara halaman terjemahan dan %{english_original_link},
@@ -2013,7 +2020,6 @@ id:
         native_link: versi bahasa Indonesia
         mapping_link: memulai pemetaan
       legal_babble:
-        title_html: Hak Cipta & Lisensi
         introduction_1_html: |-
           OpenStreetMap%{registered_trademark_link} tergolong %{open_data}, berlisensi
           %{odc_odbl_link} (ODbL) yang diterbitkan oleh %{osm_foundation_link} (OSMF).
@@ -2158,9 +2164,6 @@ id:
       js_1: Anda menggunakan browser yang tidak mendukung JavaScript, atau Anda telah
         menonaktifkan JavaScript.
       js_2: OpenStreetMap menggunakan JavaScript untuk slippy map nya.
-      permalink: Permalink
-      shortlink: Shortlink
-      createnote: Tambahkan catatan
       license:
         copyright: Hak cipta dan kontributor OpenStreetMap, di bawah lisensi terbuka
       remote_failed: Gagal melakukan edit - pastikan JOSM atau Merkaartor telah termuat
@@ -2592,12 +2595,6 @@ id:
       wikipedia:
         title: Masuk log dengan Wikipedia
         alt: Masuk log dengan Akun Wikipedia
-      wordpress:
-        title: Masuk log dengan Wordpress
-        alt: Masuk log dengan Wordpress OpenID
-      aol:
-        title: Masuk log dengan AOL
-        alt: Masuk log dengan AOL OpenID
   oauth:
     authorize:
       title: Otorisasi akses ke akun Anda
@@ -2744,14 +2741,16 @@ id:
           elektronik untuk konfirmasi akun Anda.
       display name description: Username Anda yang ditampilkan pada publik. Anda dapat
         mengubahnya dalam pengaturan.
+      by_signing_up:
+        privacy_policy: kebijakan privasi
+        privacy_policy_title: Kebijakan privasi OSMF meliputi aturan soal alamat surat
+          elektronik
       external auth: 'Autentikasi Pihak Ketiga:'
       continue: Mendaftar
       terms accepted: Terima kasih telah menerima persyaratan kontributor yang baru!
-      email_help_html: Alamat Anda tidak dapat dilihat publik. Lihat %{privacy_policy_link}
-        kami untuk info lebih lanjut.
-      privacy_policy: kebijakan privasi
-      privacy_policy_title: Kebijakan privasi OSMF meliputi aturan soal alamat surat
-        elektronik
+      email_help:
+        html: Alamat Anda tidak dapat dilihat publik. Lihat %{privacy_policy_link}
+          kami untuk info lebih lanjut.
       use external auth: Atau, gunakan pihak ketiga untuk masuk
     terms:
       title: Persyaratan
@@ -3151,13 +3150,6 @@ id:
       queryfeature_tooltip: Fitur kueri
       queryfeature_disabled_tooltip: Perbesar ke fitur kueri
       embed_html_disabled: Penyematan HTML tidak tersedia untuk lapisan peta ini
-    changesets:
-      show:
-        comment: Komentar
-        subscribe: Berlangganan
-        unsubscribe: Berhenti berlangganan
-        hide_comment: sembunyikan
-        unhide_comment: Jangan sembunyikan
     edit_help: Memindahkan peta dan memperbesar lokasi yang ingin Anda sunting, kemudian
       klik di sini.
     directions:

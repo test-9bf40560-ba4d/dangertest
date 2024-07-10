@@ -21,6 +21,7 @@
 # Author: Phjtieudoc
 # Author: Ruila
 # Author: Trần Nguyễn Minh Huy
+# Author: Trọng Đặng
 # Author: Vinhtantran
 # Author: 予弦
 # Author: 神樂坂秀吉
@@ -489,8 +490,13 @@ vi:
       join_discussion: Đăng nhập để tham gia thảo luận
       still_open: Bộ thay đổi đang mở – có thể thảo luận sau khi bộ thay đổi được
         đóng.
+      subscribe: Theo dõi
+      unsubscribe: Không theo dõi
       comment_by_html: Nhận xét của %{user} từ %{time_ago}
       hidden_comment_by_html: Nhận xét ẩn của %{user} từ %{time_ago}
+      hide_comment: ẩn
+      unhide_comment: bỏ ẩn
+      comment: Bình luận
       changesetxml: Bộ thay đổi XML
       osmchangexml: osmChange XML
     paging_nav:
@@ -603,7 +609,14 @@ vi:
       all:
         title: Các mục nhật ký OpenStreetMap
         description: Những mục nhật ký gần đây từ người dùng OpenStreetMap
-    comments:
+    subscribe:
+      heading: Theo dõi cuộc thảo luận về mục nhật ký sau đây?
+      button: Theo dõi cuộc thảo luận
+    unsubscribe:
+      heading: Ngừng theo dõi cuộc thảo luận về mục nhật ký sau đây?
+      button: Ngừng theo dõi cuộc thảo luận
+  diary_comments:
+    index:
       title: Bình luận Nhật ký do %{user} Đăng
       heading: Bình luận Nhật ký của %{user}
       subheading_html: Bình luận Nhật ký do %{user} Đăng
@@ -613,12 +626,6 @@ vi:
       comment: Nhận xét
       newer_comments: Các Nhận xét Mới hơn
       older_comments: Các Nhận xét Cũ hơn
-    subscribe:
-      heading: Theo dõi cuộc thảo luận về mục nhật ký sau đây?
-      button: Theo dõi cuộc thảo luận
-    unsubscribe:
-      heading: Ngừng theo dõi cuộc thảo luận về mục nhật ký sau đây?
-      button: Ngừng theo dõi cuộc thảo luận
   doorkeeper:
     errors:
       messages:
@@ -1910,6 +1917,7 @@ vi:
       legal_2_2_registered_trademarks: nhãn hiệu đăng ký của OSMF
       partners_title: Nhà bảo trợ
     copyright:
+      title: Bản quyền và Giấy phép
       foreign:
         title: Thông tin về bản dịch này
         html: Trong trường hợp có xung đột giữa trang dịch và trang %{english_original_link},
@@ -1922,7 +1930,6 @@ vi:
         native_link: bản dịch tiếng Việt
         mapping_link: bắt đầu vẽ bản đồ
       legal_babble:
-        title_html: Bản quyền và Giấy phép
         introduction_1_html: |-
           OpenStreetMap%{registered_trademark_link} là %{open_data} được %{osm_foundation_link} (OSMF) phát hành theo
           %{odc_odbl_link} (ODbL).
@@ -2003,6 +2010,7 @@ vi:
         contributors_fi_finland: Phần Lan
         contributors_fi_nlsfi_license: Giấy phép NLSFI
         contributors_fr_france: Pháp
+        contributors_hr_croatia: Croatia
         contributors_nl_credit_html: '%{netherlands}: Chứa dữ liệu &copy; AND, 2007
           (%{and_link})'
         contributors_nl_netherlands: Hà Lan
@@ -2037,9 +2045,6 @@ vi:
     index:
       js_1: Hoặc trình duyệt của bạn không hỗ trợ JavaScript, hoặc bạn đã tắt JavaScript.
       js_2: OpenStreetMap sử dụng JavaScript cho chức năng bản đồ trơn.
-      permalink: Liên kết Thường trực
-      shortlink: Liên kết Ngắn gọn
-      createnote: Thêm ghi chú
       license:
         copyright: Bản quyền của OpenStreetMap và những người đóng góp, được phát
           hành theo giấy phép mở
@@ -2454,12 +2459,6 @@ vi:
       wikipedia:
         title: Đăng nhập qua Wikipedia
         alt: Đăng nhập qua Tài khoản Wikipedia
-      wordpress:
-        title: Đăng nhập qua WordPress
-        alt: Đăng nhập dùng OpenID của WordPress
-      aol:
-        title: Đăng nhập qua AOL
-        alt: Đăng nhập dùng OpenID của AOL
   oauth:
     authorize:
       title: Cho phép truy cập tài khoản của bạn
@@ -2595,6 +2594,7 @@ vi:
   users:
     new:
       title: Mở tài khoản
+      tab_title: Mở tài khoản
       no_auto_account_create: Rất tiếc, chúng ta hiện không có khả năng tạo ra tài
         khoản tự động cho bạn.
       please_contact_support_html: Vui lòng liên hệ với %{support_link} để yêu cầu
@@ -2609,14 +2609,16 @@ vi:
           tử cho bạn để xác nhận tài khoản của bạn.
       display name description: Tên người dùng của bạn được hiển thị công khai. Bạn
         có thể thay đổi tên này về sau trong tùy chọn.
+      by_signing_up:
+        privacy_policy: quy định về quyền riêng tư
+        privacy_policy_title: Quy định về quyền riêng tư của OSMF, bao gồm phần về
+          địa chỉ thư điện tử
       external auth: 'Xác minh qua Dịch vụ Bên thứ ba:'
       continue: Mở tài khoản
       terms accepted: Cám ơn bạn đã chấp nhận các điều khoản đóng góp mới!
-      email_help_html: Địa chỉ thư điện tử không được hiển thị công khai, xem thêm
-        thông tin trong %{privacy_policy_link} của chúng tôi.
-      privacy_policy: quy định về quyền riêng tư
-      privacy_policy_title: Quy định về quyền riêng tư của OSMF, bao gồm phần về địa
-        chỉ thư điện tử
+      email_help:
+        html: Địa chỉ thư điện tử không được hiển thị công khai, xem thêm thông tin
+          trong %{privacy_policy_link} của chúng tôi.
       use external auth: Hoặc đăng nhập qua dịch vụ bên thứ ba
     terms:
       title: Điều khoản
@@ -3033,13 +3035,6 @@ vi:
       queryfeature_tooltip: Thăm dò yếu tố
       queryfeature_disabled_tooltip: Phóng to để thăm dò yếu tố
       embed_html_disabled: Chức năng nhúng HTML không có sẵn đối với lớp bản đồ này
-    changesets:
-      show:
-        comment: Bình luận
-        subscribe: Theo dõi
-        unsubscribe: Không theo dõi
-        hide_comment: ẩn
-        unhide_comment: bỏ ẩn
     edit_help: Di chuyển bản đồ và phóng to một vị trí mà bạn muốn sửa đổi, rồi nhấn
       chuột vào đây.
     directions:

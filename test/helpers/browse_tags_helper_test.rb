@@ -186,33 +186,41 @@ class BrowseTagsHelperTest < ActionView::TestCase
     assert_equal "Test", link[:title]
 
     link = wikipedia_link("wikipedia", "de:Test")
-    assert_equal "https://de.wikipedia.org/wiki/de:Test?uselang=en", link[:url]
+    assert_equal "https://de.wikipedia.org/wiki/Test?uselang=en", link[:url]
     assert_equal "de:Test", link[:title]
 
+    link = wikipedia_link("wikipedia:fr", "Portsea")
+    assert_equal "https://fr.wikipedia.org/wiki/Portsea?uselang=en", link[:url]
+    assert_equal "Portsea", link[:title]
+
     link = wikipedia_link("wikipedia:fr", "de:Test")
-    assert_equal "https://fr.wikipedia.org/wiki/de:Test?uselang=en", link[:url]
+    assert_equal "https://de.wikipedia.org/wiki/Test?uselang=en", link[:url]
     assert_equal "de:Test", link[:title]
 
     link = wikipedia_link("wikipedia", "de:Englischer Garten (München)#Japanisches Teehaus")
-    assert_equal "https://de.wikipedia.org/wiki/de:Englischer Garten (München)?uselang=en#Japanisches_Teehaus", link[:url]
+    assert_equal "https://de.wikipedia.org/wiki/Englischer_Garten_%28M%C3%BCnchen%29?uselang=en#Japanisches_Teehaus", link[:url]
     assert_equal "de:Englischer Garten (München)#Japanisches Teehaus", link[:title]
 
     link = wikipedia_link("wikipedia", "de:Alte Brücke (Heidelberg)#Brückenaffe")
-    assert_equal "https://de.wikipedia.org/wiki/de:Alte Brücke (Heidelberg)?uselang=en#Br%C3%BCckenaffe", link[:url]
+    assert_equal "https://de.wikipedia.org/wiki/Alte_Br%C3%BCcke_%28Heidelberg%29?uselang=en#Br%C3%BCckenaffe", link[:url]
     assert_equal "de:Alte Brücke (Heidelberg)#Brückenaffe", link[:title]
 
     link = wikipedia_link("wikipedia", "de:Liste der Baudenkmäler in Eichstätt#Brückenstraße 1, Ehemaliges Bauernhaus")
-    assert_equal "https://de.wikipedia.org/wiki/de:Liste der Baudenkmäler in Eichstätt?uselang=en#Br%C3%BCckenstra%C3%9Fe_1%2C_Ehemaliges_Bauernhaus", link[:url]
+    assert_equal "https://de.wikipedia.org/wiki/Liste_der_Baudenkm%C3%A4ler_in_Eichst%C3%A4tt?uselang=en#Br%C3%BCckenstra%C3%9Fe_1%2C_Ehemaliges_Bauernhaus", link[:url]
     assert_equal "de:Liste der Baudenkmäler in Eichstätt#Brückenstraße 1, Ehemaliges Bauernhaus", link[:title]
+
+    link = wikipedia_link("wikipedia", "en:Are Years What? (for Marianne Moore)")
+    assert_equal "https://en.wikipedia.org/wiki/Are_Years_What%3F_%28for_Marianne_Moore%29?uselang=en", link[:url]
+    assert_equal "en:Are Years What? (for Marianne Moore)", link[:title]
 
     I18n.with_locale "pt-BR" do
       link = wikipedia_link("wikipedia", "zh-classical:Test#Section")
-      assert_equal "https://zh-classical.wikipedia.org/wiki/zh-classical:Test?uselang=pt-BR#Section", link[:url]
+      assert_equal "https://zh-classical.wikipedia.org/wiki/Test?uselang=pt-BR#Section", link[:url]
       assert_equal "zh-classical:Test#Section", link[:title]
     end
 
     link = wikipedia_link("subject:wikipedia", "en:Catherine McAuley")
-    assert_equal "https://en.wikipedia.org/wiki/en:Catherine McAuley?uselang=en", link[:url]
+    assert_equal "https://en.wikipedia.org/wiki/Catherine_McAuley?uselang=en", link[:url]
     assert_equal "en:Catherine McAuley", link[:title]
 
     link = wikipedia_link("foo", "Test")
@@ -236,6 +244,14 @@ class BrowseTagsHelperTest < ActionView::TestCase
     link = wikimedia_commons_link("wikimedia_commons", "Category:Test_Category")
     assert_equal "//commons.wikimedia.org/wiki/Category:Test_Category?uselang=en", link[:url]
     assert_equal "Category:Test_Category", link[:title]
+
+    link = wikimedia_commons_link("wikimedia_commons", "Category:What If? (Bonn)")
+    assert_equal "//commons.wikimedia.org/wiki/Category:What%20If%3F%20%28Bonn%29?uselang=en", link[:url]
+    assert_equal "Category:What If? (Bonn)", link[:title]
+
+    link = wikimedia_commons_link("wikimedia_commons", "File:Corsica-vizzavona-abri-southwell.jpg#mediaviewer/File:Corsica-vizzavona-abri-southwell.jpg")
+    assert_equal "//commons.wikimedia.org/wiki/File:Corsica-vizzavona-abri-southwell.jpg?uselang=en", link[:url]
+    assert_equal "File:Corsica-vizzavona-abri-southwell.jpg#mediaviewer/File:Corsica-vizzavona-abri-southwell.jpg", link[:title]
 
     I18n.with_locale "pt-BR" do
       link = wikimedia_commons_link("wikimedia_commons", "File:Test.jpg")

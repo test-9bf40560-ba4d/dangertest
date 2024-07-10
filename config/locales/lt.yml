@@ -514,8 +514,13 @@ lt:
       join_discussion: Prisijunkite norėdami dalyvauti aptarime
       still_open: Pakeitimas vis dar atidarytas - diskusija prasidės tik uždarius
         pakeitimą.
+      subscribe: Užsisakyti
+      unsubscribe: Atsisakyti
       comment_by_html: Komentaras nuo %{user} %{time_ago}
       hidden_comment_by_html: Paslėptas komentaras nuo %{user} %{time_ago}
+      hide_comment: slėpti
+      unhide_comment: neslėpti
+      comment: Komentuoti
       changesetxml: Pakeitimo XML
       osmchangexml: osmChange XML
     paging_nav:
@@ -630,7 +635,8 @@ lt:
       all:
         title: OpenStreetMap dienoraščio įrašai
         description: Paskutiniai OpenStreetMap naudotojų dienoraščių įrašai
-    comments:
+  diary_comments:
+    index:
       title: Dienoraščio komentarus pridėjo %{user}
       heading: Naudotojo %{user} dienoraščio komentarai
       subheading_html: Dienoraščio komentarus pridėjo %{user}
@@ -1956,6 +1962,7 @@ lt:
       legal_2_2_registered_trademarks: OSMF registruotie prekių ženklai
       partners_title: Partneriai
     copyright:
+      title: Autorinės teisės ir licencija
       foreign:
         title: Apie šį vertimą
         html: Esant konfliktui tarp šio išversto puslapio ir  %{english_original_link},
@@ -1969,7 +1976,6 @@ lt:
         native_link: Lietuviška versija
         mapping_link: pradėti žymėjimą
       legal_babble:
-        title_html: Autorinės teisės ir licencija
         introduction_1_html: |-
           OpenStreetMap%{registered_trademark_link} yra %{open_data}, licencijuota pagal
           %{odc_odbl_link} (ODbL) pagal %{osm_foundation_link} (OSMF).
@@ -2074,9 +2080,6 @@ lt:
       js_1: Jūs arba naudojate naršyklę, nepalaikančią JavaScript, arba išjungėte
         JavaScript palaikymą.
       js_2: OpenStreetMap naudoja JavaScript savo 'slidžiam' žemėlapiui
-      permalink: Nuoroda į šią vietą
-      shortlink: Trumpoji nuoroda
-      createnote: Pridėti pastabą
       license:
         copyright: Teisės priklauso OpenStreetMap ir prie projekto prisidėjusiems,
           pagal atvirą licenciją.
@@ -2460,12 +2463,6 @@ lt:
       wikipedia:
         title: Prisijungti su Vikipedija
         alt: Prisijungti su Vikipedija Paskyra
-      wordpress:
-        title: Prisijunkite su Wordpress
-        alt: Prisijunkite su Wordpress OpenID
-      aol:
-        title: Prisijunkite su AOL
-        alt: Prisijunkite su AOL OpenID
   oauth:
     authorize:
       title: Autorizuoti priėjimą prie jūsų paskyros
@@ -2606,10 +2603,11 @@ lt:
           patvirtintume tavo paskyrą.
       display name description: Jūsų viešai rodomas naudotojo vardas. Jei norėsite,
         galėsite jį vėliau pakeisti savo nustatymuose.
+      by_signing_up:
+        privacy_policy: privatumo politika
       external auth: 'Trečios šalies autentikacija:'
       continue: Užsiregistruoti
       terms accepted: Ačiū, kad patvirtinote naująsias talkininkų sąlygas!
-      privacy_policy: privatumo politika
       use external auth: Alternatyviai, naudokite trečią šalį prisijungimui
     terms:
       title: Sąlygos
@@ -2964,13 +2962,6 @@ lt:
       map_data_zoom_in_tooltip: Padidinkite, norėdami matyti žemėlapio duomenis
       queryfeature_tooltip: Ieškoti objektų
       queryfeature_disabled_tooltip: Padidinkite, norėdami ieškoti objektų
-    changesets:
-      show:
-        comment: Komentuoti
-        subscribe: Užsisakyti
-        unsubscribe: Atsisakyti
-        hide_comment: slėpti
-        unhide_comment: neslėpti
     edit_help: Pastumkite žemėlapį ir padidinkite vietą, kurią norite keisti, tada
       spauskite čia.
     directions:

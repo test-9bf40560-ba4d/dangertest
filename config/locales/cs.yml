@@ -565,8 +565,13 @@ cs:
       join_discussion: Chcete-li diskutovat, přihlaste se
       still_open: Sada změn je stále otevřená – diskuse se zpřístupní, jakmile bude
         sada změn uzavřena.
+      subscribe: Odebírat
+      unsubscribe: Zrušit odebírání
       comment_by_html: Komentář od uživatele %{user} %{time_ago}
       hidden_comment_by_html: Skrytý komentář od uživatele %{user} %{time_ago}
+      hide_comment: skrýt
+      unhide_comment: odkrýt
+      comment: Okomentovat
       changesetxml: Sada změn XML
       osmchangexml: osmChange XML
     paging_nav:
@@ -683,7 +688,14 @@ cs:
       all:
         title: Deníkové záznamy OpenStreetMap
         description: Nedávné záznamy v denících uživatelů OpenStreetMap
-    comments:
+    subscribe:
+      heading: Přihlásit se k odběru následující diskuse k deníkovému záznamu?
+      button: Odebírat diskusi
+    unsubscribe:
+      heading: Odhlásit odběr následující diskuse k deníkovému záznamu?
+      button: Zrušit odběr diskuse
+  diary_comments:
+    index:
       title: Komentáře k deníkům přidané uživatelem %{user}
       heading: Deníkové komentáře uživatele %{user}
       subheading_html: Komentáře k deníkům přidané uživatelem %{user}
@@ -693,12 +705,6 @@ cs:
       comment: Komentář
       newer_comments: Novější komentáře
       older_comments: Starší komentáře
-    subscribe:
-      heading: Přihlásit se k odběru následující diskuse k deníkovému záznamu?
-      button: Odebírat diskusi
-    unsubscribe:
-      heading: Odhlásit odběr následující diskuse k deníkovému záznamu?
-      button: Zrušit odběr diskuse
   doorkeeper:
     errors:
       messages:
@@ -2094,6 +2100,7 @@ cs:
       legal_2_2_registered_trademarks: zapsané ochranné známky OSMF
       partners_title: Partneři
     copyright:
+      title: Autorská práva a licence
       foreign:
         title: O tomto překladu
         html: V případě rozporů mezi touto přeloženou verzí a %{english_original_link}
@@ -2107,7 +2114,6 @@ cs:
         native_link: českou verzi
         mapping_link: začít mapovat
       legal_babble:
-        title_html: Autorská práva a licence
         introduction_1_html: OpenStreetMap%{registered_trademark_link} jsou %{open_data},
           která za podmínek %{odc_odbl_link} (ODbL) nabízí %{osm_foundation_link}
           (OSMF).
@@ -2266,9 +2272,6 @@ cs:
       js_1: Buď používáte prohlížeč bez podpory JavaScriptu, nebo máte JavaScript
         zakázaný.
       js_2: OpenStreetMap používá pro svou interaktivní mapu JavaScript.
-      permalink: Trvalý odkaz
-      shortlink: Krátký odkaz
-      createnote: Přidat poznámku
       license:
         copyright: Copyright OpenStreetMap a přispěvatelé, pod svobodnou licencí
       remote_failed: Editace se nezdařila – ujistěte se, že JOSM nebo Merkaartor běží
@@ -2706,12 +2709,6 @@ cs:
       wikipedia:
         title: Přihlásit se účtem na Wikipedii
         alt: Přihlásit se účtem na Wikipedii
-      wordpress:
-        title: Přihlásit se prostřednictvím Wordpress
-        alt: Přihlásit se pomocí Wordpress OpenID
-      aol:
-        title: Přihlásit se prostřednictvím AOL
-        alt: Přihlásit se pomocí AOL OpenID
   oauth:
     authorize:
       title: Autorizovat přístup k vašemu účtu
@@ -2868,18 +2865,20 @@ cs:
         nastavení svého účtu.
       display name description: Vaše veřejně zobrazované uživatelské jméno. Můžete
         si ho později změnit ve svém nastavení.
-      by_signing_up_html: Registrací souhlasíte s našimi %{tou_link}, %{privacy_policy_link}
-        a %{contributor_terms_link}.
+      by_signing_up:
+        html: Registrací souhlasíte s našimi %{tou_link}, %{privacy_policy_link} a
+          %{contributor_terms_link}.
+        privacy_policy: pravidly ochrany osobních údajů
+        privacy_policy_title: Pravidla ochrany osobních údajů OSMF, včetně části o
+          e-mailových adresách
+        contributor_terms: podmínkami pro přispěvatele
       tou: podmínkami užití
-      contributor_terms: podmínkami pro přispěvatele
       external auth: 'Autentizace třetí stranou:'
       continue: Zaregistrovat se
       terms accepted: Děkujeme za odsouhlasení nových podmínek pro přispěvatele!
-      email_help_html: Vaše adresa se nezobrazuje veřejně, více informací získáte
-        na stránce s našimi %{privacy_policy_link}.
-      privacy_policy: pravidly ochrany osobních údajů
-      privacy_policy_title: Pravidla ochrany osobních údajů OSMF, včetně části o e-mailových
-        adresách
+      email_help:
+        html: Vaše adresa se nezobrazuje veřejně, více informací získáte na stránce
+          s našimi %{privacy_policy_link}.
       consider_pd_html: Své příspěvky považuji za %{consider_pd_link}.
       consider_pd: volné dílo
       or: nebo
@@ -3318,13 +3317,6 @@ cs:
       queryfeature_tooltip: Průzkum prvků
       queryfeature_disabled_tooltip: Pro průzkum prvků přejděte na větší měřítko
       embed_html_disabled: HTML vkládání není pro tuto mapovou vrstvu k dispozici
-    changesets:
-      show:
-        comment: Okomentovat
-        subscribe: Odebírat
-        unsubscribe: Zrušit odebírání
-        hide_comment: skrýt
-        unhide_comment: odkrýt
     edit_help: Posuňte si mapu a zvětšete si místo, které chcete editovat, a klikněte
       zde.
     directions:

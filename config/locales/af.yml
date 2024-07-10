@@ -407,6 +407,11 @@ af:
       join_discussion: Meld aan en gesels saam
       still_open: Wysigingstel is steeds oop - bespreking sal oopmaak sodra die wysigingstel
         gesluit is.
+      subscribe: Skryf in
+      unsubscribe: Kanselleer subskripsie
+      hide_comment: versteek
+      unhide_comment: bring weer aan die lig
+      comment: Reageer
       changesetxml: Wysigingstel XML
       osmchangexml: osmWysiging XML
     paging_nav:
@@ -517,7 +522,8 @@ af:
       all:
         title: OpenStreetMap-dagboekinskrywings
         description: Onlangse dagboekinskrywings van OpenStreetMap-gebruikers
-    comments:
+  diary_comments:
+    index:
       no_comments: Geen dagboekkommentaar
       post: Inskrywing
       when: Wanneer
@@ -1587,6 +1593,7 @@ af:
       legal_title: Regsaspekte
       partners_title: Vennote
     copyright:
+      title: Kopiereg en lisensie
       foreign:
         title: Aangaande dié vertaling
       native:
@@ -1594,14 +1601,9 @@ af:
         native_link: Afrikaanse weergawe
         mapping_link: begin karteer
       legal_babble:
-        title_html: Kopiereg en lisensie
         credit_title_html: Hoe om na OpenStreetMap te verwys
         contributors_title_html: Ons bydraers
         infringement_title_html: Kopieregoortreding
-    index:
-      permalink: Perma-skakel
-      shortlink: Kortskakel
-      createnote: Voeg 'n nota by
     edit:
       user_page_link: gebruikersbladsy
       anon_edits_link_text: Lees waarom dit so is.
@@ -1803,12 +1805,6 @@ af:
       wikipedia:
         title: Meld aan met Wikipedia
         alt: Meld aan met ’n Wikipedia-rekening
-      wordpress:
-        title: Meld aan met Wordpress
-        alt: Meld aan met ’n Wordpress-OpenID
-      aol:
-        title: Meld aan met AOL
-        alt: Meld aan met ’n AOL-OpenID
   oauth:
     authorize:
       allow_to: 'Sta die kliëntprogram toe om:'
@@ -2114,13 +2110,6 @@ af:
       map_data_zoom_in_tooltip: Zoem in om kaartdata te sien
       queryfeature_tooltip: Soek bakens op
       queryfeature_disabled_tooltip: Zoem in om bakens te zoek
-    changesets:
-      show:
-        comment: Reageer
-        subscribe: Skryf in
-        unsubscribe: Kanselleer subskripsie
-        hide_comment: versteek
-        unhide_comment: bring weer aan die lig
     directions:
       engines:
         fossgis_osrm_car: Kar (OSRM)

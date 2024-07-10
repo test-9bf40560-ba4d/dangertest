@@ -50,11 +50,6 @@ class DiaryEntriesControllerTest < ActionDispatch::IntegrationTest
     )
 
     assert_routing(
-      { :path => "/user/username/diary/comments", :method => :get },
-      { :controller => "diary_entries", :action => "comments", :display_name => "username" }
-    )
-
-    assert_routing(
       { :path => "/diary/new", :method => :get },
       { :controller => "diary_entries", :action => "new" }
     )
@@ -87,14 +82,6 @@ class DiaryEntriesControllerTest < ActionDispatch::IntegrationTest
       { :controller => "diary_entries", :action => "unhide", :display_name => "username", :id => "1" }
     )
     assert_routing(
-      { :path => "/user/username/diary/1/hidecomment/2", :method => :post },
-      { :controller => "diary_entries", :action => "hidecomment", :display_name => "username", :id => "1", :comment => "2" }
-    )
-    assert_routing(
-      { :path => "/user/username/diary/1/unhidecomment/2", :method => :post },
-      { :controller => "diary_entries", :action => "unhidecomment", :display_name => "username", :id => "1", :comment => "2" }
-    )
-    assert_routing(
       { :path => "/user/username/diary/1/subscribe", :method => :get },
       { :controller => "diary_entries", :action => "subscribe", :display_name => "username", :id => "1" }
     )
@@ -110,9 +97,6 @@ class DiaryEntriesControllerTest < ActionDispatch::IntegrationTest
       { :path => "/user/username/diary/1/unsubscribe", :method => :post },
       { :controller => "diary_entries", :action => "unsubscribe", :display_name => "username", :id => "1" }
     )
-
-    get "/user/username/diary/comments/1"
-    assert_redirected_to "/user/username/diary/comments"
   end
 
   def test_new_no_login
@@ -752,6 +736,72 @@ class DiaryEntriesControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  def test_show_og_image_with_no_image
+    user = create(:user)
+    diary_entry = create(:diary_entry, :user => user, :body => "nothing")
+
+    get diary_entry_path(user, diary_entry)
+    assert_response :success
+    assert_dom "head meta[property='og:image']" do
+      assert_dom "> @content", ActionController::Base.helpers.image_url("osm_logo_256.png", :host => root_url)
+    end
+  end
+
+  def test_show_og_image
+    user = create(:user)
+    diary_entry = create(:diary_entry, :user => user, :body => "![some picture](https://example.com/picture.jpg)")
+
+    get diary_entry_path(user, diary_entry)
+    assert_response :success
+    assert_dom "head meta[property='og:image']" do
+      assert_dom "> @content", "https://example.com/picture.jpg"
+    end
+  end
+
+  def test_show_og_image_with_relative_uri
+    user = create(:user)
+    diary_entry = create(:diary_entry, :user => user, :body => "![some local picture](/picture.jpg)")
+
+    get diary_entry_path(user, diary_entry)
+    assert_response :success
+    assert_dom "head meta[property='og:image']" do
+      assert_dom "> @content", "#{root_url}picture.jpg"
+    end
+  end
+
+  def test_show_og_image_with_spaces
+    user = create(:user)
+    diary_entry = create(:diary_entry, :user => user, :body => "![some picture](https://example.com/the picture.jpg)")
+
+    get diary_entry_path(user, diary_entry)
+    assert_response :success
+    assert_dom "head meta[property='og:image']" do
+      assert_dom "> @content", "https://example.com/the%20picture.jpg"
+    end
+  end
+
+  def test_show_og_image_with_relative_uri_and_spaces
+    user = create(:user)
+    diary_entry = create(:diary_entry, :user => user, :body => "![some local picture](/the picture.jpg)")
+
+    get diary_entry_path(user, diary_entry)
+    assert_response :success
+    assert_dom "head meta[property='og:image']" do
+      assert_dom "> @content", "#{root_url}the%20picture.jpg"
+    end
+  end
+
+  def test_show_og_image_with_invalid_uri
+    user = create(:user)
+    diary_entry = create(:diary_entry, :user => user, :body => "![](:)")
+
+    get diary_entry_path(user, diary_entry)
+    assert_response :success
+    assert_dom "head meta[property='og:image']" do
+      assert_dom "> @content", ActionController::Base.helpers.image_url("osm_logo_256.png", :host => root_url)
+    end
+  end
+
   def test_hide
     user = create(:user)
     diary_entry = create(:diary_entry, :user => user)
@@ -812,114 +862,6 @@ class DiaryEntriesControllerTest < ActionDispatch::IntegrationTest
     post unhide_diary_entry_path(user, diary_entry)
     assert_redirected_to :action => :index, :display_name => user.display_name
     assert DiaryEntry.find(diary_entry.id).visible
-  end
-
-  def test_hidecomment
-    user = create(:user)
-    diary_entry = create(:diary_entry, :user => user)
-    diary_comment = create(:diary_comment, :diary_entry => diary_entry)
-
-    # Try without logging in
-    post hide_diary_comment_path(user, diary_entry, diary_comment)
-    assert_response :forbidden
-    assert DiaryComment.find(diary_comment.id).visible
-
-    # Now try as a normal user
-    session_for(user)
-    post hide_diary_comment_path(user, diary_entry, diary_comment)
-    assert_redirected_to :controller => :errors, :action => :forbidden
-    assert DiaryComment.find(diary_comment.id).visible
-
-    # Try as a moderator
-    session_for(create(:moderator_user))
-    post hide_diary_comment_path(user, diary_entry, diary_comment)
-    assert_redirected_to :action => :show, :display_name => user.display_name, :id => diary_entry.id
-    assert_not DiaryComment.find(diary_comment.id).visible
-
-    # Reset
-    diary_comment.reload.update(:visible => true)
-
-    # Finally try as an administrator
-    session_for(create(:administrator_user))
-    post hide_diary_comment_path(user, diary_entry, diary_comment)
-    assert_redirected_to :action => :show, :display_name => user.display_name, :id => diary_entry.id
-    assert_not DiaryComment.find(diary_comment.id).visible
-  end
-
-  def test_unhidecomment
-    user = create(:user)
-    diary_entry = create(:diary_entry, :user => user)
-    diary_comment = create(:diary_comment, :diary_entry => diary_entry, :visible => false)
-
-    # Try without logging in
-    post unhide_diary_comment_path(user, diary_entry, diary_comment)
-    assert_response :forbidden
-    assert_not DiaryComment.find(diary_comment.id).visible
-
-    # Now try as a normal user
-    session_for(user)
-    post unhide_diary_comment_path(user, diary_entry, diary_comment)
-    assert_redirected_to :controller => :errors, :action => :forbidden
-    assert_not DiaryComment.find(diary_comment.id).visible
-
-    # Now try as a moderator
-    session_for(create(:moderator_user))
-    post unhide_diary_comment_path(user, diary_entry, diary_comment)
-    assert_redirected_to :action => :show, :display_name => user.display_name, :id => diary_entry.id
-    assert DiaryComment.find(diary_comment.id).visible
-
-    # Reset
-    diary_comment.reload.update(:visible => true)
-
-    # Finally try as an administrator
-    session_for(create(:administrator_user))
-    post unhide_diary_comment_path(user, diary_entry, diary_comment)
-    assert_redirected_to :action => :show, :display_name => user.display_name, :id => diary_entry.id
-    assert DiaryComment.find(diary_comment.id).visible
-  end
-
-  def test_comments
-    user = create(:user)
-    other_user = create(:user)
-    suspended_user = create(:user, :suspended)
-    deleted_user = create(:user, :deleted)
-
-    # Test a user with no comments
-    get diary_comments_path(:display_name => user.display_name)
-    assert_response :success
-    assert_template :comments
-    assert_select "h4", :html => "No diary comments"
-
-    # Test a user with a comment
-    create(:diary_comment, :user => other_user)
-
-    get diary_comments_path(:display_name => other_user.display_name)
-    assert_response :success
-    assert_template :comments
-    assert_dom "a[href='#{user_path(other_user)}']", :text => other_user.display_name
-    assert_select "table.table-striped tbody" do
-      assert_select "tr", :count => 1
-    end
-
-    # Test a suspended user
-    get diary_comments_path(:display_name => suspended_user.display_name)
-    assert_response :not_found
-
-    # Test a deleted user
-    get diary_comments_path(:display_name => deleted_user.display_name)
-    assert_response :not_found
-  end
-
-  def test_comments_invalid_paged
-    user = create(:user)
-
-    %w[-1 0 fred].each do |id|
-      get diary_comments_path(:display_name => user.display_name, :before => id)
-      assert_redirected_to :controller => :errors, :action => :bad_request
-
-      get diary_comments_path(:display_name => user.display_name, :after => id)
-      assert_redirected_to :controller => :errors, :action => :bad_request
-    end
   end
 
   def test_subscribe_page

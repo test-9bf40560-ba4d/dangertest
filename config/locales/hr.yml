@@ -393,6 +393,11 @@ hr:
       title: 'Set promjena: %{id}'
       discussion: Razgovor
       join_discussion: Prijavi se za uključivanje u raspravu
+      subscribe: Pretplati se
+      unsubscribe: Otkaži pretplatu
+      hide_comment: sakrij
+      unhide_comment: vrati sakriveno
+      comment: Komentiraj
       changesetxml: XLM Set promjena
       osmchangexml: osmChange XML
     paging_nav:
@@ -493,7 +498,8 @@ hr:
       all:
         title: Zapisi u OpenStreetMap dnevniku
         description: Nedavni zapisi u dnevnik korisnika OpenStreetMapa
-    comments:
+  diary_comments:
+    index:
       post: Pošalji
       when: Kada
       comment: Komentar
@@ -1255,6 +1261,7 @@ hr:
       legal_title: Pravno
       partners_title: Partneri
     copyright:
+      title: Autorska prava i Dozvola
       foreign:
         title: O ovom prijevodu
         html: U slučaju konflikta između ove prevedene stranice i %{english_original_link},
@@ -1268,7 +1275,6 @@ hr:
         native_link: hrvatsko izdanje
         mapping_link: počnite kartirati
       legal_babble:
-        title_html: Autorska prava i Dozvola
         introduction_1_html: OpenStreetMap%{registered_trademark_link} su %{open_data},
           koje je licencirao %{osm_foundation_link} (OSMF) pod %{odc_odbl_link} (ODbL).
         introduction_2_html: Slobodni ste kopirati, distribuirati, prenositi i adaptirati
@@ -1307,9 +1313,6 @@ hr:
       js_1: Koristite preglednik koji ne podržava JavaScript ili Vam je JavaScript
         isključen.
       js_2: OpenStreetMap koristi JavaScript za slippy kartu.
-      permalink: Permalink
-      shortlink: Kratki link
-      createnote: Dodaj bilješku
       license:
         copyright: Autorska prava pripadaju OpenStreetMap-u i doprinositeljima, pod
           otvorenom licencijom
@@ -1548,12 +1551,6 @@ hr:
       wikipedia:
         title: Prijavi se preko Wikipedije
         alt: Prijavi se s Wikipedijinim računom
-      wordpress:
-        title: Prijavi se sa Wordpressom
-        alt: Prijavi se sa Wordpressovim OpenID-om
-      aol:
-        title: Prijavi se sa AOL-om
-        alt: Prijavi se sa AOL-ovim OpenID-om
   oauth:
     authorize:
       request_access_html: Aplikacija %{app_name} zahtjeva pristup vašem korisničkom
@@ -1902,13 +1899,6 @@ hr:
       map_data_zoom_in_tooltip: Približi da vidiš podatke karte
       queryfeature_tooltip: Provjeri elemente karte
       queryfeature_disabled_tooltip: Približi za provjeru elemenata
-    changesets:
-      show:
-        comment: Komentiraj
-        subscribe: Pretplati se
-        unsubscribe: Otkaži pretplatu
-        hide_comment: sakrij
-        unhide_comment: vrati sakriveno
     edit_help: Pomakni kartu i približi dio koji želiš urediti, zatim klikni ovdje.
     directions:
       engines:

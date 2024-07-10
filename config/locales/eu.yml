@@ -487,8 +487,13 @@ eu:
       join_discussion: Hasi saioa eztabaidan parte hartzeko
       still_open: Aldaketak oraindik zabalik - eztabaida aldaketak itxi ondoren irekiko
         da.
+      subscribe: Harpidetu
+      unsubscribe: Harpidetza kendu
       comment_by_html: '%{user} -ren iruzkina orain dela %{time_ago}'
       hidden_comment_by_html: '%{user} -ren ezkutuko iruzkina %{time_ago} tik'
+      hide_comment: ezkutatu
+      unhide_comment: erakutsi
+      comment: Iruzkina
       changesetxml: Aldaketaren XML kodea
       osmchangexml: osmChange XML kodea
     paging_nav:
@@ -606,7 +611,8 @@ eu:
       all:
         title: OpenStreetMap eguneroko sarrerak
         description: OpenStreetMap erabiltzaileek azkenaldian egindako eguneroko sarrerak
-    comments:
+  diary_comments:
+    index:
       title: '%{user} erabiltzaileak gehitutako egunkariko iruzkinak'
       heading: '%{user} erabiltzailearen egunkariko iruzkinak'
       subheading_html: '%{user} erabiltzaileak gehitutako egunkariko iruzkinak'
@@ -1980,6 +1986,7 @@ eu:
       legal_2_2_registered_trademarks: OSMFren marka erregistratuak
       partners_title: Parte-hartzaileak
     copyright:
+      title: Egile-eskubideak eta lizentzia
       foreign:
         title: Itzulpen honi buruz
         html: Itzulitako orrialde hau eta %{english_original_link} arteko gatazka
@@ -1993,7 +2000,6 @@ eu:
         native_link: Euskara version
         mapping_link: kartografiarekin hasi
       legal_babble:
-        title_html: Egile-eskubideak eta lizentzia
         introduction_1_open_data: Datu Irekiak
         introduction_1_odc_odbl: Open Data Commons Open Database Lizentzia
         introduction_1_osm_foundation: OpenStreetMap Fundazioa
@@ -2080,9 +2086,6 @@ eu:
       js_1: Javascript onartzen ez duen arakatzailea erabiltzen ari zara edo JavaScript
         desgaitu duzu.
       js_2: OpenStreetMap-ek Javascript erabiltzen du bere mapa irriztagarrirako.
-      permalink: Esteka iraunkorra
-      shortlink: Esteka laburra
-      createnote: Gehitu oharra
       license:
         copyright: OpenStreetMap eta laguntzaileen Copyright-a erabili, lizentzia
           irekiaren babespean
@@ -2481,12 +2484,6 @@ eu:
       wikipedia:
         title: Saioa hasi Wikipediarekin
         alt: Wikipedia kontuarekin saioa hasi
-      wordpress:
-        title: Wordpress bidez saioa hasi
-        alt: Wordpress ID irekiarekin saioa hasi
-      aol:
-        title: AOL erabiliz saioa hasi
-        alt: AOL ID irekiarekin saioa hasi
   oauth:
     authorize:
       title: Zure kontuan sartzeko baimena eman
@@ -2628,14 +2625,16 @@ eu:
           dizugu zure kontua berresteko.
       display name description: Zuk publikoki erakutsitako erabiltzaile izena. Hau
         geroago alda dezakezu hobespenetan.
+      by_signing_up:
+        privacy_policy: pribatutasun politika
+        privacy_policy_title: OSMF pribatutasun-politika helbide elektronikoei buruzko
+          atala barne
       external auth: 'Hirugarrenen Autentifikazioa:'
       continue: Eman izena
       terms accepted: Eskerrik asko laguntzaileen termino berriak onartzeagatik!
-      email_help_html: Zure helbidea ez da publikoki bistaratzen, ikusi gure %{privacy_policy_link}
-        informazio gehiago lortzeko.
-      privacy_policy: pribatutasun politika
-      privacy_policy_title: OSMF pribatutasun-politika helbide elektronikoei buruzko
-        atala barne
+      email_help:
+        html: Zure helbidea ez da publikoki bistaratzen, ikusi gure %{privacy_policy_link}
+          informazio gehiago lortzeko.
       use external auth: Bestela, erabili hirugarrenen bat saioa hasteko
     terms:
       title: Baldintzak
@@ -2982,13 +2981,6 @@ eu:
       map_data_zoom_in_tooltip: Handiagotu mapa datuak ikusteko
       queryfeature_tooltip: Eskaera ezaugarriak
       queryfeature_disabled_tooltip: Handiagotu ezaugarriak eskatzeko
-    changesets:
-      show:
-        comment: Iruzkina
-        subscribe: Harpidetu
-        unsubscribe: Harpidetza kendu
-        hide_comment: ezkutatu
-        unhide_comment: erakutsi
     edit_help: Mugitu mapa eta zooma editatu nahi duzun kokaleku batean erabili, gero
       klik hemen egin.
     directions:

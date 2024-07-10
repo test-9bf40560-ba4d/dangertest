@@ -503,8 +503,13 @@ ca:
       join_discussion: Inicieu una sessió per a unir-vos al debat
       still_open: Conjunt de canvis encara obert - el debat començarà quan es tanqui
         el conjunt de canvis.
+      subscribe: Subscriure's
+      unsubscribe: Dona de baixa
       comment_by_html: Comentari de %{user} %{time_ago}
       hidden_comment_by_html: Comentari ocult de %{user} %{time_ago}
+      hide_comment: ocultar
+      unhide_comment: mostrar
+      comment: Comenta
       changesetxml: XML del conjunt de canvis
       osmchangexml: XML en format osmChange
     paging_nav:
@@ -619,7 +624,8 @@ ca:
       all:
         title: Entrades de diari d'OpenStreetMap
         description: Entrades de diari recents dels usuaris d'OpenStreetMap
-    comments:
+  diary_comments:
+    index:
       title: Comentaris del diari afegits per %{user}
       heading: Comentaris del diari de %{user}
       subheading_html: Comentaris del diari afegits per %{user}
@@ -1973,6 +1979,7 @@ ca:
       legal_2_2_registered_trademarks: marca registrada de l'OSMF
       partners_title: Socis
     copyright:
+      title: Drets d'autor i llicència
       foreign:
         title: Quant a la traducció
         html: En cas de conflicte entre aquesta pàgina traduïda i %{english_original_link},
@@ -1986,7 +1993,6 @@ ca:
         native_link: Versió en català
         mapping_link: Comença a cartografiar
       legal_babble:
-        title_html: Drets d'autor i llicència
         introduction_1_html: |-
           OpenStreetMap%{registered_trademark_link} són %{open_data}, sota la llicència
           %{odc_odbl_link} (ODbL) per la %{osm_foundation_link} (OSMF).
@@ -2101,9 +2107,6 @@ ca:
       js_1: O bé esteu utilitzant un navegador no compatible amb JavaScript o bé teniu
         JavaScript deshabilitat.
       js_2: L'OpenStreetMap utilitza JavaScript per al mapa lliscant.
-      permalink: Enllaç permanent
-      shortlink: Enllaç curt
-      createnote: Afegeix una nota
       license:
         copyright: Copyright d'OpenStreetMap i els seus col·laboradors sota llicència
           oberta
@@ -2544,12 +2547,6 @@ ca:
       wikipedia:
         title: Inicieu la sessió amb Viquipèdia
         alt: Inicieu la sessió amb un compte de Viquipèdia
-      wordpress:
-        title: Inicieu la sessió amb Wordpress
-        alt: Inicieu la sessió amb un compte OpenID de Wordpress
-      aol:
-        title: Inicieu la sessió amb AOL
-        alt: Inicieu la sessió amb un compte OpenID d'AOL
   oauth:
     authorize:
       title: Autoritzeu l'accés al vostre compte
@@ -2696,14 +2693,16 @@ ca:
           electrònic per confirmar el vostre compte.
       display name description: El nom d'usuari que es mostrarà públicament. El podeu
         canviar més endavant a les preferències.
+      by_signing_up:
+        privacy_policy: política de privadesa
+        privacy_policy_title: Política de privadesa de l'OSMF incloent la secció sobre
+          adreces de correu electrònic
       external auth: 'Autenticació mitjançant tercers:'
       continue: Registreu-vos-hi
       terms accepted: Gràcies per acceptar els nous termes de col·laboració.
-      email_help_html: La vostra adreça no es mostrarà públicament, consulteu la nostra
-        %{privacy_policy_link} per obtenir més informació.
-      privacy_policy: política de privadesa
-      privacy_policy_title: Política de privadesa de l'OSMF incloent la secció sobre
-        adreces de correu electrònic
+      email_help:
+        html: La vostra adreça no es mostrarà públicament, consulteu la nostra %{privacy_policy_link}
+          per obtenir més informació.
       use external auth: 'Alternativament, inicieu la sessió mitjançant un tercer:'
     terms:
       title: Termes
@@ -3106,13 +3105,6 @@ ca:
       queryfeature_disabled_tooltip: Apropeu-vos per a consultar característiques
       embed_html_disabled: La incrustació d'HTML no està disponible per a aquesta
         capa de mapa
-    changesets:
-      show:
-        comment: Comenta
-        subscribe: Subscriure's
-        unsubscribe: Dona de baixa
-        hide_comment: ocultar
-        unhide_comment: mostrar
     edit_help: Moveu el mapa i feu zoom sobre una ubicació que vulgueu editar, i a
       continuació, feu clic aquí.
     directions:

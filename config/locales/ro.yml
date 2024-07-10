@@ -488,8 +488,13 @@ ro:
       join_discussion: Conectați-vă pentru a vă alătura discuției
       still_open: Setul de schimbări este deschis - discuția se va deschide atunci
         când setul de schimbări este închis.
+      subscribe: Abonare
+      unsubscribe: Dezabonare
       comment_by_html: Comentariu de la %{user} %{time_ago}
       hidden_comment_by_html: Comentariu ascuns de la %{user} %{time_ago}
+      hide_comment: ascunde
+      unhide_comment: arată
+      comment: Comentariu
       changesetxml: Set de modificări XML
       osmchangexml: XML osmChange
     paging_nav:
@@ -607,7 +612,8 @@ ro:
       all:
         title: Înregistrări în jurnalul OpenStreetMap
         description: Înregistrări recente în jurnale de la utilizatorii OpenStreetMap
-    comments:
+  diary_comments:
+    index:
       title: Comentarii din jurnal adăugate de %{user}
       heading: Comentariile la jurnal a lui %{user}
       subheading_html: Comentarii din jurnal adăugate de %{user}
@@ -1988,6 +1994,7 @@ ro:
       legal_2_2_registered_trademarks: mărci înregistrate ale OSMF
       partners_title: Parteneri
     copyright:
+      title: Drepturi de autor și licență
       foreign:
         title: Despre această traducere
         html: În cazul unui conflict între această pagină tradusă și %{english_original_link},
@@ -2001,7 +2008,6 @@ ro:
         native_link: Versiune THIS_LANGUAGE_NAME_HERE
         mapping_link: Începeți să cartografiați
       legal_babble:
-        title_html: Drepturi de autor și licență
         introduction_1_html: |-
           OpenStreetMap%{registered_trademark_link} este %{open_data}, licențiat în conformitate cu
           %{odc_odbl_link} (ODbL) de către %{osm_foundation_link} (OSMF).
@@ -2163,9 +2169,6 @@ ro:
       js_1: Utilizați fie un browser care nu acceptă JavaScript, fie aveți JavaScript
         dezactivat.
       js_2: OpenStreetMap folosește JavaScript pentru hărțile goale.
-      permalink: Legătură permanentă
-      shortlink: Legătură scurtată
-      createnote: Adaugă o notă
       license:
         copyright: Drepturi de autor OpenStreetMap și contribuitori, sub licență deschisă
       remote_failed: Editarea a eșuat - asigurați-vă că JOSM sau Merkaartor este încărcat
@@ -2593,12 +2596,6 @@ ro:
       wikipedia:
         title: Autentificare la Wikipedia
         alt: Conectați-vă cu un cont Wikipedia
-      wordpress:
-        title: Conectați-vă cu Wordpress
-        alt: Conectați-vă cu un cont Wordpress OpenID
-      aol:
-        title: Conectați-vă cu AOL
-        alt: Conectare cu un AOL OpenID
   oauth:
     authorize:
       title: Autorizați accesul la contul dvs.
@@ -2747,14 +2744,16 @@ ro:
           pentru a vă confirma contul.
       display name description: Numele dvs. de utilizator afișat public. Puteți schimba
         acest lucru mai târziu în preferințe.
+      by_signing_up:
+        privacy_policy: Politica de confidențialitate
+        privacy_policy_title: Politica de confidențialitate OSMF, inclusiv secțiunea
+          privind adresele de e-mail
       external auth: 'Verificarea terță parte:'
       continue: Înregistrare
       terms accepted: Vă mulțumim pentru acceptarea noilor termeni de contribuire!
-      email_help_html: Adresa dvs. nu este afișată public, consultați %{privacy_policy_link}
-        pentru mai multe informații.
-      privacy_policy: Politica de confidențialitate
-      privacy_policy_title: Politica de confidențialitate OSMF, inclusiv secțiunea
-        privind adresele de e-mail
+      email_help:
+        html: Adresa dvs. nu este afișată public, consultați %{privacy_policy_link}
+          pentru mai multe informații.
       use external auth: 'Alternativ, utilizați o terță parte pentru a vă conecta:'
     terms:
       title: Termeni
@@ -3145,13 +3144,6 @@ ro:
       queryfeature_disabled_tooltip: Mărește caracteristicile de interogare
       embed_html_disabled: Încorporarea HTML nu este disponibilă pentru acest strat
         de hartă
-    changesets:
-      show:
-        comment: Comentariu
-        subscribe: Abonare
-        unsubscribe: Dezabonare
-        hide_comment: ascunde
-        unhide_comment: arată
     edit_help: Deplasați harta și măriți o locație pe care doriți să o editați, apoi
       faceți click aici.
     directions:

@@ -3,6 +3,7 @@
 # Export driver: phpyaml
 # Author: Adrianojbr
 # Author: Alvarenga
+# Author: Andrekowacs
 # Author: Athena in Wonderland
 # Author: BraulioBezerra
 # Author: Brunomelnic
@@ -531,8 +532,13 @@ pt:
       join_discussion: Entrar para participar da discussão
       still_open: O conjunto de alterações continua em aberto - A discussão será iniciada
         assim que for fechado o conjunto de alterações.
+      subscribe: Inscrever
+      unsubscribe: Cancelar inscrição
       comment_by_html: Comentário de %{user} há %{time_ago}
       hidden_comment_by_html: Comentário ocultado por %{user} há %{time_ago}
+      hide_comment: esconder
+      unhide_comment: exibir
+      comment: Comentar
       changesetxml: XML do conjunto de alterações
       osmchangexml: XML osmChange
     paging_nav:
@@ -605,6 +611,8 @@ pt:
       title: Diário de %{user} | %{title}
       user_title: Diário de %{user}
       discussion: Discussão
+      subscribe: Inscrever
+      unsubscribe: Cancelar inscrição
       leave_a_comment: Deixe um comentário
       login_to_leave_a_comment_html: '%{login_link} para deixar um comentário'
       login: Entrar
@@ -648,7 +656,13 @@ pt:
       all:
         title: Publicações no diário do OpenStreetMap
         description: Publicações no diário recentes de usuários do OpenStreetMap
-    comments:
+    subscribe:
+      button: Inscreva-se na discussão
+    unsubscribe:
+      heading: Cancelar a in=inscrição da seguinte discussão de entrada de diário?
+      button: Cancelar a inscrição na discussão
+  diary_comments:
+    index:
       title: Comentários no diário feitos por %{user}
       heading: Comentários no diário de %{user}
       subheading_html: Comentários no diário feitos por %{user}
@@ -700,6 +714,10 @@ pt:
       contact_the_community_html: Sinta-se à vontade para %{contact_link} a comunidade
         OpenStreetMap se você encontrou um link quebrado ou um erro. Anote a URL exata
         da sua solicitação.
+    bad_request:
+      title: Pedido inválido
+      description: A operação solicitada no servidor OpenStreetMap não é válida (HTTP
+        400)
     forbidden:
       title: Proibido
       description: A operação solicitada no servidor do OpenStreetMap está disponível
@@ -1731,6 +1749,7 @@ pt:
       click_the_link: Se esta pessoa é você, por favor clique no link abaixo para
         receber uma nova senha.
     note_comment_notification:
+      description: 'Nota OpenStreetMap #%{id}'
       anonymous: Um usuário anônimo
       greeting: Olá,
       commented:
@@ -1963,13 +1982,14 @@ pt:
     new:
       title: Entrar
       tab_title: Entrar
+      login_to_authorize_html: Entre no OpenStreetMap para acederes a %{client_app_name}.
       email or username: E-mail ou nome de usuário
       password: Senha
       remember: Lembrar neste computador
       lost password link: Esqueceu sua senha?
       login_button: Entrar
       register now: Registre agora
-      with external: 'Ou identifique-se através de terceiros:'
+      with external: ou entre com uma aplicativo de terceiros
       or: ou
       auth failure: Impossível entrar com estas informações.
     destroy:
@@ -2049,6 +2069,7 @@ pt:
       legal_2_2_registered_trademarks: marcas registadas da OSMF
       partners_title: Parceiros
     copyright:
+      title: Direitos autorais e licença
       foreign:
         title: Sobre esta tradução
         html: Caso haja um conflito entre esta tradução e %{english_original_link},
@@ -2062,7 +2083,6 @@ pt:
         native_link: Versão em Português do Brasil
         mapping_link: começar a mapear
       legal_babble:
-        title_html: Direitos autorais e licença
         introduction_1_html: O OpenStreetMap%{registered_trademark_link} é composto
           por %{open_data}, licenciados sob %{odc_odbl_link} (ODbL) pela %{osm_foundation_link}
           (OSMF).
@@ -2149,6 +2169,9 @@ pt:
         contributors_fr_credit_html: '%{france}: contém dados provenientes da Direção
           Geral de Impostos.'
         contributors_fr_france: França
+        contributors_hr_credit_html: |-
+          %{croatia}: Contém dados de %{dgu_link} e %{open_data_portal}
+          (informação pública da Croácia).
         contributors_hr_croatia: Croata
         contributors_hr_dgu: Administração Geodésica Estatal da Croácia
         contributors_hr_open_data_portal: Portal Nacional de Dados Abertos
@@ -2214,9 +2237,6 @@ pt:
       js_1: Você está usando um navegador sem suporte a JavaScript, ou está com o
         JavaScript desativado.
       js_2: O OpenStreetMap usa JavaScript para a navegação dos mapas.
-      permalink: Link permanente
-      shortlink: Link Curto
-      createnote: Incluir uma nota
       license:
         copyright: Direitos autorais do OpenStreetMap e contribuidores sob uma licença
           aberta
@@ -2619,6 +2639,8 @@ pt:
         other: Arquivo GPX com %{count} pontos de %{user}
       description_without_count: Arquivo GPX de %{user}
   application:
+    basic_auth_disabled: 'A autenticação básica HTTP está desativada: %{link}'
+    oauth_10a_disabled: 'OAuth 1.0 e 1.0a estão desativados: %{link}'
     permission_denied: Você não tem permissão para acessar essa ação
     require_cookies:
       cookies_needed: Parece que você está com os cookies desabilitados - habilite-os
@@ -2643,28 +2665,22 @@ pt:
       openid_login_button: Continuar
       openid:
         title: Entrar com o OpenID
-        alt: Entrar com uma URL do OpenID
+        alt: Logotipo do OpenID
       google:
         title: Entrar com o Google
-        alt: Entrar com um OpenID da Google
+        alt: Logotipo do Google
       facebook:
         title: Entrar com o Facebook
-        alt: Entrar com uma conta do Facebook
+        alt: Logotipo do Facebook
       microsoft:
         title: Entrar com o Microsoft
-        alt: Entrar com uma conta do Microsoft
+        alt: Logotipo do Microsoft
       github:
         title: Entrar com o GitHub
-        alt: Entrar com conta do GitHub
+        alt: Logotipo do GitHub
       wikipedia:
         title: Entrar com Wikipédia
-        alt: Entrar com uma conta da Wikipédia
-      wordpress:
-        title: Entrar com o Wordpress
-        alt: Entrar com um OpenID da Wordpress
-      aol:
-        title: Entrar com a AOL
-        alt: Entrar com um OpenID da AOL
+        alt: Logotipo da Wikipédia
   oauth:
     authorize:
       title: Autorizar acesso à sua conta
@@ -2821,18 +2837,24 @@ pt:
         as configurações de sua conta.
       display name description: Seu nome de usuário disponível publicamente. Você
         pode mudá-lo depois nas preferências.
-      by_signing_up_html: Ao se inscrever, você concorda com nossos %{tou_link}, %{privacy_policy_link}
-        e %{contributor_terms_link}.
+      by_signing_up:
+        html: Ao se inscrever, você concorda com nossos %{tou_link}, %{privacy_policy_link}
+          e %{contributor_terms_link}.
+        privacy_policy: politica de privacidade
+        privacy_policy_title: Política de privacidade da OSMF incluindo seção sobre
+          endereços de e-mail
+        contributor_terms_url: https://wiki.osmfoundation.org/wiki/Licence/Contributor_Terms
+        contributor_terms: termos do contribuidor
       tou: termos de uso
-      contributor_terms: termos do contribuidor
       external auth: 'Autenticação de Terceiros:'
       continue: Registrar-se
       terms accepted: Obrigado por aceitar os novos termos de contribuição!
-      email_help_html: Seu endereço não é exibido publicamente, consulte nossa %{privacy_policy_link}
-        para obter mais informações.
-      privacy_policy: politica de privacidade
-      privacy_policy_title: Política de privacidade da OSMF incluindo seção sobre
-        endereços de e-mail
+      email_help:
+        privacy_policy: política de privacidade
+        privacy_policy_title: Política de privacidade da OSMF incluindo seção sobre
+          endereços de e-mail
+        html: Seu endereço não é exibido publicamente, consulte nossa %{privacy_policy_link}
+          para obter mais informações.
       consider_pd_html: Considero que minhas contribuições estão no %{consider_pd_link}.
       consider_pd: domínio público
       or: ou
@@ -2901,6 +2923,8 @@ pt:
       remove as friend: Desfazer amizade
       add as friend: Adicionar como amigo
       mapper since: 'Mapeador desde:'
+      last map edit: 'Última edição do mapa:'
+      no activity yet: Ainda sem atividade
       uid: 'ID do usário:'
       ct status: 'Termos do contribuidor:'
       ct undecided: Não decidido
@@ -3107,9 +3131,11 @@ pt:
       blocks_on_user: Bloqueios em %{user}
       blocks_by_me: Bloqueios por mim
       blocks_by_user: Bloqueios por %{user}
+      block: 'Bloqueio #%{id}'
   user_mutes:
     index:
       title: Usuários silenciados
+      my_muted_users: Meus usuários silenciados
       table:
         thead:
           muted_user: Usuários silenciados
@@ -3247,13 +3273,6 @@ pt:
       queryfeature_disabled_tooltip: Aproxime para consultar elementos
       embed_html_disabled: A incorporação de HTML não está disponível para esta camada
         do mapa
-    changesets:
-      show:
-        comment: Comentar
-        subscribe: Inscrever
-        unsubscribe: Cancelar inscrição
-        hide_comment: esconder
-        unhide_comment: exibir
     edit_help: Mover o mapa e ampliar uma localização que pretende editar e clique
       aqui.
     directions:

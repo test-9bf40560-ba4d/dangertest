@@ -283,7 +283,8 @@ sco:
       all:
         title: OpenStreetMap diary entries
         description: Recent diary entries frae uisers o OpenStreetMap
-    comments:
+  diary_comments:
+    index:
       post: Post
       when: When
       comment: Comment
@@ -805,6 +806,7 @@ sco:
       logout_button: Logoot
   site:
     copyright:
+      title: Copyricht an License
       foreign:
         title: Aboot this translation
         html: In the event of a conflict atween this translatit page an %{english_original_link},
@@ -818,7 +820,6 @@ sco:
         native_link: Scots version
         mapping_link: stairt cairttin
       legal_babble:
-        title_html: Copyricht an License
         credit_title_html: Hou tae credit OpenStreetMap
         credit_1_html: |-
           We require that ye uise the credit &ldquo;&copy; OpenStreetMap
@@ -916,12 +917,6 @@ sco:
       wikipedia:
         title: Login wi Wikipedia
         alt: Login wi a Wikipedia Accoont
-      wordpress:
-        title: Login wi Wordpress
-        alt: Login wi a Wordpress OpenID
-      aol:
-        title: Login wi AOL
-        alt: Login wi an AOL OpenID
   users:
     show:
       edits: Eedits

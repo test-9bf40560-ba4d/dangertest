@@ -273,7 +273,8 @@ aln:
       all:
         title: hyra OpenStreetMap ditar
         description: Shënimet mat fundit të ditarit nga anëtarët e OpenStreetMap
-    comments:
+  diary_comments:
+    index:
       comment: Koment
   friendships:
     make_friend:
@@ -815,6 +816,7 @@ aln:
       logout_button: Dil
   site:
     copyright:
+      title: Copyright
       foreign:
         title: Rreth kti përkthimi
         html: Në ni ngjarje të ni konflikti me faqen e përkthyme dhe %{english_original_link},
@@ -828,7 +830,6 @@ aln:
         native_link: Gegë verzion
         mapping_link: fillo hartografimin
       legal_babble:
-        title_html: Copyright
         credit_title_html: Si të kreditit OpenStreetMap
         credit_1_html: |-
           Nëse jeni duke përdorur harta imazhe OpenStreetMap, ne kërkojmë që
@@ -855,8 +856,6 @@ aln:
       js_1: Ju jeni duke përdorur ndonjë shfletues që nuk e përkrah JavaScript, ose
         i keni çativizuar JavaScript.
       js_2: OpenStreetMap përdor Java skriptet për planet e saj të rrëshqitshëm.
-      permalink: Permalink
-      shortlink: Shortlink
     edit:
       not_public: Ju nuk keni vendosur redaktimet e juaj të jetë publike.
       not_public_description_html: Ju nuk mund të redaktoni hartën e nëse ju një gjë

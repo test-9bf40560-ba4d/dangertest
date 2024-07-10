@@ -23,6 +23,7 @@
 # Author: DannyS712
 # Author: DarkGames26
 # Author: Dcapillae
+# Author: Descubriunaisla
 # Author: Destinid10 2
 # Author: Dgstranz
 # Author: Egofer
@@ -38,6 +39,7 @@
 # Author: Hufkratzer
 # Author: Idontknow
 # Author: Ignaciolep
+# Author: Ignatgg
 # Author: Indiralena
 # Author: Invadinado
 # Author: JDíaz32
@@ -587,8 +589,13 @@ es:
       join_discussion: Inicia sesión para unirte a la discusión
       still_open: El conjunto de cambios sigue abierto - la discusión se abrirá una
         vez se cierre el conjunto de cambios.
+      subscribe: Suscribirse
+      unsubscribe: Desuscribirse
       comment_by_html: Comentario de %{user} %{time_ago}
       hidden_comment_by_html: Comentario ocultado por %{user} %{time_ago}
+      hide_comment: ocultar
+      unhide_comment: mostrar
+      comment: Comentar
       changesetxml: XML del conjunto de cambios
       osmchangexml: XML en formato osmChange
     paging_nav:
@@ -663,6 +670,8 @@ es:
       title: Diario de %{user} | %{title}
       user_title: Diario de %{user}
       discussion: Discusión
+      subscribe: Suscribirse
+      unsubscribe: Desuscríbete
       leave_a_comment: Dejar un comentario
       login_to_leave_a_comment_html: '%{login_link} para dejar un comentario'
       login: Iniciar sesión
@@ -706,22 +715,23 @@ es:
       all:
         title: Entradas en el diario de OpenStreetMap
         description: Entradas recientes en los diarios de los usuarios de OpenStreetMap
-    comments:
-      title: Comentarios de diario añadidos por %{user}
-      heading: Comentarios del diario de %{user}
-      subheading_html: Comentarios del diario añadidos por %{user}
-      no_comments: Ningún comentario de diario
-      post: Publicación
-      when: Cuando
-      comment: Comentario
-      newer_comments: Comentarios más recientes
-      older_comments: Comentarios más antiguos
     subscribe:
       heading: ¿Deseas suscribirte a la siguiente discusión sobre la entrada al diario?
       button: Suscribirse a la discusión
     unsubscribe:
       heading: ¿Deseas desuscribirte de la siguiente discusión de entrada de diario?
       button: Desuscribirse de la discusión
+  diary_comments:
+    index:
+      title: Comentarios de diario añadidos por %{user}
+      heading: Comentarios del diario de %{user}
+      subheading_html: Comentarios de diario añadidos por %{user}
+      no_comments: Ningún comentario de diario
+      post: Publicación
+      when: Cuando
+      comment: Comentario
+      newer_comments: Comentarios más recientes
+      older_comments: Comentarios más antiguos
   doorkeeper:
     errors:
       messages:
@@ -764,6 +774,10 @@ es:
       contact_the_community_html: Siéntete libre de %{contact_link} con la comunidad
         de OpenStreetMap si has encontrado un enlace roto o un error. Toma nota de
         la URL exacta de tu solicitud.
+    bad_request:
+      title: Mala solicitud
+      description: La operación que solicitaste en el servidor de OpenStreetMap no
+        es valida (HTTP 400)
     forbidden:
       title: Prohibido
       description: La operación que se solicitó al servidor de OpenStreetMap solo
@@ -960,6 +974,7 @@ es:
           college: Edificio de institución educativa
           commercial: Edificio de comercios
           construction: Edificio en construcción
+          cowshed: Establo
           detached: Casa independiente
           dormitory: Residencia de estudiantes
           duplex: Casa dúplex
@@ -989,6 +1004,7 @@ es:
           shed: Cobertizo
           stable: Establo
           static_caravan: Caravana
+          sty: Pocilga
           temple: Edificio de templo
           terrace: Edificio terraza
           train_station: Edificio de estación de tren
@@ -1835,7 +1851,7 @@ es:
           La nota está cerca de %{place}.'
         commented_note_html: '%{commenter} ha reactivado un nota del mapa en la que
           has comentado. La nota está cerca de %{place}.'
-      details: Más detalles acerca de la nota pueden encontrarse en %{url}.
+      details: Responde o conoce más acerca de la nota en %{url}.
       details_html: Puedes encontrar más detalles acerca de la nota en %{url}.
     changeset_comment_notification:
       description: 'Conjunto de cambios de OpenStreetMap #%{id}'
@@ -1857,9 +1873,8 @@ es:
         partial_changeset_with_comment: con el comentario '%{changeset_comment}'
         partial_changeset_with_comment_html: con el comentario '%{changeset_comment}'
         partial_changeset_without_comment: sin comentarios
-      details: Puedes encontrar más detalles sobre el conjunto de cambios en %{url}.
-      details_html: Puedes encontrar más detalles sobre el conjunto de cambios en
-        %{url}.
+      details: Responde o conoce más sobre el conjunto de cambios en %{url}.
+      details_html: Responde o conoce más sobre el conjunto de cambios en %{url}.
       unsubscribe: Puedes desinscrirte de las actualizaciones de este conjunto de
         cambios en %{url}.
       unsubscribe_html: Puedes desinscrirte de las actualizaciones de este conjunto
@@ -2128,6 +2143,7 @@ es:
       legal_2_2_registered_trademarks: marcas registradas de la OSMF
       partners_title: Socios
     copyright:
+      title: Derechos de autor y licencia
       foreign:
         title: Acerca de esta traducción
         html: En el caso de un conflicto entre esta página traducida y %{english_original_link},
@@ -2141,7 +2157,6 @@ es:
         native_link: versión en español
         mapping_link: comenzar a mapear
       legal_babble:
-        title_html: Derechos de autor y licencia
         introduction_1_html: "OpenStreetMap%{registered_trademark_link} es %{open_data},
           licenciada bajo los términos de \n%{odc_odbl_link} (ODbL) por la %{osm_foundation_link}"
         introduction_1_open_data: datos abiertos
@@ -2302,9 +2317,6 @@ es:
     index:
       js_1: Estás usando un navegador que no soporta o tiene desactivado JavaScript
       js_2: OpenStreetMap utiliza JavaScript para mostrar su mapa deslizable.
-      permalink: Enlace permanente
-      shortlink: Enlace corto
-      createnote: Añadir una nota
       license:
         copyright: Derechos de autor de OpenStreetMap y colaboradores, bajo una licencia
           abierta
@@ -2713,6 +2725,8 @@ es:
         other: Archivo GPX con %{count} puntos de %{user}
       description_without_count: Archivo GPX de %{user}
   application:
+    basic_auth_disabled: 'La autenticación básica de HTTPS está desactivada: %{link}'
+    oauth_10a_disabled: 'OAuth 1.0 y 1.0a están desactivados: %{link}'
     permission_denied: No tienes permisos para realizar esa acción
     require_cookies:
       cookies_needed: Parece que tienes las cookies deshabilitadas. Habilita las cookies
@@ -2738,28 +2752,22 @@ es:
       openid_login_button: Continuar
       openid:
         title: Inicia sesión con OpenID
-        alt: Inicia sesión con una URL OpenID
+        alt: Logotipo de OpenID
       google:
         title: Inicia sesión con Google
-        alt: Inicia sesión con una OpenID de Google
+        alt: Logotipo de Google
       facebook:
         title: Inicia sesión con Facebook
-        alt: Inicia sesión con una cuenta de Facebook
+        alt: Logotipo de Facebook
       microsoft:
         title: Inicia sesión con Microsoft
-        alt: Inicia sesión con una cuenta Microsoft
+        alt: Logotipo de Microsoft
       github:
         title: Inicia sesión con GitHub
-        alt: Inicia sesión con una cuenta de GitHub
+        alt: Logotipo de GitHub
       wikipedia:
         title: Inicia sesión con Wikipedia
-        alt: Inicia sesión con una cuenta de Wikipedia
-      wordpress:
-        title: Inicia sesión con Wordpress
-        alt: Inicia sesión con una OpenID de Wordpress
-      aol:
-        title: Inicia sesión con AOL
-        alt: Inicia sesión con una OpenID de AOL
+        alt: Logotipo de Wikipedia
   oauth:
     authorize:
       title: Autorizar el acceso a tu cuenta
@@ -2914,18 +2922,23 @@ es:
         la configuración de tu cuenta.
       display name description: Tu nombre de usuario público. Puedes cambiarlo más
         tarde en las preferencias.
-      by_signing_up_html: Al inscribirse, estás de acuerdo con nuestro %{tou_link},
-        %{privacy_policy_link} y %{contributor_terms_link}.
+      by_signing_up:
+        html: Al inscribirse, estás de acuerdo con nuestro %{tou_link}, %{privacy_policy_link}
+          y %{contributor_terms_link}.
+        privacy_policy: política de privacidad
+        privacy_policy_title: Política de privacidad de la OSMF, incluida la sección
+          sobre direcciones de correo electrónico
+        contributor_terms: términos de colaborador
       tou: términos de uso
-      contributor_terms: términos de colaborador
       external auth: 'Autentificación de terceros:'
       continue: Registrarse
       terms accepted: ¡Gracias por aceptar los nuevos Términos de Colaborador!
-      email_help_html: Tu dirección no se mostrará públicamente, consulta nuestra
-        %{privacy_policy_link} para obtener más información.
-      privacy_policy: normativa de privacidad
-      privacy_policy_title: Política de privacidad de la OSMF, incluida la sección
-        sobre direcciones de correo electrónico
+      email_help:
+        privacy_policy: política de privacidad
+        privacy_policy_title: Política de privacidad de la OSMF, incluida la sección
+          sobre direcciones de correo electrónico
+        html: Tu dirección no se mostrará públicamente, consulta nuestra %{privacy_policy_link}
+          para obtener más información.
       consider_pd_html: Considero que mis contribuciones estén en el %{consider_pd_link}.
       consider_pd: dominio público
       consider_pd_url: https://www.osmfoundation.org/wiki/License/Why_would_I_want_my_contributions_to_be_public_domain
@@ -2997,6 +3010,8 @@ es:
       remove as friend: Eliminar como amigo
       add as friend: Añadir como amigo
       mapper since: 'Mapeando desde:'
+      last map edit: Última edición del mapa
+      no activity yet: Sin actividad todavía
       uid: 'Identificación de usuario:'
       ct status: 'Términos de Colaborador:'
       ct undecided: Indeciso
@@ -3282,6 +3297,10 @@ es:
       intro: ¿Detectaste un error o falta algo? Informa a otros mapeadores para que
         podamos corregirlo. Mueve el marcador a la posición correcta y escribe una
         nota para explicar el problema.
+      anonymous_warning_html: No has iniciado sesión. Por favor %{log_in} o %{sign_up}
+        si tu quieres recibir actualizaciones de tu nota.
+      anonymous_warning_log_in: inicia sesión
+      anonymous_warning_sign_up: crea una cuenta
       advice: Tu nota será pública y podría utilizarse para actualizar el mapa, así
         que no des información personal ni datos provenientes de mapas o catálogos
         protegidos por derechos de autor.
@@ -3361,13 +3380,6 @@ es:
       queryfeature_disabled_tooltip: Acercar para consultar elementos
       embed_html_disabled: La incrustación de HTML no está disponible para esta capa
         de mapa
-    changesets:
-      show:
-        comment: Comentar
-        subscribe: Suscribirse
-        unsubscribe: Cancelar suscripción
-        hide_comment: ocultar
-        unhide_comment: mostrar
     edit_help: Mueve el mapa el mapa y acerca a una ubicación que desees editar, luego
       haz clic aquí.
     directions:

@@ -318,6 +318,11 @@ ga:
       title: 'Tacar athruithe: %{id}'
       discussion: Plé
       join_discussion: Logáil isteach chun páirt a ghlacadh sa phlé
+      subscribe: Liostáil
+      unsubscribe: Díliostáil
+      hide_comment: folaigh
+      unhide_comment: dífholaigh
+      comment: Freagair
       changesetxml: XML an Tacair athruithe
       osmchangexml: XML osmChange
     paging_nav:
@@ -424,7 +429,8 @@ ga:
       all:
         title: Iontrálacha dialainne OpenStreetMap
         description: Iontrálacha dialainne le déanaí ó úsáideoirí OpenStreetMap
-    comments:
+  diary_comments:
+    index:
       no_comments: Níl aon nóta tráchta dialainne ann
       post: Postáil
       when: Cá huair
@@ -1342,6 +1348,7 @@ ga:
       legal_title: Dlíthiúil
       partners_title: Comhpháirtithe
     copyright:
+      title: Cóipcheart agus Ceadúnas
       foreign:
         title: Maidir leis an aistriúchán seo
         html: Sa chás nach mbeidh an leathanach aistrithe seo agus an %{english_original_link}
@@ -1355,7 +1362,6 @@ ga:
         native_link: Leagan THIS_LANGUAGE_NAME_HERE
         mapping_link: dul i mbun léarscáilithe
       legal_babble:
-        title_html: Cóipcheart agus Ceadúnas
         credit_title_html: Conas OpenStreetMap a lua
         credit_1_html: Ceanglaímid ort an lua &ldquo;&copy;Rannchuiditheoirí OpenStreetMap&rdquo;
           a úsáid.
@@ -1373,9 +1379,6 @@ ga:
         díchumasaithe agat.
       js_2: Baineann OpenStreetMap úsáid as JavaScript dá léarscáil 'slippy' (léarscáil
         ghréasáin bunaithe ar thíleanna).
-      permalink: Buan-nasc
-      shortlink: Nasc gearr
-      createnote: Cuir nóta leis
       license:
         copyright: Cóipcheart OpenStreetMap agus rannchuiditheoirí, faoi cheadúnas
           oscailte
@@ -1660,12 +1663,6 @@ ga:
       wikipedia:
         title: Logáil isteach le Vicipéid
         alt: Logáil isteach le Cuntas Vicipéid
-      wordpress:
-        title: Logáil isteach le Wordpress
-        alt: Logáil isteach le OpenID Wordpress
-      aol:
-        title: Logáil isteach le AOL
-        alt: Logáil isteach le OpenID AOL
   oauth:
     authorize:
       title: Rochtain ar do chuntas a údarú
@@ -1888,13 +1885,6 @@ ga:
       map_data_zoom_in_tooltip: Zúmáil isteach chun sonraí na léarscáile a fheiceáil
       queryfeature_tooltip: Gnéithe a fhiosrú
       queryfeature_disabled_tooltip: Zúmáil isteach chun gnéithe a fhiosrú
-    changesets:
-      show:
-        comment: Freagair
-        subscribe: Liostáil
-        unsubscribe: Díliostáil
-        hide_comment: folaigh
-        unhide_comment: dífholaigh
     edit_help: Bog an léarscáil agus zúmáil isteach ar áit is mian leat a chur in
       eagar, ansin cliceáil anseo.
     directions:

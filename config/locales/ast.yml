@@ -375,6 +375,11 @@ ast:
       join_discussion: Anicia sesión pa xunite al alderique
       still_open: El conxuntu de cambios inda ta abiertu; l'alderique abriráse en
         zarrando'l conxuntu de cambios.
+      subscribe: Suscribite
+      unsubscribe: Date de baxa
+      hide_comment: anubrir
+      unhide_comment: amosar
+      comment: Comentar
       changesetxml: Conxuntu de cambeos XML
       osmchangexml: osmChange XML
     paging_nav:
@@ -484,7 +489,8 @@ ast:
       all:
         title: Entraes nel diariu d'OpenStreetMap
         description: Entraes recién nel diariu d'usuarios d'OpenStreetMap
-    comments:
+  diary_comments:
+    index:
       post: Publicar
       when: Cuándo
       comment: Comentariu
@@ -1494,6 +1500,7 @@ ast:
       legal_title: Llegal
       partners_title: Asociaos
     copyright:
+      title: Drechos d'autor y llicencia
       foreign:
         title: Tocante a esta traducción
         html: En casu d'haber un conflictu ente esta páxina traducida y %{english_original_link},
@@ -1507,7 +1514,6 @@ ast:
         native_link: versión n'asturianu
         mapping_link: principiar col mapéu
       legal_babble:
-        title_html: Drechos d'autor y llicencia
         credit_title_html: Cómo dar reconocimientu a OpenStreetMap
         credit_1_html: Riquimos qu'uses el créditu &ldquo;&copy; Collaboradores d'OpenStreetMap&rdquo;.
         attribution_example:
@@ -1530,9 +1536,6 @@ ast:
       js_1: O tas usando un restolador ensin sofitu pa JavaScript, o tienes JavaScript
         desactiváu.
       js_2: OpenStreetMap usa JavaScript pal so mapa eslizante.
-      permalink: Enllaz permanente
-      shortlink: Enllaz curtiu
-      createnote: Amestar una nota
       license:
         copyright: Copyright OpenStreetMap y collaboradores, baxo una llicencia abierta
       remote_failed: Falló la edición - asegúrate de tener cargáu JOSM o Merkaartor
@@ -1838,12 +1841,6 @@ ast:
       wikipedia:
         title: Aniciar sesión con Wikipedia
         alt: Aniciar sesión con una cuenta de Wikipedia
-      wordpress:
-        title: Aniciar sesión con Wordpress
-        alt: Aniciar sesión con una OpenID de Wordpress
-      aol:
-        title: Aniciar sesión con AOL
-        alt: Aniciar sesión con una OpenID de AOL
   oauth:
     authorize:
       title: Autorizar l'accesu a la to cuenta
@@ -2240,13 +2237,6 @@ ast:
       map_data_zoom_in_tooltip: Averar pa ver los datos del mapa
       queryfeature_tooltip: Consultar entidaes
       queryfeature_disabled_tooltip: Averar pa consultar entidaes
-    changesets:
-      show:
-        comment: Comentar
-        subscribe: Suscribite
-        unsubscribe: Date de baxa
-        hide_comment: anubrir
-        unhide_comment: amosar
     edit_help: Mueve'l mapa y amplía al llugar que quies editar, llueu calca equí.
     directions:
       ascend: Ascender

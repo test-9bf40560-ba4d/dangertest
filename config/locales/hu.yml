@@ -515,8 +515,13 @@ hu:
       join_discussion: Jelentkezz be, hogy bekapcsolódhass a megbeszélésbe
       still_open: A módosításcsomag még nyitva van – a megbeszélés akkor nyílik meg,
         ha a módosításcsomag lezárul.
+      subscribe: Feliratkozás
+      unsubscribe: Leiratkozás
       comment_by_html: Hozzászólt %{user} %{time_ago}
       hidden_comment_by_html: Rejtett hozzászólás %{user} felhasználótól %{time_ago}
+      hide_comment: elrejt
+      unhide_comment: megjelenít
+      comment: Hozzászólás
       changesetxml: Módosításcsomag adatai (XML)
       osmchangexml: Módosításcsomag tartalma (osmChange XML)
     paging_nav:
@@ -635,7 +640,14 @@ hu:
       all:
         title: OpenStreetMap naplóbejegyzések
         description: Legutóbbi naplóbejegyzések az OpenStreetMap felhasználóitól
-    comments:
+    subscribe:
+      heading: Feliratkozol a következő naplóbejegyzés-megbeszélésre?
+      button: Feliratkozás a megbeszélésre
+    unsubscribe:
+      heading: Leiratkozol a következő naplóbejegyzés-megbeszélésről?
+      button: Leiratkozás a megbeszélésről
+  diary_comments:
+    index:
       title: '%{user} naplóhozzászólásai'
       heading: '%{user} naplóhozzászólásai'
       subheading_html: '%{user} naplóhozzászólásai'
@@ -645,12 +657,6 @@ hu:
       comment: Hozzászólás
       newer_comments: Újabb hozzászólások
       older_comments: Régebbi hozzászólások
-    subscribe:
-      heading: Feliratkozol a következő naplóbejegyzés-megbeszélésre?
-      button: Feliratkozás a megbeszélésre
-    unsubscribe:
-      heading: Leiratkozol a következő naplóbejegyzés-megbeszélésről?
-      button: Leiratkozás a megbeszélésről
   doorkeeper:
     errors:
       messages:
@@ -2031,6 +2037,7 @@ hu:
       legal_2_2_registered_trademarks: az OSMF bejegyzett védjegyei
       partners_title: Partnerek
     copyright:
+      title: Szerzői jog és licenc
       foreign:
         title: Erről a fordításról
         html: Abban az esetben, ha ez a lefordított oldal és %{english_original_link}
@@ -2043,7 +2050,6 @@ hu:
         native_link: magyar nyelvű változatára
         mapping_link: kezdheted a térképezést
       legal_babble:
-        title_html: Szerzői jog és licenc
         introduction_1_html: Az OpenStreetMap%{registered_trademark_link} %{open_data},
           amely %{osm_foundation_link} (OSMF) %{odc_odbl_link} (ODbL) licencével rendelkezik.
         introduction_1_open_data: nyílt adat
@@ -2153,9 +2159,6 @@ hu:
       js_1: Vagy egy olyan böngészőt használsz, amely nem támogatja a JavaScriptet,
         vagy letiltottad a JavaScriptet.
       js_2: Az OpenStreetMap JavaScriptet használ a slippy maphoz.
-      permalink: Permalink
-      shortlink: Shortlink
-      createnote: Új jegyzet
       license:
         copyright: Copyright OpenStreetMap és közreműködői, egy nyílt licenc alatt
       remote_failed: A szerkesztés nem sikerült. Győződj meg róla, hogy a JOSM vagy
@@ -2583,12 +2586,6 @@ hu:
       wikipedia:
         title: Bejelentkezés Wikipédiával
         alt: Wikipédia fiókkal való bejelentkezés
-      wordpress:
-        title: Bejelentkezés Wordpress-szel
-        alt: Bejelentkezés Wordpress OpenID-vel
-      aol:
-        title: Bejelentkezés AOL-lal
-        alt: Bejelentkezés AOL OpenID-vel
   oauth:
     authorize:
       title: A fiókodhoz való hozzáférés engedélyezése
@@ -2739,12 +2736,13 @@ hu:
           küldeni fogunk egy e-mailt.
       display name description: A nyilvánosan megjelenített felhasználóneved. A beállításaidban
         később megváltoztathatod.
+      by_signing_up:
+        privacy_policy: adatvédelmi irányelvek
+        privacy_policy_title: Az OSMF adatvédelmi szabályzata, beleértve az e-mail
+          címekről szóló részt
       external auth: 'Harmadik fél általi hitelesítés:'
       continue: Regisztráció
       terms accepted: Köszönjük, hogy elfogadtad az új közreműködési feltételeket!
-      privacy_policy: adatvédelmi irányelvek
-      privacy_policy_title: Az OSMF adatvédelmi szabályzata, beleértve az e-mail címekről
-        szóló részt
       use external auth: Alternatívaként használhatsz külső fiókokat a bejelentkezéshez
     terms:
       title: Feltételek
@@ -3148,13 +3146,6 @@ hu:
       queryfeature_tooltip: Objektumok lekérdezése
       queryfeature_disabled_tooltip: Objektumok lekérdezéséhez nagyíts a térképre
       embed_html_disabled: Ezen a térképrétegen nem lehet HTML-t beágyazni
-    changesets:
-      show:
-        comment: Hozzászólás
-        subscribe: Feliratkozás
-        unsubscribe: Leiratkozás
-        hide_comment: elrejt
-        unhide_comment: megjelenít
     edit_help: Mozgasd a térképet, nagyíts ott ahol módosítani szeretnéd, majd kattints
       ide.
     directions:

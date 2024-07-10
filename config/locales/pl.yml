@@ -569,8 +569,13 @@ pl:
       join_discussion: Zaloguj się, aby dołączyć do dyskusji
       still_open: Zestaw zmian jest wciąż otwarty – dyskusja będzie możliwa, gdy zostanie
         on zamknięty.
+      subscribe: Obserwuj
+      unsubscribe: Nie obserwuj
       comment_by_html: Komentarz od %{user} %{time_ago}
       hidden_comment_by_html: Ukryty komentarz od użytkownika %{user} %{time_ago}
+      hide_comment: ukryj
+      unhide_comment: pokaż
+      comment: Komentarz
       changesetxml: XML w formacie zestawu zmian
       osmchangexml: XML w formacie osmChange
     paging_nav:
@@ -688,7 +693,8 @@ pl:
       all:
         title: Wpisy dzienników OpenStreetMap
         description: Ostatnie wpisy dzienników od użytkowników OpenStreetMap
-    comments:
+  diary_comments:
+    index:
       title: Komentarze do dzienników dodane przez %{user}
       heading: Komentarze do dzienników użytkownika %{user}
       subheading_html: Komentarze do dzienników dodane przez %{user}
@@ -1995,7 +2001,9 @@ pl:
       support: supportem
   shared:
     markdown_help:
-      heading_html: Przeanalizowano za pomocą %{kramdown_link}
+      heading_html: Składnia %{kramdown_link}
+      kramdown_url: https://kramdown.gettalong.org/quickref.html
+      kramdown: kramdown
       headings: Nagłówki
       heading: Nagłówki
       subheading: Podtytuł
@@ -2039,6 +2047,7 @@ pl:
       legal_2_1_contact_the_osmf: skontaktuj się z OSM
       partners_title: Partnerzy
     copyright:
+      title: Prawa autorskie i&nbsp;licencja
       foreign:
         title: Informacje o tłumaczeniu
         html: W przypadku rozbieżności pomiędzy tym tłumaczeniem a %{english_original_link}
@@ -2052,7 +2061,6 @@ pl:
         native_link: wersji po polsku
         mapping_link: rozpocząć tworzenie mapy
       legal_babble:
-        title_html: Prawa autorskie i&nbsp;licencja
         introduction_1_html: OpenStreetMap%{registered_trademark_link} to projekt
           %{open_data}, rozpowszechniany na licencji %{odc_odbl_link} (ODbL) przez
           %{osm_foundation_link} (OSMF).
@@ -2195,9 +2203,6 @@ pl:
       js_1: Twoja przeglądarka internetowa nie obsługuje JavaScriptu bądź też masz
         wyłączoną jego obsługę.
       js_2: OpenStreetMap używa JavaScriptu do wyświetlania tej mapy.
-      permalink: Permalink
-      shortlink: Skrócony link
-      createnote: Dodaj uwagę
       license:
         copyright: Prawa autorskie należą do OpenStreetMap i jego autorów na warunkach
           otwartej licencji
@@ -2560,7 +2565,6 @@ pl:
         other: Plik GPX z %{count} punktami od %{user}
       description_without_count: Plik GPX od %{user}
   application:
-    auth_disabled_link: https://wiki.openstreetmap.org/wiki/2024_authentication_update
     permission_denied: Nie masz uprawnień do wykonywania tej akcji
     require_cookies:
       cookies_needed: Wygląda na to, że wyłączono obsługę ciasteczek w przeglądarce.
@@ -2601,12 +2605,6 @@ pl:
       wikipedia:
         title: Zaloguj się przez Wikipedię
         alt: Zaloguj się przez konto Wikipedii
-      wordpress:
-        title: Zaloguj się przez Wordpress
-        alt: Zaloguj się przez OpenID Wordpress
-      aol:
-        title: Zaloguj się przez AOL
-        alt: Zaloguj się przez AOL OpenID
   oauth:
     authorize:
       title: Uwierzytelnij dostęp do konta
@@ -2757,14 +2755,16 @@ pl:
           aby potwierdzić Twoje konto.
       display name description: Twoja publiczna nazwa użytkownika. Można ją później
         zmienić w ustawieniach.
+      by_signing_up:
+        privacy_policy: Polityka prywatności
+        privacy_policy_title: Polityka prywatności OSMF, w tym sekcja dotycząca adresów
+          e-mail
       external auth: 'Logowanie przez:'
       continue: Zarejestruj się
       terms accepted: Dziękujemy za przyjęcie nowych Warunków uczestnictwa!
-      email_help_html: Twój adres nie jest wyświetlany publicznie, zobacz naszą %{privacy_policy_link},
-        aby uzyskać więcej informacji.
-      privacy_policy: Polityka prywatności
-      privacy_policy_title: Polityka prywatności OSMF, w tym sekcja dotycząca adresów
-        e-mail
+      email_help:
+        html: Twój adres nie jest wyświetlany publicznie, zobacz naszą %{privacy_policy_link},
+          aby uzyskać więcej informacji.
       or: lub
       use external auth: 'Alternatywnie, zarejestruj się przez:'
     terms:
@@ -2829,6 +2829,8 @@ pl:
       remove as friend: usuń ze znajomych
       add as friend: dodaj do znajomych
       mapper since: 'Mapuje od:'
+      last map edit: 'Ostatnia edycja mapy:'
+      no activity yet: —
       uid: 'Identyfikator użytkownika:'
       ct status: 'Warunki uczestnictwa:'
       ct undecided: niezdecydowane
@@ -3194,13 +3196,6 @@ pl:
       queryfeature_tooltip: Pobierz i wyświetl obiekty
       queryfeature_disabled_tooltip: Przybliż mapę, aby obejrzeć dane obiektów
       embed_html_disabled: Osadzanie HTML nie jest dostępne dla tej warstwy mapy
-    changesets:
-      show:
-        comment: Komentarz
-        subscribe: Obserwuj
-        unsubscribe: Nie obserwuj
-        hide_comment: ukryj
-        unhide_comment: pokaż
     edit_help: Proszę przesunąć mapę i przybliżyć modyfikowane położenie, a następnie
       kliknąć tutaj.
     directions:

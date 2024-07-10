@@ -445,6 +445,11 @@ oc:
       join_discussion: Se connectar per rejónher la discussion
       still_open: Ensemble de modificacions totjorn dobèrt — la discussion se dobrirà
         un còp que l’ensemble de modificacions serà plegat.
+      subscribe: S'inscriure
+      unsubscribe: Se desabonar
+      hide_comment: amagar
+      unhide_comment: desamagar
+      comment: Comentari
       changesetxml: Grop de modificacions XML
       osmchangexml: osmChange XML
     paging_nav:
@@ -563,7 +568,8 @@ oc:
       all:
         title: Entradas de jornau d'OpenStreetMap
         description: Entradas recentas de jornau deis utilizaires d'OpenStreetMap
-    comments:
+  diary_comments:
+    index:
       title: Comentaris ajustats au jornau per %{user}
       heading: Comentaris dau jornau de %{user}
       subheading_html: Comentaris dau jornau ajustats per %{user}
@@ -1830,6 +1836,7 @@ oc:
       legal_title: Juridic
       partners_title: Partenaris
     copyright:
+      title: Copyright e Licéncia
       foreign:
         title: A prepaus d'aquesta traduccion
         html: En cas de conflicte entre aquesta pagina e la pagina %{english_original_link},
@@ -1843,7 +1850,6 @@ oc:
         native_link: version occitana
         mapping_link: començar a contribuir
       legal_babble:
-        title_html: Copyright e Licéncia
         credit_title_html: Cossí creditar OpenStreetMap
         credit_1_html: Demandam que vòstre crèdit compòrte la mencion « © lei contribueires
           d’OpenStreetMap ».
@@ -1860,9 +1866,6 @@ oc:
       js_1: JavaScript es pas pres en carga pel navigador qu'utilizatz, o alara l’avètz
         desactivat.
       js_2: OpenStreetMap utiliza Javascript per sas mapas lisantas.
-      permalink: Ligam permanent
-      shortlink: Ligam cort
-      createnote: Apondre una nòta
       license:
         copyright: Copyright OpenStreetMap e sos contributors, jos una licéncia dobèrta
       remote_failed: L'edicion a mancat. Asseguratz-vos que lo JOSM o lo Merkaartor
@@ -2157,12 +2160,6 @@ oc:
       wikipedia:
         title: Se connectar amb Wikipèdia
         alt: Se connectar amb un compte de Wikipèdia
-      wordpress:
-        title: Se connectar amb Wordpress
-        alt: Se connectar amb l'OpenID de Wordpress
-      aol:
-        title: Se connectar amb AOL
-        alt: Se connectar amb l'OpenID d'AOL
   oauth:
     authorize:
       title: Autorizar l’accès a vòstre compte
@@ -2517,13 +2514,6 @@ oc:
       map_data_zoom_in_tooltip: Zoomatz per veire las donadas sus la mapa
       queryfeature_tooltip: Requèsta suls objèctes
       queryfeature_disabled_tooltip: Zoomar mai per recercar d'objèctes
-    changesets:
-      show:
-        comment: Comentari
-        subscribe: S'inscriure
-        unsubscribe: Se desabonar
-        hide_comment: amagar
-        unhide_comment: desamagar
     edit_help: Movètz la mapa e fasètz zoom sus una posicion que volètz editar, e
       de contunh, fasètz clic aicí.
     directions:

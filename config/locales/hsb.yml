@@ -464,8 +464,13 @@ hsb:
       join_discussion: Přizjew so, zo by móhł(a) sobu diskutować
       still_open: Sadźba změnow je hišće wočinjena. Diskusija so wočinja, ručež je
         sadźba změnow začinjena.
+      subscribe: Abonować
+      unsubscribe: Wotskazać
       comment_by_html: Komentar wot %{user} %{time_ago}
       hidden_comment_by_html: Schowany komentar wot %{user} %{time_ago}
+      hide_comment: schować
+      unhide_comment: pokazać
+      comment: Komentar
       changesetxml: Sadźba změnow XML
       osmchangexml: osmChange XML
     paging_nav:
@@ -581,7 +586,12 @@ hsb:
       all:
         title: OpenStreetMap dźenikowe zapiski
         description: Najnowše dźenikowe zapiski wužiwarjow OpenStreetMap
-    comments:
+    subscribe:
+      button: Diskusiju abonować
+    unsubscribe:
+      button: Diskusiju wotskazać
+  diary_comments:
+    index:
       title: Dźenikowe komentary přidate wot wužiwarja %{user}
       heading: Dźenikowe komentary wot wužiwarja %{user}
       subheading_html: Dźenikowe komentary přidate wot wužiwarja %{user}
@@ -591,10 +601,6 @@ hsb:
       comment: Komentar
       newer_comments: Nowše komentary
       older_comments: Starše komentary
-    subscribe:
-      button: Diskusiju abonować
-    unsubscribe:
-      button: Diskusiju wotskazać
   doorkeeper:
     flash:
       applications:
@@ -1875,6 +1881,7 @@ hsb:
       legal_1_1_privacy_policy: Prawidła priwatnosće
       partners_title: Partnerojo
     copyright:
+      title: Awtorske prawo a licenca
       foreign:
         title: Wo tutym přełožku
         html: W padźe wotchilenja mjez přełoženej stronu a %{english_original_link}
@@ -1888,7 +1895,6 @@ hsb:
         native_link: hornjoserbskej wersiji
         mapping_link: z kartěrowanjom započeć
       legal_babble:
-        title_html: Awtorske prawo a licenca
         introduction_1_open_data: wotewrjene daty
         introduction_1_osm_foundation: Załožba OpenStreetMap
         credit_title_html: Kak ma so na awtorstwo OpenStreetMap pokazać
@@ -1932,9 +1938,6 @@ hsb:
       js_1: Pak wužiwaš wobhladowak, kotryž JavaScript njepodpěruje, pak sy JavaScript
         znjemóžnił.
       js_2: OpenStreetMap JavaScript za slippy map wužiwa.
-      permalink: Trajny wotkaz
-      shortlink: Krótki wotkaz
-      createnote: Pokazku přidać
       license:
         copyright: Copyright OpenStreetMap a sobuskutkowarjo, pod wotewrjenej licencu
       remote_failed: Wobdźěłowanje je so njeporadźiło - zawěsć, zo JOSM abo Merkaartor
@@ -2288,12 +2291,6 @@ hsb:
       wikipedia:
         title: Z Wikipediju přizjewić
         alt: Z kontom Wikipedije přizjewić
-      wordpress:
-        title: Přizjewjenje z Wordpress
-        alt: Přizjewjenje z Wordpress OpenID
-      aol:
-        title: Přizjewjenje z AOL
-        alt: Přizjewjenje z AOL OpenID
   oauth:
     authorize:
       title: Přistup na twoje konto awtorizować
@@ -2421,10 +2418,11 @@ hsb:
         header: Swobodny a wobdźěłujomny
       display name description: Sy wužiwarske mjeno zjawnje pokazał. Móžeš to pozdźišo
         w nastajenjach změnić.
+      by_signing_up:
+        privacy_policy: prawidła priwatnosće
       external auth: Awtentifikacija přez třeću stronu
       continue: Registrować
       terms accepted: Dźakujemy so, zo sy nowe wuměnjenja za sobuskutkowarjow akceptował!
-      privacy_policy: prawidła priwatnosće
       use external auth: Jako alternatiwa wužij třeću stronu za přizjewjenje
     terms:
       title: Wuměnjenja
@@ -2801,13 +2799,6 @@ hsb:
       map_data_zoom_in_tooltip: Powjetš kartu, zo by daty widźał
       queryfeature_tooltip: Funkcije naprašować
       queryfeature_disabled_tooltip: Za naprašowanje funkcijow powjetšić
-    changesets:
-      show:
-        comment: Komentar
-        subscribe: Abonować
-        unsubscribe: Wotskazać
-        hide_comment: schować
-        unhide_comment: pokazać
     edit_help: Přesuń kartu do městna, kotrež chceš wobdźěłać, powjetš tam a klikń
       potom tu.
     directions:

@@ -428,6 +428,11 @@ fy:
       join_discussion: Meld jo oan en oerlis mei
       still_open: Wizigingsset net ree - it oerlis iepenet sa gau't de wizigingsset
         ôfdien is.
+      subscribe: Folgje
+      unsubscribe: Net folgje
+      hide_comment: ferbergje
+      unhide_comment: werompleatse
+      comment: Reägearje
       changesetxml: Wizigingsset-XML
       osmchangexml: osmWizigings-XML
     paging_nav:
@@ -540,7 +545,8 @@ fy:
       all:
         title: OpenStreetMap Deiboekstikken
         description: Nije deiboekstikken fan meidoggers oan OpenStreetMap
-    comments:
+  diary_comments:
+    index:
       title: Troch %{user} taheakke deiboekreäksjes
       heading: Deiboekreäksjes fan %{user}
       subheading_html: Troch %{user} taheakke deiboekreäksjes
@@ -1816,6 +1822,7 @@ fy:
       legal_title: Juridysk
       partners_title: Partners
     copyright:
+      title: Auteursrjochten en lisinsje
       foreign:
         title: Oer dizze oersetting
         html: Yn it gefal dizze oersette side en %{english_original_link} fan inoar
@@ -1829,7 +1836,6 @@ fy:
         native_link: Frysktalige ferzje
         mapping_link: mei kaartmeitsjen úteinsette
       legal_babble:
-        title_html: Auteursrjochten en lisinsje
         credit_title_html: Hoe moat OpenStreetMap neamd wurde
         credit_1_html: 'Dêr wêr''t jo OpenStreetMap-data brûke, binne jo ferplichte
           en doch de neikommende twa dingen:'
@@ -1855,9 +1861,6 @@ fy:
       js_1: Jo brûke ôf in webblêder dy't gjin JavaScript stipet, ôf jo hawwe JavaScript
         útskeakele.
       js_2: OpenStreetMap brûkt JavaScript foar de ferskobere kaart.
-      permalink: Fêste kepp.
-      shortlink: Lytse kepp.
-      createnote: Notysje taheakje
       license:
         copyright: Auteursrjochten OpenStreetMap en bydragers, ûnder in iepen lisinsje
       remote_failed: Bewurkjen mislearre - soargje dat JOSM of Merkaartor laden is,
@@ -2177,12 +2180,6 @@ fy:
       wikipedia:
         title: Oanmelde mei de Wikipedy
         alt: Meld jo oan mei in Wikipedy-akkount
-      wordpress:
-        title: Oanmelde mei Wordpress
-        alt: Meld jo oan mei in Wordpress-openID
-      aol:
-        title: Oanmelde mei AOL
-        alt: Meld jo oan mei in AOL-openID
   oauth:
     authorize:
       title: Tagong ta jo akkount autorisearje
@@ -2655,13 +2652,6 @@ fy:
       map_data_zoom_in_tooltip: Sûm yn om kaartdata sjen te kinnen
       queryfeature_tooltip: Skaaimerken opfreegje
       queryfeature_disabled_tooltip: Sûm yn om skaaimerken opfreegje te kinnen
-    changesets:
-      show:
-        comment: Reägearje
-        subscribe: Folgje
-        unsubscribe: Net folgje
-        hide_comment: ferbergje
-        unhide_comment: werompleatse
     edit_help: Sko de kaart en sûm yn op 'e lokaasje dy't jo bewurkje wolle, klik
       dan hjir.
     directions:

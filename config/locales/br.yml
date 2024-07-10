@@ -526,8 +526,13 @@ br:
       join_discussion: Kevreit evit mont er gaozeadenn
       still_open: Hollad cheñchamantoù digor - an diviz a zigoro ur wech ma vo serret
         an hollad cheñchamantoù.
+      subscribe: Koumanantiñ
+      unsubscribe: Digoumanantiñ
       comment_by_html: Kemennadenn skrivet gant %{user} %{time_ago}
       hidden_comment_by_html: Kemennadenn kuzhet gant %{user} %{time_ago}
+      hide_comment: kuzhat
+      unhide_comment: diskouez
+      comment: Embann
       changesetxml: Hollad cheñchamantoù XML
       osmchangexml: Cheñchoùosm XML
     paging_nav:
@@ -600,6 +605,8 @@ br:
       title: Deizlevr %{user} | %{title}
       user_title: Deizlevr %{user}
       discussion: Kaozeadenn
+      subscribe: Koumanantiñ
+      unsubscribe: Digoumanantiñ
       leave_a_comment: Skrivañ un evezhiadenn
       login_to_leave_a_comment_html: '%{login_link} evit skrivañ un evezhiadenn'
       login: Kevreañ
@@ -648,7 +655,12 @@ br:
       all:
         title: Enmontoù en deizlevr OpenStreetMap
         description: Enmontoù nevez en deizlevr gant implijerien OpenStreetMap
-    comments:
+    subscribe:
+      button: Koumanantiñ ouzh ar gaozeadenn
+    unsubscribe:
+      button: Digoumanantiñ diouzh ar gaozeadenn
+  diary_comments:
+    index:
       title: Kemennadennoù skrivet en deizlevr gant %{user}
       heading: Kemennadennoù-deizlevr %{user}
       subheading_html: Kemennadennoù skrivet en deizlevr gant %{user}
@@ -658,10 +670,6 @@ br:
       comment: Evezhiadenn
       newer_comments: Evezhiadennoù nevesañ
       older_comments: Evezhiadennoù koshañ
-    subscribe:
-      button: Koumanantiñ ouzh ar gaozeadenn
-    unsubscribe:
-      button: Digoumanantiñ diouzh ar gaozeadenn
   doorkeeper:
     flash:
       applications:
@@ -2002,6 +2010,7 @@ br:
       legal_2_2_registered_trademarks: merkoù marilhet an OSMF
       partners_title: Kevelerien
     copyright:
+      title: Gwirioù oberour hag aotre-implijout
       foreign:
         title: Diwar-benn an droidigezh-mañ
         html: Ma vez digendalc'h etre ar bajenn troet-mañ hag %{english_original_link}
@@ -2014,7 +2023,6 @@ br:
         native_link: Stumm brezhonek
         mapping_link: kregiñ da gemer perzh
       legal_babble:
-        title_html: Gwirioù oberour hag aotre-implijout
         introduction_1_html: OpenStreetMap%{registered_trademark_link} a zo %{open_data},
           dindan an aotre-implijout %{odc_odbl_link} (ODbL) gant %{osm_foundation_link}
           (OSMF).
@@ -2092,9 +2100,6 @@ br:
       js_1: Pe emaoc'h oc'h implijout ur merdeer ha ne skor ket JavaScript, pe hoc'h
         eus diweredekaet JavaScript.
       js_2: OpenStreetMap a implij JavaScript evit e gartenn risklus.
-      permalink: Peurliamm
-      shortlink: Liamm berr
-      createnote: Ouzhpennañ un notenn
       license:
         copyright: Gwir-eilañ gant OpenStreetMap hag ar genlabourerien, dindan un
           aotre-implijout digor
@@ -2455,7 +2460,6 @@ br:
         other: restr GPX gant %{count} poent digant {user}
       description_without_count: Restr GPX digant %{user}
   application:
-    auth_disabled_link: https://wiki.openstreetmap.org/wiki/2024_authentication_update
     permission_denied: N'emañ ket an aotreoù ret ganeoc'h evit seveniñ an ober-se.
     require_cookies:
       cookies_needed: Diweredekaet eo an toupinoù ganeoc'h war a seblant - gweredekait
@@ -2497,12 +2501,6 @@ br:
       wikipedia:
         title: Kevreañ gant Wikipedia
         alt: Kevreañ gant ur gont Wikipedia
-      wordpress:
-        title: Kevreañ gant Wordpress
-        alt: Kevreañ gant un OpenID Wordpress
-      aol:
-        title: Kevreañ gant AOL
-        alt: Kevreañ gant un OpenID AOL
   oauth:
     authorize:
       title: Aotren mont d'ho kont
@@ -2644,15 +2642,17 @@ br:
         welcome: Degemer mat en OpenStreetMap
       display name description: Emañ hoc'h anv implijer a-wel d'an holl. Se a c'hallit
         cheñch diwezhatoc'h en ho penndibaboù.
+      by_signing_up:
+        privacy_policy: reolennoù prevezded
+        contributor_terms: reolennoù ar genlabourerien
       tou: Termenoù implijout
-      contributor_terms: reolennoù ar genlabourerien
       external auth: 'Dilesadur trede :'
       continue: En em enskrivañ
       terms accepted: Trugarez deoc'h evit bezañ asantet da ziferadennoù nevez ar
         c'henlabourer !
-      email_help_html: Ho chomlec'h ne vo ket hewel d'an holl, sellit ouzh %{privacy_policy_link}
-        evit gouzout hiroc'h.
-      privacy_policy: reolennoù prevezded
+      email_help:
+        html: Ho chomlec'h ne vo ket hewel d'an holl, sellit ouzh %{privacy_policy_link}
+          evit gouzout hiroc'h.
       consider_pd: domani foran
       or: pe
       use external auth: 'pe kevreit gant un tredeour:'
@@ -2708,6 +2708,7 @@ br:
       remove as friend: Lemel eus ar vignoned
       add as friend: Ouzhpennañ d'ar vignoned
       mapper since: 'Kartennour abaoe :'
+      last map edit: 'Kemm diwezhañ ar gartenn:'
       uid: 'Kod anaout an implijer:'
       ct status: 'Diferadennoù ar c''henlabourer :'
       ct undecided: En entremar
@@ -3075,13 +3076,6 @@ br:
       map_data_zoom_in_tooltip: Zoumiñ evit gwelet roadennoù ar gartenn
       queryfeature_tooltip: Arc'hweladurioù enklask
       queryfeature_disabled_tooltip: Zoumañ evit an arc'hweladurioù enklask
-    changesets:
-      show:
-        comment: Embann
-        subscribe: Koumanantiñ
-        unsubscribe: Digoumanantiñ
-        hide_comment: kuzhat
-        unhide_comment: diskouez
     edit_help: Dilec'hiit ar gartenn ha zoumit war ul lec'h a fell deoc'h aozañ, ha
       neuze klikit amañ.
     directions:
