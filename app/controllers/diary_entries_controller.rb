@@ -48,6 +48,9 @@ class DiaryEntriesController < ApplicationController
       if params[:language]
         @title = t ".in_language_title", :language => Language.find(params[:language]).english_name
         entries = entries.where(:language_code => params[:language])
+      elsif params[:query].present?
+        @title = t ".search_results_title"
+        entries = DiaryEntry.search_by_title_and_body(params[:query])
       else
         candidate_codes = preferred_languages.flat_map(&:candidates).uniq.map(&:to_s)
         @languages = Language.where(:code => candidate_codes).in_order_of(:code, candidate_codes)
@@ -240,4 +243,48 @@ class DiaryEntriesController < ApplicationController
       @zoom = 12
     end
   end
+end
+
+def test_index_search
+  user = create(:user)
+  create(:diary_entry, :user => user, :title => "First Entry", :body => "This is the first diary entry.")
+  create(:diary_entry, :user => user, :title => "Second Entry", :body => "This is the second diary entry.")
+  create(:diary_entry, :user => user, :title => "Third Entry", :body => "Nothing related to the search term.")
+
+  # Test search by title
+  get diary_entries_path(:query => "First")
+  assert_response :success
+  assert_select "article.diary_post", 1
+  assert_select "h2", :text => /First Entry/
+
+  # Test search by body
+  get diary_entries_path(:query => "second")
+  assert_response :success
+  assert_select "article.diary_post", 1
+  assert_select "h2", :text => /Second Entry/
+
+  # Test no results
+  get diary_entries_path(:query => "Nonexistent")
+  assert_response :success
+  assert_select "h4", :text => /No entries/, :count => 1
+end
+
+def test_index_search_language
+  user = create(:user)
+  create(:language, :code => "en")
+  create(:language, :code => "de")
+
+  create(:diary_entry, :user => user, :title => "English Entry", :language_code => "en")
+  create(:diary_entry, :user => user, :title => "German Entry", :language_code => "de")
+
+  # Search within a specific language
+  get diary_entries_path(:query => "Entry", :language => "en")
+  assert_response :success
+  assert_select "article.diary_post", 1
+  assert_select "h2", :text => /English Entry/
+
+  get diary_entries_path(:query => "Entry", :language => "de")
+  assert_response :success
+  assert_select "article.diary_post", 1
+  assert_select "h2", :text => /German Entry/
 end
