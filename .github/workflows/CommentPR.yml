@@ -24,7 +24,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: yarn install danger
+        run: yarn add danger
     
       - name: Setup ruby
         uses: ruby/setup-ruby@v1
