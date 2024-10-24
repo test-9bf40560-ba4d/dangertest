@@ -71,6 +71,16 @@ jobs:
           chmod u+x ./update_pr.rb
           echo `pwd`
           cat ./update_pr.rb
+          
+      - name: 'Comment on PR'
+        uses: actions/github-script@v7
+        id: set-pr
+        with:
+          script: |
+            var fs = require('fs');
+            var issue_number = Number(fs.readFileSync('./NR'));
+            return issue_number
+          result-encoding: string
       
       - name: Danger
         env:
@@ -78,21 +88,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DANGER_FAKE_CI: "YEP"
           DANGER_TEST_REPO: "${{ github.repository }}"
-          DANGER_TEST_PR: "7"
+          DANGER_TEST_PR: "${{steps.set-pr.outputs.result}}"
           DEBUG: "*"
         run: yarn --silent danger process --verbose ./update_pr.rb
 
-#      - name: 'Comment on PR'
-#        uses: actions/github-script@v7
-#        with:
-#          github-token: ${{ secrets.GITHUB_TOKEN }}
-#          script: |
-#            var fs = require('fs');
-#            var issue_number = Number(fs.readFileSync('./NR'));
-#            await github.rest.issues.createComment({
-#              owner: context.repo.owner,
-#              repo: context.repo.repo,
-#              issue_number: issue_number,
-#              body: 'Everything is OK. Thank you for the PR!'
-#            });
 
