@@ -2,6 +2,7 @@
   "name": "openstreetmap",
   "private": true,
   "dependencies": {
+    "danger": "^12.3.3",
     "jquery-simulate": "^1.0.2",
     "js-cookie": "^3.0.0",
     "leaflet": "^1.8.0",
