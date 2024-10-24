@@ -18,6 +18,13 @@ jobs:
       github.event.workflow_run.event == 'pull_request' &&
       github.event.workflow_run.conclusion == 'success'
     steps:
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+          rubygems: 3.4.10
+          bundler-cache: true
+    
       - name: 'Download artifact'
         uses: actions/github-script@v7
         with:
@@ -39,6 +46,9 @@ jobs:
             var fs = require('fs');
             fs.writeFileSync('${{github.workspace}}/pr.zip', Buffer.from(download.data));
       - run: unzip pr.zip
+      
+      - name: Danger
+        run: yarn --silent danger process script/update_pr.rb
 
       - name: 'Comment on PR'
         uses: actions/github-script@v7

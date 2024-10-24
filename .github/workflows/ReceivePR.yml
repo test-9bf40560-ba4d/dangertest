@@ -19,6 +19,7 @@ jobs:
       - name: Save PR number
         run: |
           mkdir -p ./pr
+          cat res > ./pr/res
           echo ${{ github.event.number }} > ./pr/NR
       - uses: actions/upload-artifact@v4
         with:
