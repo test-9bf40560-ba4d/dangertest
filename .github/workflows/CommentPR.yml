@@ -18,16 +18,21 @@ jobs:
       github.event.workflow_run.event == 'pull_request' &&
       github.event.workflow_run.conclusion == 'success'
     steps:
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: yarn install danger
+    
       - name: Setup ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2
           rubygems: 3.4.10
           bundler-cache: true
-
-      - name: Install node modules
-        run: bundle exec bin/yarn install
-    
+   
       - name: 'Download artifact'
         uses: actions/github-script@v7
         with:
@@ -50,8 +55,21 @@ jobs:
             fs.writeFileSync('${{github.workspace}}/pr.zip', Buffer.from(download.data));
       - run: unzip pr.zip
       
+      - name: update_pr script
+        run: |
+          cat <<EOF > update_pr.rb
+          #!/usr/bin/ruby
+          str = STDIN.tty? ? "Cannot read from STDIN" : $stdin.read
+          exit(1) unless str
+          require "json"
+          input = File.read("./res")
+          results = JSON.parse(input).to_json
+          STDOUT.write(results)
+          EOF
+          chmod u+x update_pr.rb
+      
       - name: Danger
-        run: bundle exec bin/yarn --silent danger process script/update_pr.rb
+        run: yarn --silent danger process update_pr.rb
 
       - name: 'Comment on PR'
         uses: actions/github-script@v7
