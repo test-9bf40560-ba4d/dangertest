@@ -78,7 +78,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DANGER_FAKE_CI: "YEP"
           DANGER_TEST_REPO: "${{ github.repository }}"
-          DANGER_TEST_PR: "${{ github.event.pull_request.number }}"
+          DANGER_TEST_PR: "7"
           DEBUG: "*"
         run: yarn --silent danger process --verbose ./update_pr.rb
 
