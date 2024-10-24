@@ -76,9 +76,9 @@ jobs:
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DANGER_FAKE_CI="YEP"
-          DANGER_TEST_REPO="${{ github.repository }}"
-          DANGER_TEST_PR="${{github.event.issue.number}}"
+          DANGER_FAKE_CI: "YEP"
+          DANGER_TEST_REPO: "${{ github.repository }}"
+          DANGER_TEST_PR: "${{github.event.issue.number}}"
         run: yarn --silent danger process --verbose ./update_pr.rb
 
 #      - name: 'Comment on PR'
