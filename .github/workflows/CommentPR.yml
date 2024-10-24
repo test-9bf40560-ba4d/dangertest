@@ -76,6 +76,7 @@ jobs:
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEBUG: "*"
         run: yarn --silent danger process --verbose ./update_pr.rb
 
 #      - name: 'Comment on PR'
