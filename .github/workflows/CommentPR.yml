@@ -24,6 +24,9 @@ jobs:
           ruby-version: 3.2
           rubygems: 3.4.10
           bundler-cache: true
+
+      - name: Install node modules
+        run: bundle exec bin/yarn install
     
       - name: 'Download artifact'
         uses: actions/github-script@v7
@@ -48,7 +51,7 @@ jobs:
       - run: unzip pr.zip
       
       - name: Danger
-        run: yarn --silent danger process script/update_pr.rb
+        run: bundle exec bin/yarn --silent danger process script/update_pr.rb
 
       - name: 'Comment on PR'
         uses: actions/github-script@v7
