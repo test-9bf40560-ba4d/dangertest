@@ -35,6 +35,40 @@ class Note < ApplicationRecord
   scope :visible, -> { where.not(:status => "hidden") }
   scope :invisible, -> { where(:status => "hidden") }
 
+  scope :filter_hidden_notes, lambda { |user|
+    if user&.moderator?
+      all
+    else
+      visible
+    end
+  }
+
+  scope :filter_by_status, lambda { |status, user_id = nil|
+    case status
+    when "open"
+      where(:status => "open")
+    when "closed"
+      where(:status => "closed")
+    when "commented"
+      where("NOT EXISTS (SELECT 1 FROM note_comments WHERE note_comments.note_id = notes.id AND note_comments.author_id = ? AND note_comments.id = (SELECT MIN(nc.id) FROM note_comments nc WHERE nc.note_id = notes.id))", user_id)
+    else
+      all
+    end
+  }
+
+  scope :filter_by_date_range, lambda { |from, to|
+    notes = all
+    notes = notes.where(:created_at => DateTime.parse(from).beginning_of_day..) if from.present?
+    notes = notes.where(:created_at => ..DateTime.parse(to).end_of_day) if to.present?
+    notes
+  }
+
+  scope :sort_by_params, lambda { |sort_by, sort_order|
+    sort_by ||= "updated_at"
+    sort_order ||= "desc"
+    order("#{sort_by} #{sort_order}")
+  }
+
   after_initialize :set_defaults
 
   DEFAULT_FRESHLY_CLOSED_LIMIT = 7.days
