@@ -89,7 +89,6 @@ jobs:
           DANGER_FAKE_CI: "YEP"
           DANGER_TEST_REPO: "${{ github.repository }}"
           DANGER_TEST_PR: "${{steps.set-pr.outputs.result}}"
-          DEBUG: "*"
-        run: yarn --silent danger process --verbose ./update_pr.rb
+        run: yarn --silent danger process ./update_pr.rb
 
 
