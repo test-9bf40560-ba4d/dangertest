@@ -57,7 +57,7 @@ jobs:
       
       - name: update_pr script
         run: |
-          cat <<EOF > update_pr.rb
+          cat <<'EOF' > update_pr.rb
           #!/usr/bin/ruby
           str = STDIN.tty? ? "Cannot read from STDIN" : $stdin.read
           exit(1) unless str
